@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+/*
+-----------------
+Normalizing
+-----------------
+*/
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a:hover, a:focus {
+  outline: none;
+}
+
+/*----*/
+
+
+.back {
+  padding: 50px 0 150px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+ margin-top: 4%;
+ margin-bottom: 4%;
+}
+
+
+
+.color-2 {
+  background: #white;
+}
+
+
+
+
+/*
+-----------------
+common style
+-----------------
+*/
+
+.menu a {
+  color: black;
+  font-family: Lato;
+  font-size: 40px;
+  font-weight: 400;
+  padding: 15px 25px;
+  /**/
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+
+
+
+.SMN_effect-20 a {
+    transition: 0.35s;
+    display: flex;
+    width: 210px;
+  }
+  
+  .SMN_effect-20 a:hover {
+    color: #2658c7;
+    transition: 0.35s;
+  }
+  
+  .SMN_effect-20 a:before, .SMN_effect-20 a:after {
+    content: "";
+    width: 100%;
+    border-bottom: 4px solid #0d83cc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    transform: scale(1, 1);
+    transform-origin: right center 0;
+  }
+  
+  .SMN_effect-20 a:after {
+    opacity: 0;
+    transform: scale(0, 1);
+    transform-origin: left center 0;
+  }
+  
+  .SMN_effect-20 a:hover:before {
+    opacity: 0;
+    transform: scale(0, 1);
+    transition: opacity 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
+  }
+  
+  .SMN_effect-20 a:hover:after {
+    opacity: 1;
+    transform: scale(1, 1);
+    transition: transform 0.2s ease-in-out 0.25s;
+  }
