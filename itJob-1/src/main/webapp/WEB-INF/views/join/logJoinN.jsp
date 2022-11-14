@@ -152,10 +152,10 @@
           
         </div>
         
-        <input type="text" name="memNomId" placeholder="ID" />
-        <input type="password" name="memNomPw" placeholder="Password" />
+        <input type="text" name="mem_nom_id" placeholder="ID" />
+        <input type="password" name="mem_nom_pw" placeholder="Password" />
         <a href="#">Forgot your password?</a>
-        <button>로그인</button>
+        <button type="submit">로그인</button>
       </form>
     </div>
 

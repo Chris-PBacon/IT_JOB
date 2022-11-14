@@ -4,21 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class memberNVO {
 
-	private int memNomSeq;
-	private String memNomName;
-	private String memNomId;
-	private String memNomPw;
-	private String memNomBirth;
-	private String memNomEmail;
-	private String memNomPhone;
-	private String memNomPlace;
-	private String memNomType;
+	private int mem_nom_seq;
+	private String mem_nom_name;
+	private String mem_nom_id;
+	private String mem_nom_pw;
+	private String mem_nom_birth;
+	private String mem_nom_email;
+	private String mem_nom_phone;
+	private String mem_nom_place;
+	private String mem_nom_type;
 	
 }

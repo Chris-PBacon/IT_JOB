@@ -2,6 +2,7 @@ package com.five.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +29,32 @@ public class memberController {
 		return "/main/main";
 	}
 	
+	
 	// 기업회원 회원가입 기능
 	@RequestMapping("joinE.do")
 	public String joinE(memberEVO vo) {
 		mapper.joinE(vo);
 		return "/join/logJoinE";
 	}
+	
 	// 기업회원 로그인 기능
 	@RequestMapping("loginE.do")
-	public String loginE(memberEVO vo, Model model) {
-		List<memberEVO> list = mapper.loginE(vo);
-		model.addAttribute("list", list);
-		return "/main/main";
+	public String loginE(memberEVO vo, HttpServletRequest request) {
 		
 		
+		
+		memberEVO login = mapper.loginE(vo);
+		HttpSession session = request.getSession();
+		String id = login.getMemEntId();
+		
+		if (id != null) {
+			session.setAttribute("id", id);
+			return "/main/main";
+		} else {
+			session.setAttribute("id", null);
+			return "/join/logJoinE";
+		}
+				
 	}
 	
 	// 일반회원 회원가입 기능
@@ -51,16 +64,32 @@ public class memberController {
 		return "/join/logJoinN";
 	}
 	
+	
+	
 	// 일반회원 로그인 기능
+	
 	@RequestMapping("loginN.do")
-	public String loginN(memberNVO vo, Model model) {
-		List<memberNVO> list = mapper.loginN(vo);
-		model.addAttribute("list", list);
-		if(list!=null) {
+	public String loginN(memberNVO vo, HttpServletRequest request) {
+		
+		System.out.println("입력할때 값 : "+vo);
+		
+		memberNVO login = mapper.loginN(vo);
+		
+		System.out.println("xml에선 넘어온값"+login);
+		
+		
+		HttpSession session = request.getSession();
+		
+		String id = login.getMem_nom_id();
+		
+		if (id != null) {
+			session.setAttribute("id", id);
 			return "/main/main";
-		}else {
+		} else {
+			session.setAttribute("id", null);
 			return "/join/logJoinN";
 		}
+		
 	}
 	
 	// 기업회원 로그인 양식 페이지로 이동
@@ -86,6 +115,12 @@ public class memberController {
 	public String main(){
 		return "/main/main";
 	}
+	
+	// 게시판 페이지로 이동
+		@RequestMapping("/board.do")
+		public String board(){
+			return "/board/board";
+		}
 	
 	
 }

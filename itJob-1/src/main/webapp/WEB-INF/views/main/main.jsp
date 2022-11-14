@@ -142,13 +142,28 @@
                 </div>
                 <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
                 <c:choose> 
-                	<c:when test="${not empty list}">
-              			<a href="logOutNE.do" class="btn btn-primary">로그아웃</a>
+                
+                	<c:when test="${not empty id}">
+                	<div style="                	
+                	    display: flex;
+    					width: 400px;
+    					align-items: center;              	
+                	" >
+                	<span style="margin-right: 30px;">${id} 님 환영합니다!</span>
+                		<a href="logOutNE.do" class="btn btn-primary">로그아웃</a>
+              			
+                	</div>
+              			
+              			
              		</c:when> 
+             		
               		<c:otherwise>
               			<a href="selectNE.do" class="btn btn-primary">로그인</a>
               		</c:otherwise>
+              		
               	</c:choose>
+              	
+              	
                 </div>
             </div>
         </div>
