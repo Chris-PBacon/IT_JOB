@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,60 +32,72 @@
 </head>
 
 <body>
+<!--í—¤ë“œë¶€ë¶„ ì‹œìž‘-->
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="row" style="display: flex; align-items: center;">
+                <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
 
-  <!--ÇìµåºÎºÐ ½ÃÀÛ-->
-  <div class="header-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
-
-                <!--·Î°í ÀÌ¹ÌÁö ºÎºÐ-->
-                <div class="logo">
-                    <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-                <div class="navigation-wrapper">
-
-                    <!--¸Þ´º ½ÃÀÛ-->
-                    <div id="navigation">
-                        <ul>
-                            <li class="active"><a href="index.html" title="">Home</a></li>
-
-                            <li class="has-sub"><a href="#" title="">Á÷¹«¼Ò°³</a>
-                                <ul>
-                                    <li><a href="courses.html" title="">°³¹ßÀÚ ·Îµå¸Ê</a></li>
-                                    <li><a href="courses-single.html" title="">Àç¹Ì·Î º¸´Â MBTI </a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has-sub"><a href="#" title="">°­ÀÇ</a>
-                                <ul>
-                                    <li><a href="blog-default.html" title="">°­ÀÇ1</a></li>
-                                    <li><a href="blog-single.html" title="">°­ÀÇ2</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has-sub"><a href="#" title="">Ã¤¿ë</a>
-                                <ul>
-                                    <li><a href="testimonials.html" title="">Ã¤¿ëÁ¤º¸</a></li>
-                                    <li><a href="404-error.html" title="">±¸Á÷°ü¸®</a></li>
-                                    <li><a href="styleguide.html" title="">ÀÌ·Â¼­</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="contact.html" title="">IT °Ô½ÃÆÇ</a> </li>
-                        </ul>
-
+                    <!--ë¡œê³  ì´ë¯¸ì§€ ë¶€ë¶„-->
+                    <div class="logo" style="width: 180px;">
+                        <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
                     </div>
-                    <!-- ¸Þ´º ºÎºÐ ³¡-->
+                </div>
+                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
+                    <div class="navigation-wrapper">
+
+                        <!--ë©”ë‰´ ì‹œìž‘-->
+                        <div id="navigation">
+                            <ul>
+                                <li class="active"><a href="main.do" title="">Home</a></li>
+
+                                <li class="has-sub"><a href="#" title="">ì§ë¬´ì†Œê°œ</a>
+                                    <ul>
+                                        <li><a href="job.do" title="">ê°œë°œìž ë¡œë“œë§µ</a></li>
+                                        <li><a href="jobMBTI.do" title="">ìž¬ë¯¸ë¡œ ë³´ëŠ” MBTI </a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="lecture.do" title="">ê°•ì˜</a></li>
+
+
+                                <li class="has-sub"><a href="#" title="">ì±„ìš©</a>
+                                    <ul>
+                                        <li><a href="employ.do" title="">ì±„ìš©ì •ë³´</a></li>
+                                        <li><a href="#" title="">êµ¬ì§ê´€ë¦¬</a></li>
+                                        <li><a href="resume.do" title="">ì´ë ¥ì„œ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="board.do" title="">IT ê²Œì‹œíŒ</a></li>
+                            </ul>
+
+                        </div>
+                        <!-- ë©”ë‰´ ë¶€ë¶„ ë-->
+                    </div>
+                </div>
+                <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
+                <c:choose> 
+                
+                	<c:when test="${not empty id}">
+                	<div style="                	
+                	    display: flex;
+    					width: 400px;
+    					align-items: center;              	
+                	" >
+                	<span style="margin-right: 30px;">${id} ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!</span>
+                		<a href="logOutNE.do" class="btn btn-primary">ë¡œê·¸ì•„ì›ƒ</a>            			
+                	</div>              			            			
+             		</c:when>             		
+              		<c:otherwise>
+              			<a href="selectNE.do" class="btn btn-primary">ë¡œê·¸ì¸</a>
+              		</c:otherwise>             		
+              	</c:choose>                          	
                 </div>
             </div>
-            <div class="col-lg-2 hidden-md hidden-sm hidden-xs"> <a href="#" class="btn btn-primary">·Î±×ÀÎ</a> </div>
         </div>
     </div>
-</div>
-<!-- ÇìµåºÎºÐ ³¡ -->
+    <!-- í—¤ë“œë¶€ë¶„ ë!!! -->
 
 <!-- page-header-start -->
 <div class="page-header" style="    height: 300px;">
@@ -91,8 +105,8 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="page-section">
-          <h1 class="page-title">Á÷¹«¼Ò°³</h1>
-          <p class="page-text">Á÷¹«¼Ò°³ ¹× °³¹ßÀÚ·Îµå¸Ê</p>
+          <h1 class="page-title">ì§ë¬´ì†Œê°œ</h1>
+          <p class="page-text">ì§ë¬´ì†Œê°œ ë° ê°œë°œìžë¡œë“œë§µ</p>
         </div>
       </div>
     </div>
@@ -100,20 +114,20 @@
 </div>
 
 
-<!-- Á÷¹«¼Ò°³ ½ÃÀÛ ºÎºÐ -->
+<!-- ì§ë¬´ì†Œê°œ ì‹œìž‘ ë¶€ë¶„ -->
 <div class="space-medium" style="padding-top: 0px;">
 
 <!-- widget-categories-start -->
 <div  class=" widget widget-categories" style="width: 16%; position: fixed;">
   <h2 class="widget-title">Categories</h2>
   <ul class="">
-    <li  class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> <a href="#">ÇÁ·ÐÆ®¿£µå °³¹ßÀÚ</a></li>
-    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">¹é¿£µå °³¹ßÀÚ</a></li>
-    <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">¾Û °³¹ßÀÚ</a></li>
-    <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">Á¤º¸ º¸¾È Àü¹®°¡</a></li>
-    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ÀÎ°øÁö´É/¸Ó½Å·¯´×</a></li>
-    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">µ¥ÀÌÅÍ ¿£Áö´Ï¾î</a></li>
-    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ÇÁ·ÎÁ§Æ® ¸Å´ÏÀú</a></li>
+    <li  class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> <a href="#">í”„ë¡ íŠ¸ì—”ë“œ ê°œë°œìž</a></li>
+    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ë°±ì—”ë“œ ê°œë°œìž</a></li>
+    <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ì•± ê°œë°œìž</a></li>
+    <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ì •ë³´ ë³´ì•ˆ ì „ë¬¸ê°€</a></li>
+    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ì¸ê³µì§€ëŠ¥/ë¨¸ì‹ ëŸ¬ë‹</a></li>
+    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">ë°ì´í„° ì—”ì§€ë‹ˆì–´</a></li>
+    <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span><a href="#">í”„ë¡œì íŠ¸ ë§¤ë‹ˆì €</a></li>
   </ul>
 </div>
 <!-- widget-categories-close --> 
@@ -133,14 +147,14 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="">
-                    <h2><a href="#"> ÇÁ·ÐÆ®¿£µå °³¹ßÀÚ</a></h2>
+                    <h2><a href="#"> í”„ë¡ íŠ¸ì—”ë“œ ê°œë°œìž</a></h2>
                     <p>text </p>
                     <div class="meta"> <span class="meta-icon"></span> </div>
                     <hr>
                     <a href="#" class="btn-link">read more</a> </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <div class="post-img"><a href="#" class="imghover"><img src="/images/001.png"  alt="ÇÁ·ÐÆ®¿£µå" class="img-responsive"></a></div>
+                  <div class="post-img"><a href="#" class="imghover"><img src="/images/001.png"  alt="í”„ë¡ íŠ¸ì—”ë“œ" class="img-responsive"></a></div>
                 </div>
               </div>
             </div>
@@ -154,14 +168,14 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="">
-                    <h2><a href="#">¹é¿£µå °³¹ßÀÚ</a></h2>
+                    <h2><a href="#">ë°±ì—”ë“œ ê°œë°œìž</a></h2>
                     <p></p>
                     <div class="meta"> <span class="meta-icon"></span> </div>
                     <hr>
                     <a href="#" class="btn-link">read more</a> </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <div class="post-img"><a href="#" class="imghover"><img src="/images/003.png"  alt="¹é¿£µå" class="img-responsive" ></a></div>
+                  <div class="post-img"><a href="#" class="imghover"><img src="/images/003.png"  alt="ë°±ì—”ë“œ" class="img-responsive" ></a></div>
                 </div>
               </div>
             </div>
@@ -176,7 +190,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="">
-                    <h2><a href="#">¾Û °³¹ßÀÚ</a></h2>
+                    <h2><a href="#">ì•± ê°œë°œìž</a></h2>
                     <p></p>
                     <div class="meta"> <span class="meta-icon"></span> </div>
                     <hr>
@@ -197,7 +211,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="">
-                    <h2><a href="#">Á¤º¸ º¸¾È Àü¹®°¡</a></h2>
+                    <h2><a href="#">ì •ë³´ ë³´ì•ˆ ì „ë¬¸ê°€</a></h2>
                     <p></p>
                     <div class="meta"> <span class="meta-icon"></span> </div>
                     <hr>
@@ -218,7 +232,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="">
-                    <h2><a href="#">ÀÎ°øÁö´É/¸Ó½Å·¯´×</a></h2>
+                    <h2><a href="#">ì¸ê³µì§€ëŠ¥/ë¨¸ì‹ ëŸ¬ë‹</a></h2>
                     <p></p>
                     <div class="meta"> <span class="meta-icon"></span> </div>
                     <hr>
@@ -239,7 +253,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                   <div class="">
-                    <h2><a href="#">µ¥ÀÌÅÍ ¿£Áö´Ï¾î</a></h2>
+                    <h2><a href="#">ë°ì´í„° ì—”ì§€ë‹ˆì–´</a></h2>
                     <p></p>
                     <div class="meta"> <span class="meta-icon"></span> </div>
                     <hr>
@@ -260,7 +274,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="">
-                              <h2><a href="#">ÇÁ·ÎÁ§Æ® ¸Å´ÏÀú</a></h2>
+                              <h2><a href="#">í”„ë¡œì íŠ¸ ë§¤ë‹ˆì €</a></h2>
                               <p></p>
                               <div class="meta"> <span class="meta-icon"></span> </div>
                               <hr>

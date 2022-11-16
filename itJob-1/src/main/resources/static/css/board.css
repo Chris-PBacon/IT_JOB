@@ -1,0 +1,152 @@
+  /*옮긴거*/
+  #row_table{
+    justify-content: center;
+    display: flex;
+  }
+  
+  footer .inner{
+    padding: 40px 0 60px 0;
+  }
+  footer .menu{
+    display: flex;
+    justify-content: center;
+  }
+  footer .menu li{
+    position: relative;
+  }
+  footer .menu li::before{  /*인라인 position 이 ab~ , fl~일경우 자동으로 block으로 되기때문에 안해도 된다*/
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: #555;
+    position: absolute ;
+    top:0 ;
+    bottom: 0;
+    right: -1px;
+    margin: auto;
+  }
+  footer .menu li:last-child::before{ /* li태그들 중에 마지막 li에 before은 화면에 안보이게 하겠다*/
+    display: none;
+  }
+  
+  footer .menu li a {
+    color: black;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 26px;
+    display: block;
+  }
+  h1.mb30 {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* write*/
+.tatalcontent {
+  padding: 0 50px;
+  margin: 13px 0px 61px 140px;
+}
+
+.content{
+  /* display: flex; */
+  display: block;
+  justify-content: center;
+  /* padding: 30px 30px; */
+  font-size: 30px;
+  border-radius: 30%;
+  width:200px;
+  height:50px; 
+  letter-spacing: 2px;
+}
+
+.s_content{
+  padding: 30px 30px;
+  font-size: 19px;
+}
+
+#textContent{
+  height: 100px;
+}
+
+.smart{
+  width: 80%;
+  height: 500px;
+  justify-content: center;
+  padding: 0 0 0 30px;
+  margin: 13px 0px 61px 140px;
+
+}
+a.btn.btn-default.btn-sm.mb20 {
+  position: relative;
+  left: 162%;
+  top: 50%;
+  width: 300px;
+  height: 69px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  margin: 31px;
+
+
+}
+
+/* .container2 {
+  position: relative;
+  left: 5%;
+  overflow: hidden;
+  height: auto;
+  margin: 130px;
+  background-color: #ffffff;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  -webkit-box-shadow: rgb(0 0 0 / 10%) 0px 10px 30px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 10px 30px;
+  margin-left: auto;
+} */
+
+
+.company_honest_qna .search_form .input_keyword .inpTypo {
+  padding: 0 35px 0 12px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+.inpTypo {
+  padding: 9px 12px 11px 12px;
+  height: 40px;
+  border: 1px solid #d7dce5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #373f57;
+  font-family: "Malgun Gothic",gulim,dotum,sans-serif;
+  font-size: 14px;
+  letter-spacing: -1px;
+  line-height: 20px;
+  vertical-align: middle;
+  background-color: #fff;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+div#row_table {
+  height: 1200px;
+}
+a.btn.btn-default.btn-sm.mb20 {
+  position: absolute;
+  top: 167px;
+}
+input#input_keyword {
+  width: 280px;
+  height: 46px;
+}
+button.spr.btn_search {
+  position: absolute;
+  left: 308px;
+  top: 6px;
+}
+section.container2 {
+  height: 1065px;
+}

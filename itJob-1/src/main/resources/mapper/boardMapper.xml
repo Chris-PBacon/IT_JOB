@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.five.member.mapper.BoardMapper">
+
+	<!--Info 게시판 -->
+	<select id="restBoardInfo"
+		resultType="com.five.member.entity.BoardVO">
+		select * from board
+		where b_type = 'info'
+		order by b_date
+	</select>
+
+	<!--Free 게시판 -->
+	<select id="restBoardFree"
+		resultType="com.five.member.entity.BoardVO">
+		select * from board
+		where b_type = 'free'
+		order by b_date
+	</select>
+
+	<!--QnA 게시판 -->
+	<select id="restBoardQnA"
+		resultType="com.five.member.entity.BoardVO">
+		select * from board
+		where b_type = 'qna'
+		order by b_date
+	</select>
+
+
+</mapper>

@@ -10,13 +10,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class memberEVO {
-	private int memEntSeq;
-	private String memEntName;
-	private String memEntId;
-	private String memEntPw;
-	private String memEntEmail;
-	private String memEntPhone;
-	private String memEntNum;
-	private String memEntPlace;
+	
+	private String e_id;
+	private String e_pw;
+	private String e_name;
+	private String e_email;
+	private String e_phone;
+	private String e_place;
+	private String e_num;
 	
 }

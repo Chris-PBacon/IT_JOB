@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,20 +10,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="Digital marketing courses website template that can help you boost your business courses website and its completely free.">
-<meta name="keywords" content="seo,free website template,responsive website template,marketing,search engine optimization, web analytics ">
+<meta name="description"
+	content="Digital marketing courses website template that can help you boost your business courses website and its completely free.">
+<meta name="keywords"
+	content="seo,free website template,responsive website template,marketing,search engine optimization, web analytics ">
 <title>Digital Marketing Courses Website Template</title>
 <!-- Bootstrap -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <!-- Style CSS -->
 <link href="/css/style.css" rel="stylesheet">
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+	rel="stylesheet">
 
 <!-- FontAwesome CSS -->
 <link rel="stylesheet" type="text/css" href="/css/fontello.css">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
- 
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -29,281 +36,428 @@
     <![endif]-->
 
 
-<!--alswjd-->  
-<link href="../css/board.css" rel="stylesheet">
+<!--alswjd-->
+<link href="/css/board.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!-- Bootstrap cdn ì„¤ì • -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<style> 
-/*Å×ÀÌºí¸í ºÎºĞ*/
-#row_table{
-  justify-content: center;
-  display: flex;
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script type="text/javascript">
+
+
+
+
+function window::onload(){test()}
+
+function test(){
+	
+	$.ajax({
+		url: "restBoardInfo.do",
+		method: "POST",
+		dataType : "JSON",
+		success : resultJSON,
+		error : function(e) {
+			console.log(e);
+		}				
+	});
 }
 
-footer .inner{
-  padding: 40px 0 60px 0;
-}
-footer .menu{
-  display: flex;
-  justify-content: center;
-}
-footer .menu li{
-  position: relative;
-}
-footer .menu li::before{  /*ÀÎ¶óÀÎ position ÀÌ ab~ , fl~ÀÏ°æ¿ì ÀÚµ¿À¸·Î blockÀ¸·Î µÇ±â¶§¹®¿¡ ¾ÈÇØµµ µÈ´Ù*/
-  content: "";
-  width: 3px;
-  height: 3px;
-  background-color: #555;
-  position: absolute ;
-  top:0 ;
-  bottom: 0;
-  right: -1px;
-  margin: auto;
-}
-footer .menu li:last-child::before{ /* liÅÂ±×µé Áß¿¡ ¸¶Áö¸· li¿¡ beforeÀº È­¸é¿¡ ¾Èº¸ÀÌ°Ô ÇÏ°Ú´Ù*/
-  display: none;
+	
+
+	
+	</script>
+
+
+<style>
+/*í…Œì´ë¸”ëª… ë¶€ë¶„*/
+#row_table {
+	justify-content: center;
+	display: flex;
 }
 
-footer .menu li a{
-  color: black;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 26px;
-  display: block;         /*»ç¿ëÀÚ°¡ a¿ä¼Ò¸¦ ´Ã·ÁÁÖ±â À§ÇÔ*/
+footer .inner {
+	padding: 40px 0 60px 0;
 }
+
+footer .menu {
+	display: flex;
+	justify-content: center;
+}
+
+footer .menu li {
+	position: relative;
+}
+
+footer .menu li::before {
+	/*ì¸ë¼ì¸ position ì´ ab~ , fl~ì¼ê²½ìš° ìë™ìœ¼ë¡œ blockìœ¼ë¡œ ë˜ê¸°ë•Œë¬¸ì— ì•ˆí•´ë„ ëœë‹¤*/
+	content: "";
+	width: 3px;
+	height: 3px;
+	background-color: #555;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: -1px;
+	margin: auto;
+}
+
+footer .menu li:last-child::before {
+	/* liíƒœê·¸ë“¤ ì¤‘ì— ë§ˆì§€ë§‰ liì— beforeì€ í™”ë©´ì— ì•ˆë³´ì´ê²Œ í•˜ê² ë‹¤*/
+	display: none;
+}
+
+footer .menu li a {
+	color: black;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 26px;
+	display: block; /*ì‚¬ìš©ìê°€ aìš”ì†Œë¥¼ ëŠ˜ë ¤ì£¼ê¸° ìœ„í•¨*/
+}
+
 h1.mb30 {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
-
-
-
-
 </style>
 </head>
 
 <body>
 
-   <!--ÇìµåºÎºĞ ½ÃÀÛ!!-->
-   <div class="header-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
 
-                <!--·Î°í ÀÌ¹ÌÁö ºÎºĞ-->
-                <div class="logo">
-                    <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-                <div class="navigation-wrapper">
+ <!--í—¤ë“œë¶€ë¶„ ì‹œì‘-->
+    <div class="header-wrapper">
+        <div class="container">
+            <div class="row" style="display: flex; align-items: center;">
+                <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
 
-                    <!--¸Ş´º ½ÃÀÛ-->
-                    <div id="navigation">
-                        <ul>
-                            <li class="active"><a href="index.html" title="">Home</a></li>
-
-                            <li class="has-sub"><a href="#" title="">Á÷¹«¼Ò°³</a>
-                                <ul>
-                                    <li><a href="courses.html" title="">°³¹ßÀÚ ·Îµå¸Ê</a></li>
-                                    <li><a href="courses-single.html" title="">Àç¹Ì·Î º¸´Â MBTI </a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has-sub"><a href="#" title="">°­ÀÇ</a>
-                                <ul>
-                                    <li><a href="blog-default.html" title="">°­ÀÇ1</a></li>
-                                    <li><a href="blog-single.html" title="">°­ÀÇ2</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has-sub"><a href="#" title="">Ã¤¿ë</a>
-                                <ul>
-                                    <li><a href="testimonials.html" title="">Ã¤¿ëÁ¤º¸</a></li>
-                                    <li><a href="404-error.html" title="">±¸Á÷°ü¸®</a></li>
-                                    <li><a href="styleguide.html" title="">ÀÌ·Â¼­</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="contact.html" title="">IT °Ô½ÃÆÇ</a> </li>
-                        </ul>
-
+                    <!--ë¡œê³  ì´ë¯¸ì§€ ë¶€ë¶„-->
+                    <div class="logo" style="width: 180px;">
+                        <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
                     </div>
-                    <!-- ¸Ş´º ºÎºĞ ³¡-->
+                </div>
+                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
+                    <div class="navigation-wrapper">
+
+                        <!--ë©”ë‰´ ì‹œì‘-->
+                        <div id="navigation">
+                            <ul>
+                                <li class="active"><a href="main.do" title="">Home</a></li>
+
+                                <li class="has-sub"><a href="#" title="">ì§ë¬´ì†Œê°œ</a>
+                                    <ul>
+                                        <li><a href="job.do" title="">ê°œë°œì ë¡œë“œë§µ</a></li>
+                                        <li><a href="jobMBTI.do" title="">ì¬ë¯¸ë¡œ ë³´ëŠ” MBTI </a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="lecture.do" title="">ê°•ì˜</a></li>
+
+
+                                <li class="has-sub"><a href="#" title="">ì±„ìš©</a>
+                                    <ul>
+                                        <li><a href="employ.do" title="">ì±„ìš©ì •ë³´</a></li>
+                                        <li><a href="#" title="">êµ¬ì§ê´€ë¦¬</a></li>
+                                        <li><a href="resume.do" title="">ì´ë ¥ì„œ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="board.do" title="">IT ê²Œì‹œíŒ</a></li>
+                            </ul>
+
+                        </div>
+                        <!-- ë©”ë‰´ ë¶€ë¶„ ë-->
+                    </div>
+                </div>
+                <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
+                <c:choose> 
+                
+                	<c:when test="${not empty id}">
+                	<div style="                	
+                	    display: flex;
+    					width: 400px;
+    					align-items: center;              	
+                	" >
+                	<span style="margin-right: 30px;">${id} ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!</span>
+                		<a href="logOutNE.do" class="btn btn-primary">ë¡œê·¸ì•„ì›ƒ</a>
+              			
+                	</div>
+              			
+              			
+             		</c:when> 
+             		
+              		<c:otherwise>
+              			<a href="selectNE.do" class="btn btn-primary">ë¡œê·¸ì¸</a>
+              		</c:otherwise>
+              		
+              	</c:choose>
+              	
+              	
                 </div>
             </div>
-            <div class="col-lg-2 hidden-md hidden-sm hidden-xs"> <a href="#" class="btn btn-primary">·Î±×ÀÎ</a> </div>
         </div>
     </div>
-</div>
-<!-- ÇìµåºÎºĞ ³¡ -->
+    <!-- í—¤ë“œë¶€ë¶„ ë!!! -->
 
-<!-- page-header-start -->
-<div class="page-header">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="page-section">
-          <h1 class="page-title">IT °Ô½ÃÆÇ</h1>
-          <p class="page-text">¸¶À½ÆíÈ÷ ¾²¼¼¿ä~</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <!-- <h1 class="mb30">IT°Ô½ÃÆÇ</h1> -->
-      </div>
-    </div>
-  <footer>
-    <div class="inner">
-      <ul class="menu">
-        <li> <a href="javascript:void(0)">ÃÊº¸ÀÚ  °Ô½ÃÆÇ</a></li>
-        <li> <a href="javascript:void(0)">°æ·ÂÀÚ °Ô½ÃÆÇ</a></li>
-        <li> <a href="javascript:void(0)">´º½º</a></li>
-      </ul>
-    </div>
-  </footer>
-    <div class="row" id="row_table">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3 class="mb20">Striped Rows</h3>
-        <table class="table table-striped ">
-          <caption>
+	<!-- page-header-start -->
+	<div class="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="page-section">
+						<h1 class="page-title" style="font-weight: 700;">IT ê²Œì‹œíŒ</h1>
+						<p class="page-text">ê³µì§€ì‚¬í•­ / ììœ ê²Œì‹œíŒ / Q&A</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<!-- <h1 class="mb30">ITê²Œì‹œíŒ</h1> -->
+		</div>
+	</div>
+	<footer>
+		<div class="inner">
+			<ul class="menu">
+				<li><a href="javascript:void(0)" style="font-size: 24px;" id="info">ê³µì§€ì‚¬í•­</a></li>
+				<li><a href="javascript:void(0)" style="font-size: 24px;" id="free">ììœ ê²Œì‹œíŒ</a></li>
+				<li><a href="javascript:void(0)" style="font-size: 24px;" id="qna">QnA</a></li>
+				
+			</ul>
+		</div>
+	</footer>
+
+
+
+	<div class="row" id="row_table">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="width: 80%;">
+			<!-- <h3 class="mb20">Striped Rows</h3> -->
+			<table class="table table-striped ">
+				<!-- <caption>
           Optional table caption.
-          </caption>
-          <thead>
-            <tr>
-              <th>¹øÈ£</th>
-              <th>ºĞ·ù</th>
-              <th>Á¦¸ñ</th>
-              <th>ÀÛ¼ºÀÚ</th>
-              <th>ÀÛ¼ºÀÏ</th>
-              <th>Á¶È¸¼ö</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>ÀÔ»çÁö¿ø¼­ ÄÁ¼³ÆÃ</td>
-              <td>Á¦¸ñÀÌ µé¾î°©´Ï´Ù</td>
-              <td>ÀÛ¼ºÀÚ</td>
-              <td>2022.08.11</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>ÀÔ»çÁö¿ø¼­ ÄÁ¼³ÆÃ</td>
-              <td>Á¦¸ñÀÌ µé¾î°©´Ï´Ù</td>
-              <td>ÀÛ¼ºÀÚ</td>
-              <td>2022.08.11</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>ÀÔ»çÁö¿ø¼­ ÄÁ¼³ÆÃ</td>
-              <td>Á¦¸ñÀÌ µé¾î°©´Ï´Ù</td>
-              <td>ÀÛ¼ºÀÚ</td>
-              <td>2022.08.11</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>ÀÔ»çÁö¿ø¼­ ÄÁ¼³ÆÃ</td>
-              <td>Á¦¸ñÀÌ µé¾î°©´Ï´Ù</td>
-              <td>ÀÛ¼ºÀÚ</td>
-              <td>2022.08.11</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>ÀÔ»çÁö¿ø¼­ ÄÁ¼³ÆÃ</td>
-              <td>Á¦¸ñÀÌ µé¾î°©´Ï´Ù</td>
-              <td>ÀÛ¼ºÀÚ</td>
-              <td>2022.08.11</td>
-              <td>30</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"> <a href="#" class="btn btn-default btn-sm mb20">±Û¾²±â</a></div>
-        </div>
-        <hr>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="container">
-    <div class="row"> 
-      <!-- footer-useful links-start -->
-      <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">Quick Links</h3>
-          <ul>
-            <li><a href="#">Home </a></li>
-            <li><a href="#">About us </a></li>
-            <li><a href="#">Practice Area </a></li>
-            <li><a href="#">Cases </a></li>
-            <li><a href="#">News </a></li>
-            <li> <a href="#">Contacts</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- footer-useful links-close --> 
-      <!-- footer-contactinfo-start -->
-      <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">24 X 7 Support</h3>
-          <div class="">
-            <ul>
-              <li> <i class="fa fa-map-marker"></i> 2000 Cambridge Ease template,72764 India</li>
-              <li><i class="fa fa-phone"></i>800-123-4567</li>
-              <li><i class="fa fa-envelope"></i>info@education.com</li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary btn-sm">request a Course</a></div>
-      </div>
-      <!-- footer-contactinfo-close --> 
-      <!-- footer-about-start -->
-      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ">
-        <div class="footer-widget">
-          <h3 class="footer-title">About Education</h3>
-          <p>Velitconsectetur utleo velaoreet in bibendum felirbi iaculis iaculis dpibus ecenas one posuereorci ut euismod tristique. </p>
-          <p>lorem ipsum dolr sit amet viedfum lacumdi postern lembneir siot lsedto sistompovelaoreet in bibendum egestacerat tempus magna nonrordueugloattis ultrices diam.</p>
-        </div>
-      </div>
-      <!-- footer-about-close -->
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <div class="footer-line"></div>
-      </div>
-      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-        <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-        </p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="footer-social">
-         <a href="#"><span><i class="fa fa-facebook"></i></span></a>
-          <a href="#"><span><i class="fa fa-google-plus"></i></span> </a> 
-          <a href="#"><span class="active"><i class="fa fa-twitter"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-instagram"></i></span> </a> 
-          <a href="#"><span><i class=" fa fa-pinterest"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-linkedin"></i></span></a> </div>
-      </div>
-    </div>
-  </div>
-  <!-- footer-address-close --> 
-</div>
+          </caption> -->
 
-<!-- footer close --> 
+				<!--ë‹¤ë¥¸ì‚¬ëŒì€ ê²€ìƒ‰ì°½-->
+				<div class="input_keyword">
+					<input type="text" name="input_keyword" id="input_keyword" value=""
+						placeholder="ë‹¤ë¥¸ ì‚¬ëŒë“¤ì€ ì–´ë–¤ ì´ì•¼ê¸°ë¥¼ í• ê¹Œ?" class="inpTypo"
+						title="í‚¤ì›Œë“œ, ê¸°ì—…ëª… ì…ë ¥">
+					<button type="button" class="spr btn_search">
+						<span class="material-symbols-outlined"> psychology_alt </span>
+					</button>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="/js/jquery.min.js" type="text/javascript"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="/js/bootstrap.min.js" type="text/javascript"></script> 
-<script src="/js/menumaker.js" type="text/javascript"></script> 
-<script type="text/javascript" src="/js/jquery.sticky.js"></script> 
-<script type="text/javascript" src="/js/sticky-header.js"></script> 
- 
+					<thead>
+						<tr>
+							<th>ë²ˆí˜¸</th>
+							<th>ë¶„ë¥˜</th>
+							<th>ì œëª©</th>
+							<th>ì‘ì„±ì</th>
+							<th>ì‘ì„±ì¼</th>
+							<th>ì¡°íšŒìˆ˜</th>
+						</tr>
+					</thead>
+					<tbody id="list">
+
+
+		<script type="text/javascript">
+
+		
+		//### info ë¦¬ìŠ¤íŠ¸ í•¨ìˆ˜
+        $("#info").on('click',function restBoardInfo (){
+ 			
+ 			$.ajax({
+ 				url: "restBoardInfo.do",
+ 				method: "POST",
+ 				dataType : "JSON",
+ 				success : resultJSON,
+ 				error : function(e) {
+ 					console.log(e);
+ 				}				
+ 			})	
+ 		}) ; ///restBoardInfo í•¨ìˆ˜ ë
+		
+		//### free ë¦¬ìŠ¤íŠ¸ í•¨ìˆ˜
+        $("#free").on('click',function restBoardFree (){
+ 			
+ 			// ìë°”ìŠ¤í¬ë¦½íŠ¸ì˜ ê°ì²´ í‘œí˜„ ë°©ì‹ JSON ì¤‘ê´„í˜¸ë¡œ í‘œì‹œ {}
+ 			$.ajax({
+ 				url: "restBoardFree.do",
+ 				method: "POST",
+ 				dataType : "JSON",
+ 				success : resultJSON,
+ 				error : function(e) {
+ 					console.log(e);
+ 				}				
+ 			})	
+ 		}) ; ///restBoardFree í•¨ìˆ˜ ë
+		
+		//### QnA ë¦¬ìŠ¤íŠ¸ í•¨ìˆ˜
+        $("#qna").on('click',function restBoardQnA (){
+ 			
+ 			// ìë°”ìŠ¤í¬ë¦½íŠ¸ì˜ ê°ì²´ í‘œí˜„ ë°©ì‹ JSON ì¤‘ê´„í˜¸ë¡œ í‘œì‹œ {}
+ 			$.ajax({
+ 				url: "restBoardQnA.do",
+ 				method: "POST",
+ 				dataType : "JSON",
+ 				success : resultJSON,
+ 				error : function(e) {
+ 					console.log(e);
+ 				}				
+ 			})	
+ 		}) ; ///restBoardQnA í•¨ìˆ˜ ë
+ 		
+ 		//### Json ê²Œì‹œê¸€ ë°ì´í„° ê°€ì ¸ì˜¤ëŠ” í•¨ìˆ˜
+ 		function resultJSON(data){
+ 			console.log(data);			
+ 		var html = "<span></span>";			
+ 			for(var i=0; i<data.length; i++){				
+ 				html +="<tr>";
+ 				html +="<td>"+(i+1)+"</td>";
+ 				html +="<td>"+data[i].b_type +"</td>";
+ 				html +="<td>"+ data[i].b_title + "</td>";
+ 				html +="<td>"+ data[i].m_id + "</td>";
+ 				html +="<td>"+ data[i].b_date + "</td>";
+ 				html +="<td>"+ data[i].b_count + "</td>";
+ 				html +="</tr>";			
+ 			}			
+ 			html += "</table>";			
+ 			$("#list").html(html)         
+ 		}//ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ë°›ì•„ì˜¤ëŠ” í•¨ìˆ˜
+		</script>
+
+
+
+
+					</tbody>
+			</table>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+					<a href="#" class="btn btn-default btn-sm mb20">ê¸€ì“°ê¸°</a>
+				</div>
+			</div>
+			<hr>
+			<div style="text-align: center;">
+				<ul class="pagination">
+					<!-- liíƒœê·¸ì˜ í´ë˜ìŠ¤ì— disabledë¥¼ ë„£ìœ¼ë©´ ë§ˆìš°ìŠ¤ë¥¼ ìœ„ì— ì˜¬ë ¸ì„ ë•Œ í´ë¦­ ê¸ˆì§€ ë§ˆí¬ê°€ ë‚˜ì˜¤ê³  í´ë¦­ë„ ë˜ì§€ ì•ŠëŠ”ë‹¤.-->
+					<!-- disabledì˜ ì˜ë¯¸ëŠ” ì•ì˜ í˜ì´ì§€ê°€ ì¡´ì¬í•˜ì§€ ì•Šë‹¤ëŠ” ëœ»ì´ë‹¤. -->
+
+					<li class="disabled"><a href="#"> <span>Â«</span>
+					</a></li>
+					<!-- liíƒœê·¸ì˜ í´ë˜ìŠ¤ì— activeë¥¼ ë„£ìœ¼ë©´ ìƒ‰ì´ ë°˜ì „ë˜ê³  í´ë¦­ë„ ë˜ì§€ ì•ŠëŠ”ë‹¤. -->
+					<!-- activeì˜ ì˜ë¯¸ëŠ” í˜„ì¬ í˜ì´ì§€ì˜ ì˜ë¯¸ì´ë‹¤. -->
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#"> <span>Â»</span>
+
+					</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- footer-useful links-start -->
+				<div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
+					<div class="footer-widget">
+						<h3 class="footer-title">Quick Links</h3>
+						<ul>
+							<li><a href="#">Home </a></li>
+							<li><a href="#">About us </a></li>
+							<li><a href="#">Practice Area </a></li>
+							<li><a href="#">Cases </a></li>
+							<li><a href="#">News </a></li>
+							<li><a href="#">Contacts</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- footer-useful links-close -->
+				<!-- footer-contactinfo-start -->
+				<div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="footer-widget">
+						<h3 class="footer-title">24 X 7 Support</h3>
+						<div class="">
+							<ul>
+								<li><i class="fa fa-map-marker"></i> 2000 Cambridge Ease
+									template,72764 India</li>
+								<li><i class="fa fa-phone"></i>800-123-4567</li>
+								<li><i class="fa fa-envelope"></i>info@education.com</li>
+							</ul>
+						</div>
+						<a href="#" class="btn btn-primary btn-sm">request a Course</a>
+					</div>
+				</div>
+				<!-- footer-contactinfo-close -->
+				<!-- footer-about-start -->
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ">
+					<div class="footer-widget">
+						<h3 class="footer-title">About Education</h3>
+						<p>Velitconsectetur utleo velaoreet in bibendum felirbi
+							iaculis iaculis dpibus ecenas one posuereorci ut euismod
+							tristique.</p>
+						<p>lorem ipsum dolr sit amet viedfum lacumdi postern lembneir
+							siot lsedto sistompovelaoreet in bibendum egestacerat tempus
+							magna nonrordueugloattis ultrices diam.</p>
+					</div>
+				</div>
+				<!-- footer-about-close -->
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+					<div class="footer-line"></div>
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+					<p>
+						Shared by <i class="fa fa-love"></i><a
+							href="https://bootstrapthemes.co">BootstrapThemes</a>
+					</p>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<div class="footer-social">
+						<a href="#"><span><i class="fa fa-facebook"></i></span></a> <a
+							href="#"><span><i class="fa fa-google-plus"></i></span> </a> <a
+							href="#"><span class="active"><i class="fa fa-twitter"></i>
+						</span></a> <a href="#"><span><i class="fa fa-instagram"></i></span> </a> <a
+							href="#"><span><i class=" fa fa-pinterest"></i> </span></a> <a
+							href="#"><span><i class="fa fa-linkedin"></i></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer-address-close -->
+	</div>
+
+	<!-- footer close -->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/js/jquery.min.js" type="text/javascript"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/js/menumaker.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/jquery.sticky.js"></script>
+	<script type="text/javascript" src="/js/sticky-header.js"></script>
+	
+	
+
 </body>
 </html>

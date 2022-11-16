@@ -9,7 +9,7 @@ import com.five.member.entity.memberEVO;
 import com.five.member.entity.memberNVO;
 
 @Mapper
-public interface memberMapper {
+public interface MemberMapper {
 
 	// 일반회원 회원가입
 	public void joinN(memberNVO vo);

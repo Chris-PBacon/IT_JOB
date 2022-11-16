@@ -29,6 +29,15 @@
 
 <!--alswjd-->  
 <link href="../css/board.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Bootstrap cdn 설정 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style> 
 /*테이블명 부분*/
@@ -142,8 +151,8 @@ h1.mb30 {
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="page-section">
-          <h1 class="page-title">IT 게시판</h1>
-          <p class="page-text">마음편히 쓰세요~</p>
+          <h1 class="page-title"style="font-weight: 700;" >IT 게시판</h1>
+          <p class="page-text">자주묻는 질문/상담신청</p>
         </div>
       </div>
     </div>
@@ -157,19 +166,32 @@ h1.mb30 {
   <footer>
     <div class="inner">
       <ul class="menu">
-        <li> <a href="javascript:void(0)">초보자  게시판</a></li>
-        <li> <a href="javascript:void(0)">경력자 게시판</a></li>
-        <li> <a href="javascript:void(0)">뉴스</a></li>
+        <li> <a href="javascript:void(0)" style="font-size: 24px ;">공지사항</a></li>
+        <li> <a href="javascript:void(0)"style="font-size: 24px ;">자유 게시판</a></li>
+        <li> <a href="javascript:void(0)"style="font-size: 24px ;">QnA</a></li>
       </ul>
     </div>
   </footer>
+
+
+
     <div class="row" id="row_table">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3 class="mb20">Striped Rows</h3>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="width: 80% ;">
+        <!-- <h3 class="mb20">Striped Rows</h3> -->
         <table class="table table-striped ">
-          <caption>
+          <!-- <caption>
           Optional table caption.
-          </caption>
+          </caption> -->
+
+          <!--다른사람은 검색창-->
+          <div class="input_keyword">
+            <input type="text" name="input_keyword" id="input_keyword" value="" placeholder="다른 사람들은 어떤 이야기를 할까?" class="inpTypo" title="키워드, 기업명 입력">
+            <button type="button" class="spr btn_search">
+              <span class="material-symbols-outlined">
+                psychology_alt
+                </span>
+            </button>
+
           <thead>
             <tr>
               <th>번호</th>
@@ -221,12 +243,118 @@ h1.mb30 {
               <td>2022.08.11</td>
               <td>30</td>
             </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">10</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">11</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">12</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">13</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">14</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">15</th>
+              <td>입사지원서 컨설팅</td>
+              <td>제목이 들어갑니다</td>
+              <td>작성자</td>
+              <td>2022.08.11</td>
+              <td>30</td>
+            </tr>
           </tbody>
         </table>
         <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"> <a href="#" class="btn btn-default btn-sm mb20">글쓰기</a></div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"> <a href="#" class="btn btn-default btn-sm mb20" >글쓰기</a></div>
         </div>
         <hr>
+        <div style= "text-align:center;"  >
+          <ul class="pagination">
+            <!-- li태그의 클래스에 disabled를 넣으면 마우스를 위에 올렸을 때 클릭 금지 마크가 나오고 클릭도 되지 않는다.-->
+            <!-- disabled의 의미는 앞의 페이지가 존재하지 않다는 뜻이다. -->
+            
+            <li class="disabled">
+              <a href="#">
+                <span>«</span>
+              </a>
+            </li>
+            <!-- li태그의 클래스에 active를 넣으면 색이 반전되고 클릭도 되지 않는다. -->
+            <!-- active의 의미는 현재 페이지의 의미이다. -->
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#">
+                <span>»</span>
+                
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </div>
