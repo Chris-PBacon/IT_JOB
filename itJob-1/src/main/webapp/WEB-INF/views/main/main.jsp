@@ -145,6 +145,8 @@
     					width: 400px;
     					align-items: center;              	
                 	" >
+                	
+                	<!-- 하이하이 -->
                 	<span style="margin-right: 30px;">${id} 님 환영합니다!</span>
                 		<a href="logOutNE.do" class="btn btn-primary">로그아웃</a>            			
                 	</div>              			            			
