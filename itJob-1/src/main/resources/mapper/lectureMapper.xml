@@ -5,7 +5,36 @@
 
 <mapper namespace="com.five.member.mapper.LectureMapper">
 
-	
+<!-- 강의페이지 이동시 전체보기 기능 쿼리 -->
+<select id="selectLecture" resultType="com.five.member.entity.LectureVO">
+	select * from lecture order by l_seq desc
+</select>
+
+<!-- 강의상세페이지 강의목차 가져오는 쿼리 -->
+<select id="selectIndex" parameterType="int" resultType="com.five.member.entity.LectureVO">
+	select li.li_order, li.li_content from lecture l, lecture_index li where l.l_seq= li.l_seq and l.l_seq = #{l_seq}
+</select>
+
+<!-- 강의상세페이지 강의정보 가져오는 쿼리 -->
+<select id="selectDetail" parameterType="int" resultType="com.five.member.entity.LectureVO">
+	select * from lecture where l_seq = #{l_seq}
+</select>
+
+<!-- 강의상세페이지 강의리뷰 가져오는 쿼리 -->
+<select id="selectReview" parameterType="int" resultType="com.five.member.entity.LectureReviewVO">
+	select * from lecture_grade where l_seq = #{l_seq} order by lg_seq desc
+</select>
+
+<select id="starAvg" parameterType="int" resultType="com.five.member.entity.LectureReviewVO">
+	select count(*) review_cnt, round(avg(lg_star),1) avg_star from lecture_grade where l_seq = #{l_seq} 
+</select>
+
+<!-- 강의 리뷰 DB에 입력하는 쿼리  -->
+<insert id="insertReview" parameterType="com.five.member.entity.LectureReviewVO">
+	insert into lecture_grade
+	values (lg_seq, #{l_seq}, #{lg_star}, #{lg_content}, #{m_id})
+</insert>
+
 
 
 </mapper>
