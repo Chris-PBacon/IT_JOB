@@ -30,26 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<link rel="stylesheet" href="/scss/employ.scss">
-
-<script type="text/javascript">
-
-	function window::onload(){test()}
-	
-	function test(){
-		
-		$.ajax({
-			url: "restBoardInfo.do",
-			method: "POST",
-			dataType : "JSON",
-			success : resultJSON,
-			error : function(e) {
-				console.log(e);
-			}				
-		});
-	}
-</script>
-
+    <link rel="stylesheet" href="/scss/employ.scss">
 
 <style>
   .contact-block {background: url(https://cafeptthumb-phinf.pstatic.net/MjAyMjEwMDJfMjcw/MDAxNjY0Njc0MTYwMjM4.RgG4ehxULb36zyUuDnfs7xufUGcpDK2aa2Pf7IiMC2Qg.sUHbhJjwVWvDxQgdVOXtIPQm0Jqtg_zNhLNxnk9e-dUg.JPEG/%EC%B9%B4%ED%8E%98%EB%B0%B0%EB%84%88_1080-340.jpg) no-repeat center; background-size: cover; margin: 0px; padding-top: 180px; padding-bottom: 180px; position: relative;}
@@ -94,19 +75,9 @@
   }
   .post-img img{
     padding: 20px;
-  }
-  .carousel-inner{
-    width: 1170px;
-    height: 360px;
-  }
-  .carousel-inner img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    
   }
   
-
-
 </style>
 
 </head>
@@ -179,7 +150,6 @@
         </div>
     </div>
     <!-- 헤드부분 끝!!! -->
- 
 
 <!-- 메인시작 -->
 <div class="space">
@@ -187,39 +157,12 @@
     <div class="row">
 
   <!-- 베너광고 -->
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-  
-    <!-- slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="../images/박혜원팬카페.jpg" alt="...">
-      </div>
-
-      <div class="item">
-        <img src="../images/제목킹받네.jpg" alt="...">
-      </div>
-
-      <div class="item">
-        <img src="../images/박혜원.jpg" alt="...">
+  <div class="contact-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
       </div>
     </div>
-  
-    <!-- 컨트롤 버튼 -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 
 
@@ -307,7 +250,7 @@
         <div class=" widget widget-search">
           <form>
             <div class="">
-              <input type="text" class="form-control search-form" value="" placeholder= "검색할 키워드를 입력하세요">
+              <input type="text" class="form-control search-form" placeholder= "검색할 키워드를 입력하세요">
                <button type="Submit"><i class="fa fa-search"></i></button>
              </div>
           </form>
@@ -370,6 +313,43 @@
 
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <div class="row"> 
+          
+          <script type="text/javascript">
+
+		//### 채용공고 리스트 함수
+        $("#exp").on('click',function restBoardQnA (){
+ 			
+ 			// 자바스크립트의 객체 표현 방식 JSON 중괄호로 표시 {}
+ 			$.ajax({
+ 				url: "restBoardQnA.do",
+ 				method: "POST",
+ 				dataType : "JSON",
+ 				success : resultJSON,
+ 				error : function(e) {
+ 					console.log(e);
+ 				}				
+ 			})	
+ 		}) ; ///restBoardQnA 함수 끝
+ 		
+ 		//### Json 게시글 데이터 가져오는 함수
+ 		function resultJSON(data){
+ 			console.log(data);			
+ 		var html = "<span></span>";			
+ 			for(var i=0; i<data.length; i++){				
+ 				html +="<tr>";
+ 				html +="<td>"+(i+1)+"</td>";
+ 				html +="<td>"+data[i].b_type +"</td>";
+ 				html +="<td>"+ data[i].b_title + "</td>";
+ 				html +="<td>"+ data[i].m_id + "</td>";
+ 				html +="<td>"+ data[i].b_date + "</td>";
+ 				html +="<td>"+ data[i].b_count + "</td>";
+ 				html +="</tr>";			
+ 			}			
+ 			html += "</table>";			
+ 			$("#list").html(html)         
+ 		}//게시판 리스트 받아오는 함수
+		</script>
+          
           
           <!-- 공고 1 -->
           <div class="row" id="employ-box">

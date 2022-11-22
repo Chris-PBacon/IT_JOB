@@ -15,12 +15,13 @@ public class EmployController {
 	
 	
 	// 이력서 페이지 이동
-		@RequestMapping("/resume.do")
-		public String resume() {
+	@RequestMapping("/resume.do")
+	public String resume() {
 
-			return "/employ/resume";
-		}
+		return "/employ/resume";
+	}
 
+	
 		
 		
 		
