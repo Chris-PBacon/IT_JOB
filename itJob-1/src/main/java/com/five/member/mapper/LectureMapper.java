@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.five.member.entity.LectureBasketVO;
 import com.five.member.entity.LectureReviewVO;
 import com.five.member.entity.LectureVO;
 import com.five.member.entity.memberEVO;
@@ -24,6 +25,15 @@ public interface LectureMapper {
 	List<LectureReviewVO> selectReview(int l_seq);
 
 	LectureReviewVO starAvg(int l_seq);
+
+	void insertBasket(LectureBasketVO vo);
+
+	List<LectureVO> selectBasket(LectureBasketVO vo);
+
+	List<LectureVO> selectBasketBasic(String m_id);
+
+	void deleteBasket(LectureBasketVO vo);
+
 
 	
 }

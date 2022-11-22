@@ -35,6 +35,29 @@
 	values (lg_seq, #{l_seq}, #{lg_star}, #{lg_content}, #{m_id})
 </insert>
 
+<!-- 강의를 장바구니에 담는 쿼리  -->
+<insert id="insertBasket" parameterType="com.five.member.entity.LectureBasketVO">
+	insert into lecture_basket
+	values (lb_seq, #{l_seq}, #{m_id})
+</insert>
+
+<!-- 강의를 추가하고나서 장바구니의 정보를 가져오는 쿼리 -->
+<select id="selectBasket" parameterType="com.five.member.entity.LectureBasketVO" resultType="com.five.member.entity.LectureVO">
+	select l.l_title l_title, l.l_img l_img, l.l_price l_price, l.l_seq l_seq from lecture l, lecture_basket b
+	where l.l_seq=b.l_seq and b.m_id = #{m_id}
+</select>
+
+<!-- 그냥 장바구니의 정보를 가져오는 쿼리 -->
+<select id="selectBasketBasic" parameterType="String" resultType="com.five.member.entity.LectureVO">
+	select l.l_title l_title, l.l_img l_img, l.l_price l_price, l.l_seq l_seq from lecture l, lecture_basket b
+	where l.l_seq=b.l_seq and b.m_id = #{m_id}
+</select>
+
+<!-- 장바구니 강의들 삭제하는 쿼리  -->
+<delete id="deleteBasket" parameterType="com.five.member.entity.LectureBasketVO">
+	delete from lecture_basket where m_id = #{m_id} and l_seq = #{l_seq}
+</delete>
+
 
 
 </mapper>

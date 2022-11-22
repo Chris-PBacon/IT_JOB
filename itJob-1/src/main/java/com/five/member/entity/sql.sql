@@ -281,24 +281,42 @@ values(l_seq, '구글버트 배우고 싶은사람?(2022년 개정판)', '버트
 select * from lecture
 
 insert into lecture_index
-values(li_seq, 16, 1, '파이썬 다운하기');
+values(li_seq, 8, 1, '파이썬 다운하기');
 insert into lecture_index
-values(li_seq, 16, 2, '파이썬 설치하기');
+values(li_seq, 8, 2, '파이썬 설치하기');
 insert into lecture_index
-values(li_seq, 16, 3, '파이썬 실행하기');
+values(li_seq, 8, 3, '파이썬 실행하기');
 insert into lecture_index
-values(li_seq, 16, 4, '파이썬 기본문법');
+values(li_seq, 8, 4, '파이썬 기본문법');
 insert into lecture_index
-values(li_seq, 16, 5, '버트 이해하기');
+values(li_seq, 8, 5, '버트 이해하기');
 insert into lecture_index
-values(li_seq, 16, 6, '버트 사용하기');
+values(li_seq, 8, 6, '버트 사용하기');
 insert into lecture_index
-values(li_seq, 16, 7, '버트 적용하기');
+values(li_seq, 8, 7, '버트 적용하기');
 insert into lecture_index
-values(li_seq, 16, 8, '버트 활용하기');
+values(li_seq, 8, 8, '버트 활용하기');
 
 select li.li_order, li.li_content from lecture l, lecture_index li where l.l_seq= li.l_seq and l.l_seq= 16
 select * from lecture_grade
 insert into lecture_grade
 values(lg_seq, 16,)
 delete from lecture_grade where m_id = 'wogus1077'
+
+-- 수강바구니
+create table lecture_basket(
+	lb_seq int not null auto_increment,
+	l_seq int not null,
+	m_id varchar(45) not null,
+	primary key (lb_seq)
+)
+alter table lecture_basket
+	add constraint FK_lecture_basket_l_seq_lecture_l_seq foreign key (l_seq)
+		references lecture (l_seq) on delete restrict on update restrict;
+alter table lecture_basket
+	add constraint FK_lecture_basket_m_id_member_m_id foreign key (m_id)
+		references member (m_id) on delete restrict on update restrict;
+
+
+select * from lecture_basket
+

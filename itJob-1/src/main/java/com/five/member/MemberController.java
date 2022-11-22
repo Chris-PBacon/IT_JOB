@@ -19,7 +19,7 @@ public class MemberController {
 
 	@Autowired
 	private MemberMapper mapper;
-	private HttpSession session;
+	
 
 	// 로그아웃 기능
 	@RequestMapping("logOutNE.do")

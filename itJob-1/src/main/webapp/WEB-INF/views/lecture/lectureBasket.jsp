@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +39,17 @@
   }
   .lec-index{
     padding: 10px;
+  }
+  .lec-price{
+    float: right;
+    padding-top: 30px;
+  }
+  .lec-img{
+  	width:120px;
+  	height:80px;
+  }
+  .lec-right{
+  	float: right;
   }
 </style>
 
@@ -116,33 +128,23 @@
                   
 
                   <!-- 커리큘럼 소개 -->
+                  <form action="deleteBasket.do" method="post">
                   <div>
                     <h2>수강 바구니</h2>
-                    <input type="checkbox">  전체선택
-                    <hr>
-                    <div class="lec-index">
-                      <input type="checkbox">
-                      <a> Spring 완전정복 </a>
-                    </div>
-                    <hr>
-                    <div class="lec-index">
-                      <input type="checkbox">
-                      <a> 작심삼일 HTML, CSS, JS  </a>
-                    </div>
-                    <hr>
-                    <div class="lec-index">
-                      <input type="checkbox">
-                      <a> 머신러닝, 딥러닝, AI 완벽히 이해하기 </a>
-                    </div>
-                    <hr>
-                    <div class="lec-index">
-                      <input type="checkbox">
-                      <a> React JS 마스터 </a>
-                    </div>
-                    <hr>
-  
+                    <input type="checkbox" name='lectureAll' value="'selectAll" onclick='selectAll(this)'>  전체선택
+                    <button class="btn btn-default lec-right">선택항목 삭제</button>
+                    <c:forEach items="${list }" var="lecture" varStatus="i"> 
+	                    <hr>
+	                    <div class="lec-index">
+	                      <input type="checkbox" name="lecture" value="${lecture.l_seq }">
+	                      <img class="lec-img" alt="" src="${lecture.l_img }">
+	                      <a href="lectureDetail.do?l_seq=${lecture.l_seq }"> ${lecture.l_title } </a>
+	                      <h4 class="lec-price">${lecture.l_price } 원</h4>
+	                    </div>
+                    </c:forEach>
+  					<input type="hidden" name="m_id" value="${id}">
                   </div>
-
+				  </form>
                   
 
                   
@@ -269,6 +271,16 @@
 <script src="/js/menumaker.js" type="text/javascript"></script> 
 <script type="text/javascript" src="/js/jquery.sticky.js"></script> 
 <script type="text/javascript" src="/js/sticky-header.js"></script> 
+<!-- 체크박스 전체선택해주는 스크립트 -->
+<script type="text/javascript"> 
+  function selectAll(selectAll)  {
+    const checkboxes 
+        = document.getElementsByName('lecture');
+    
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = selectAll.checked;
+    })
+} </script>
  
 </body>
 </html>

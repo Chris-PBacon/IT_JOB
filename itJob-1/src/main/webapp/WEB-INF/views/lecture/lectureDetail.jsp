@@ -130,7 +130,7 @@
                       <!-- 메뉴 부분 끝-->
                   </div>
               </div>
-              <div class="col-lg-2 hidden-md hidden-sm hidden-xs"> <a href="#" class="btn btn-primary">로그인</a> </div>
+              <div class="col-lg-2 hidden-md hidden-sm hidden-xs"> <a href="selectNE.do" class="btn btn-primary">로그인</a> </div>
           </div>
       </div>
   </div>
@@ -267,7 +267,7 @@
                 <h1><strong>￦ ${vo.l_price }</strong></h1>
               </div>
               <div>
-                <a href="lectureBasket.do"><button class="btn btn-primary btn-lg" type="button" style="background-color: blue; color: white;" >수강 하기</button></a>
+                <a href="lectureBasket.do?l_seq=${vo.l_seq }&m_id=${id}"><button class="btn btn-primary btn-lg" type="button" style="background-color: blue; color: white;" >수강 하기</button></a>
               </div>
              </div>
           </form>
