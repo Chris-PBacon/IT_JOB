@@ -21,4 +21,10 @@ public class LectureVO {
 	private String li_order;
 	private String li_content;
 	
+	private String lt_seq;
+	private String lt_class;
+	private String lt_lang;
+	private String lt_payment;
+	private String lt_field;
+	
 }

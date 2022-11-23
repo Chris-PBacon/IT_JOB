@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="Digital marketing courses website template that can help you boost your business courses website and its completely free.">
 <meta name="keywords" content="seo,free website template,responsive website template,marketing,search engine optimization, web analytics ">
-<title>강의인트로</title>
+<title>내 강의페이지</title>
 <!-- Bootstrap -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <!-- Style CSS -->
@@ -34,9 +33,6 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <style>
-  .col-md-4{
-  	width:25%;
-  }
   .second_div{
     display: flex;
     border: 1px solid;
@@ -66,8 +62,8 @@
     justify-content: center;
   }
   .c_img{
-    width: 270px;
-    height: 250px;
+    width: 345px;
+    height: 300px;
   }
   .c_lec{
     padding: 20px;
@@ -75,52 +71,22 @@
   .active{
     opacity: 0.20;
   }
-  
-  .all{
-  margin-right: 15px;
-  }
-  
-  /* .hidden{
+  .hidden{
     visibility: hidden;
   }
   .hidden:hover{
     visibility: visible;
-  } */
-  /* .hover-content{
+  }
+  .hover-content{
     position: absolute;
-  }*/
+  }
   .service-block{
     position: relative;
-    width:270px;
-  	height:470px;
   }
 </style>
 </head>
 
 <body>
-	<script type="text/javascript">
-		function selected(){
-	
-		}
-		var selectTag.getElementsByClassName('name');
-		var t = document.getElementsByClassName('btn-baek');
-		t.addEventListener('click',function(selectedTag){
-		    $.ajax({
-		        url : 'selectLecSelected',
-		        type : 'GET',
-		        data : 'text',
-		        datatype : 'JSON',
-		        success:function(){
-		            location.href="lecture.do?"},
-		        error: function (e){
-		            console.log(e);
-		        }
-	
-		    })
-		    
-		});
-	</script>
-
       <!--헤드부분 시작-->
     <div class="header-wrapper">
       <div class="container">
@@ -188,108 +154,44 @@
   </div>
   <!-- 헤드부분 끝!!! -->
 
-<!-- 강의 분류 시작 -->
-<div class="container">
-  <form action="">
-    <div class="second_div">
-      <div class="third_div">
-        <h5>유형</h5>
-      </div>
-      <div>
-        <button class="btn btn-xs btn_baek" type="button" value="subject">과목</button>
-        <button class="btn btn-xs btn_baek" type="button" value="challenge">챌린지</button>
-        <button class="btn btn-xs btn_baek" type="button" value="test">테스트</button>
-      </div>
-      
-    </div>
 
-    <div class="second_div">
-      <div class="third_div">
-        <h5>분야</h5>
-      </div>
-      <div>
-        <button class="btn btn-xs btn_baek" type="button" value="programing">프로그래밍 기초</button>
-        <button class="btn btn-xs btn_baek" type="button" value="dataAnalysis">데이터 분석</button>
-        <button class="btn btn-xs btn_baek" type="button" value="web">웹</button>
-        <button class="btn btn-xs btn_baek" type="button" value="ai">인공지능</button>
-        <button class="btn btn-xs btn_baek" type="button" value="algorism">알고리즘</button>
-      </div>
-      
-    </div>
-
-    <div class="second_div">
-      <div class="third_div">
-        <h5>난이도</h5>
-      </div>
-      <div>
-        <button class="btn btn-xs btn_baek" type="button" value="baby">입문</button>
-        <button class="btn btn-xs btn_baek" type="button" value="beginner">초급</button>
-        <button class="btn btn-xs btn_baek" type="button" value="intermediate">중급</button>
-        <button class="btn btn-xs btn_baek" type="button" value="advanced">고급</button>
-      </div>
-    </div>
-
-    <div class="second_div">
-      <div class="third_div">
-        <h5>언어</h5>
-      </div>
-      <div>
-        <button class="btn btn-xs btn_baek" type="button" value="c">C</button>
-        <button class="btn btn-xs btn_baek" type="button" value="c++">C++</button>
-        <button class="btn btn-xs btn_baek" type="button" value="java">자바</button>
-        <button class="btn btn-xs btn_baek" type="button" value="python">파이썬</button>
-        <button class="btn btn-xs btn_baek" type="button" value="javascript">자바스크립트</button>
-        <button class="btn btn-xs btn_baek" type="button" value="r">R</button>
-        <button class="btn btn-xs btn_baek" type="button" value="htmlCss">HTML/CSS</button>
-        <button class="btn btn-xs btn_baek" type="button" value="sql">SQL</button>
-      </div>
-      
-    </div>
-
-    <div class="second_div">
-      <div class="third_div">
-        <h5>가격</h5>
-      </div>
-      <div>
-        <button class="btn btn-xs btn_baek" type="button" value="free">무료</button>
-        <button class="btn btn-xs btn_baek" onclick="selected()" type="button" value="pay">유료</button>
-        <button class="btn btn-xs btn_baek" type="button" value="subscribe">구독</button>
-      </div>
-    </div>
-    <div id="searchBox">
-      <a class="all" href="lecture.do"><button class="btn btn-xs btn_baek" type="button">전체보기</button></a>
-      <button class="btn btn-xs btn_baek" type="submit">적용</button>
-      <button id="reset" class="btn btn-xs" type="button" onclick="reset_click();" style=" margin: 5px; margin-left:20px;
-      background-color: aliceblue;">초기화</button>
-    </div>
-  </form>
-</div>
-<!-- 강의 분류 끝 -->
  
 <!-- cources-start-->
 <div class="space-medium">
   <div class="container">
     
     <div class="row"> 
-
+      <div style="padding-bottom: 50px;">
+        <h1><strong>내 강의</strong></h1>
+      </div>
       <!-- cources-start-->
-      <c:forEach items="${list}" var="lecture" varStatus="i">
-	      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-	        <div class="service-block c_lec">
-	          <div class="c_img">
-	            <img src="${lecture.l_img }" alt="">
-	          </div>
-	          <div class="service-content c_lec">
-	            <h3><a href="lectureDetail.do?l_seq=${lecture.l_seq }" class="title">${lecture.l_title }</a></h3>
-	            <p>${lecture.l_teacher }</p>
-	            <a href="" class="btn-link">￦${lecture.l_price }</a></div>
-	        </div>
-	      </div>
-      </c:forEach>
-      <!-- cources-close--> 
+      <c:choose>
+      	<c:when test="${empty list }">
+      		<hr>
+      		<h2>수강중인 강의가 없습니다.</h2>
+      		<hr>
+      	</c:when>
+      	<c:otherwise>
+	      <c:forEach items="${list }" var="myLecture" varStatus="i">
+		      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+		        <div class="service-block c_lec">
+		         <div class="c_img">
+		            	<a href="myLecDetail.do?l_seq=${myLecture.l_seq }" class="title"><img src="${myLecture.l_img }" alt=""></a>
+		         </div>
+		         <div class="service-content">
+		            	<h3><a href="myLecDetail.do?l_seq=${myLecture.l_seq }" class="title">${myLecture.l_title }</a></h3>
+		            	<p>${myLecture.l_teacher }</p>
+		         </div>
+		      
+		        </div> 
+		       
+		      </div>
+	      </c:forEach>
+	   	</c:otherwise>
+     
       
-      
-    </div>
+      </c:choose>
+       <!-- cources-close--> 
     
   </div>
 </div>

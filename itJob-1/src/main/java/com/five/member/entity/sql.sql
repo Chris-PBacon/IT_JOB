@@ -235,6 +235,7 @@ ALTER TABLE lecture_grade
 drop table lecture_grade
 select * from member
 -- 수강확인테이블
+desc lecture_check
 create table lecture_check
 (
 	lc_seq int not null auto_increment,
@@ -242,6 +243,8 @@ create table lecture_check
 	m_id varchar(45) not null,
 	primary key(lc_seq)
 );
+insert into lecture_check
+values (lc_seq, 16, 'wogus1077')
 
 alter table lecture_check
 	add constraint fk_lecture_check_l_seq_lecture_l_seq foreign key(l_seq)
@@ -309,7 +312,7 @@ create table lecture_basket(
 	l_seq int not null,
 	m_id varchar(45) not null,
 	primary key (lb_seq)
-)
+);
 alter table lecture_basket
 	add constraint FK_lecture_basket_l_seq_lecture_l_seq foreign key (l_seq)
 		references lecture (l_seq) on delete restrict on update restrict;
@@ -320,3 +323,23 @@ alter table lecture_basket
 
 select * from lecture_basket
 
+select * from lecture 
+	where l_seq = (select l_seq from lecture_check where m_id= 'wogus1077');
+
+-- 강의태그 테이블
+create table lecture_tag
+(
+	lt_seq int not null auto_increment,
+	l_seq int not null,
+	lt_class varchar(45) not null,
+	lt_lang varchar(45) not null,
+	lt_payment varchar(45) not null,
+	lt_field varchar(45) not null,
+	primary key(lt_seq)
+);
+alter table lecture_tag
+	add constraint fk_lecture_tag_l_seq_lecture_l_seq foreign key(l_seq)
+	references lecture(l_seq) on delete restrict on update restrict;
+
+insert into lecture_tag
+values(lt_seq, 16, '입문', 'Python', '유료','인공지능')

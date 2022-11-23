@@ -34,6 +34,8 @@ public interface LectureMapper {
 
 	void deleteBasket(LectureBasketVO vo);
 
+	List<LectureVO> myLecture(String m_id);
+
 
 	
 }

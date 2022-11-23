@@ -30,7 +30,7 @@ public class LectureController {
 	@RequestMapping("/lecture.do")
 	public String lecture(Model model) {
 		
-		List<LectureVO> list= mapper.selectLecture();
+		List<LectureVO> list = mapper.selectLecture();
 		model.addAttribute("list", list);
 		
 		return "/lecture/lecture";
@@ -109,5 +109,47 @@ public class LectureController {
 		
 		return "redirect:/enterBasket.do?m_id=" + m_id ;
 	}
+	
+	// 내 강의인트로페이지 이동 기능
+	@RequestMapping("/myLecture.do")
+	public String myLecture(HttpSession session, Model model, HttpServletResponse response) throws IOException {
+		String m_id = (String) session.getAttribute("id");
+		System.out.println(m_id);
+		if(m_id == null) {
+			ScriptUtils.alertAndBackPage(response, "로그인을 한 회원만 이용할 수 있습니다.");
+			return "";
+		}else {
+			List<LectureVO> list = mapper.myLecture(m_id);
+			model.addAttribute("list", list);
+			
+			return "/lecture/myLecture";
+		}
+	}
+	
+	// 내 강의 인트로에서 상세페이지로 이동 기능
+	@RequestMapping("/myLecDetail.do")
+	public String myLecDetail(int l_seq, Model model) {
+		
+		LectureVO vo = mapper.selectDetail(l_seq);
+		model.addAttribute("vo", vo);
+		
+		List<LectureVO> list = mapper.selectIndex(l_seq);
+		model.addAttribute("list", list);
+		
+		List<LectureReviewVO> rList = mapper.selectReview(l_seq);
+		model.addAttribute("rList", rList);
+		
+		LectureReviewVO vo2 = mapper.starAvg(l_seq);
+		model.addAttribute("vo2", vo2);
+		
+		return "/lecture/myLecDetail";
+		
+	}
+	// 선택된 태그의 강의만 빼오기
+	/* @RequestMapping("/selectLecSelect")
+	 * public @ResponseBody String selectLecSelect(){
+	 * 
+	 * }
+	 * */
 	
 }

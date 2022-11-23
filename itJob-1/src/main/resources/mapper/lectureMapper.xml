@@ -58,6 +58,13 @@
 	delete from lecture_basket where m_id = #{m_id} and l_seq = #{l_seq}
 </delete>
 
+<!-- 나의 수강한 강의 정보 가져오는 쿼리 -->
+<select id="myLecture" parameterType="String" resultType="com.five.member.entity.LectureVO">
+	select * from lecture 
+	where l_seq = (select l_seq from lecture_check where m_id=#{m_id})
+</select>
+
+
 
 
 </mapper>
