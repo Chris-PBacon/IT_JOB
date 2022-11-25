@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,16 +43,8 @@
 <link rel="stylesheet" href="./css/main.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<!-- Bootstrap cdn 설정 -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -140,10 +132,10 @@ h1.mb30 {
 <body>
 
 
- <!--헤드부분 시작-->
-    <div class="header-wrapper">
+<!--헤드부분 시작-->
+    <div class="header-wrapper" style="z-index: 111;">
         <div class="container">
-            <div class="row" style="display: flex; align-items: center;">
+            <div class="row" style="display: flex; align-items: center; width: 100% ">
                 <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
 
                     <!--로고 이미지 부분-->
@@ -151,8 +143,8 @@ h1.mb30 {
                         <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-                    <div class="navigation-wrapper">
+                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12" style="justify-content: center; display: flex; width: 60%;">
+                    <div class="navigation-wrapper" style="display: flex; justify-content: center;">
 
                         <!--메뉴 시작-->
                         <div id="navigation">
@@ -178,12 +170,25 @@ h1.mb30 {
                                 </li>
 
                                 <li><a href="board.do" title="">IT 게시판</a></li>
+                                
+                                 <li class="has-sub"><a href="#" title="">마이페이지</a>
+                                    <ul>
+                                        <li><a href="#" title="">내 강의</a></li>
+                                        <li><a href="#" title="">수강바구니</a></li>
+                                        <li><a href="#" title="">학습현황</a></li>
+                                        <li><a href="#" title="">이력서</a></li>
+                                        <li><a href="#" title="">지원내역</a></li>
+                       
+                                    </ul>
+                                </li>
+                                
                             </ul>
 
                         </div>
                         <!-- 메뉴 부분 끝-->
                     </div>
                 </div>
+                
                 <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
                 <c:choose> 
                 
@@ -191,28 +196,39 @@ h1.mb30 {
                 	<div style="                	
                 	    display: flex;
     					width: 400px;
-    					align-items: center;              	
+    					align-items: center;  
+    					justify-content: space-around;
+         	
                 	" >
                 	<span style="margin-right: 30px;">${id} 님 환영합니다!</span>
-                		<a href="logOutNE.do" class="btn btn-primary">로그아웃</a>
-              			
-                	</div>
-              			
-              			
-             		</c:when> 
-             		
+                		<a href="logOutNE.do" class="btn btn-primary">로그아웃</a> 
+                		
+                		<c:choose>
+		                	<c:when test="${num eq '1'}">
+		                		<a href="updateN.do?id=${id}" class="btn btn-primary">회원정보수정</a>  
+		                	</c:when> 
+		                	<c:otherwise>
+		                		<a href="updateE.do?id=${id}" class="btn btn-primary">회원정보수정</a> 
+		                	</c:otherwise>
+		                	   
+	                	</c:choose>
+	                	     			
+                	</div>                	            			            			
+             		</c:when>   
+             		          		
               		<c:otherwise>
               			<a href="selectNE.do" class="btn btn-primary">로그인</a>
-              		</c:otherwise>
-              		
-              	</c:choose>
-              	
-              	
+              		</c:otherwise>             		
+              	</c:choose>                          	
                 </div>
             </div>
+            
         </div>
     </div>
     <!-- 헤드부분 끝!!! -->
+
+
+
 
 	<!-- page-header-start -->
 	<div class="page-header">
@@ -276,9 +292,33 @@ h1.mb30 {
 
 
 		<script type="text/javascript">
+	
+		///=====자동 검색 기능======
+		//keydown ,keypress, keyup
+			$('#input_keyword').on("keyup", function(){
+				var search = $("#input_keyword").val();
+				
+				if(search.length>0){
+					$.ajax({
+						url : "searchList.do",
+						type : "POST",
+						data : {"search" : search},
+						dataType : "JSON",
+						success :resultJSON,
+						error : function(e){
+							console.log(e);
+						}						
+					});///ajax
+					
+				}//if
+				else{
+					$("#list").empty();
+				}//else
+			
+			} );////
 
 		
-		//### info 리스트 함수
+		//=====info 리스트 함수=====
         $("#info").on('click',function restBoardInfo (){
  			
  			$.ajax({
@@ -292,7 +332,7 @@ h1.mb30 {
  			})	
  		}) ; ///restBoardInfo 함수 끝
 		
-		//### free 리스트 함수
+		//=====free 리스트 함수=====
         $("#free").on('click',function restBoardFree (){
  			
  			// 자바스크립트의 객체 표현 방식 JSON 중괄호로 표시 {}
@@ -307,7 +347,7 @@ h1.mb30 {
  			})	
  		}) ; ///restBoardFree 함수 끝
 		
-		//### QnA 리스트 함수
+		//===== QnA 리스트 함수 =====
         $("#qna").on('click',function restBoardQnA (){
  			
  			// 자바스크립트의 객체 표현 방식 JSON 중괄호로 표시 {}
@@ -322,7 +362,7 @@ h1.mb30 {
  			})	
  		}) ; ///restBoardQnA 함수 끝
  		
- 		//### Json 게시글 데이터 가져오는 함수
+ 		//===== Json 게시글 데이터 가져오는 함수 =====
  		function resultJSON(data){
  			console.log(data);			
  		var html = "<span></span>";			
@@ -348,7 +388,7 @@ h1.mb30 {
 			</table>
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-					<a href="#" class="btn btn-default btn-sm mb20">글쓰기</a>
+					<a href="boardWrite.do" class="btn btn-default btn-sm mb20">글쓰기</a>
 				</div>
 			</div>
 			<hr>

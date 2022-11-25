@@ -28,6 +28,17 @@
 		where b_type = 'qna'
 		order by b_date
 	</select>
+	
+	
+	<!-- 작성자 검색 기능 --> 
+	
+	<select id="searchList" resultType="com.five.member.entity.BoardVO">
+	    select * from board where m_id like concat('%',#{search},'%')
+	    	    
+	</select>
+	
 
+	
+	
 
 </mapper>

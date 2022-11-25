@@ -44,7 +44,7 @@ from member_ent
 
 drop table member_ent
 
-
+select * from member
 
 
 DESC BOARDQNA
@@ -151,7 +151,9 @@ CREATE INDEX blog_post_Index_1
 
 
 
-select * from member_ent
+select * from board
+
+select * from member
 
 
 

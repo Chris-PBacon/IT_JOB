@@ -17,4 +17,6 @@ public interface BoardMapper {
 
 	List<BoardVO> restBoardFree();
 
+	List<BoardVO> searchList(String search);
+
 }

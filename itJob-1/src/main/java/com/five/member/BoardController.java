@@ -21,13 +21,24 @@ public class BoardController {
 	public String board() {
 		return "/board/board";
 	}
-
+	
+	
 
 	// 글쓰기 페이지로 이동
 	@RequestMapping("/boardWrite.do")
 	public String boardWrite() {
 		return "/board/boardWrite";
 	}
+	
+
+	
+	// ======= 비동기 : 작성자 검색 기능 =======
+		@RequestMapping("/searchList.do")
+		public @ResponseBody List<BoardVO> searchList(String search) {
+			
+			List<BoardVO> list = mapper.searchList(search);
+			return list;
+		}
 
 	// ======= 비동기 : info 리스트 불러오기=======
 	@RequestMapping("/restBoardInfo.do")

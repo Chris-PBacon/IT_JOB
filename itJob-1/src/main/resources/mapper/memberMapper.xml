@@ -4,19 +4,37 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.five.member.mapper.MemberMapper">
+
+
 	<!-- 일반회원 회원가입 쿼리 -->
   <insert id="joinN" parameterType="com.five.member.entity.memberNVO">
 	insert into member
 	values (#{m_id}, #{m_pw}, #{m_name}, #{m_birth}, #{m_email}, #{m_phone}, #{m_place}, #{m_type})
   </insert>
   
+ 	
+ 	
+ 	
+ 	
  	<!-- 일반회원 로그인 쿼리 -->
+ 	
+ 	<!-- 
+ 	id : 기능이름    parameterType :매개변수 타입   resultType: 결과물 타입
+ 	
+ 	 -->
   <select id="loginN" parameterType="com.five.member.entity.memberNVO" resultType="com.five.member.entity.memberNVO">
-  	select *
-  	from member
-  	where m_id = #{m_id}
-  	and m_pw = #{m_pw}
+  	
+  	
+  	select * from member
+  	
+  	where m_id = #{m_id} and m_pw = #{m_pw}
+  	
+  	
   </select>
+  
+
+  
+  
   
 	<!-- 기업회원 회원가입 쿼리 -->
   <insert id="joinE" parameterType="com.five.member.entity.memberEVO">
@@ -31,4 +49,25 @@
   	where e_id = #{e_id}
   	and e_pw = #{e_pw}
   </select>
+  
+  
+  	<!-- 일반회원정보 가져오기 -->
+  <select id="updateN" parameterType="String" resultType="com.five.member.entity.memberNVO">
+  	select *
+  	from member
+  	where m_id = #{id}
+  	
+  </select>
+  
+    	<!-- 기업회원정보 가져오기 -->
+  <select id="updateE" parameterType="String" resultType="com.five.member.entity.memberEVO">
+  	select *
+  	from member_ent
+  	where e_id = #{id}
+  	
+  </select>
+  
+  
+  
+  
 </mapper>

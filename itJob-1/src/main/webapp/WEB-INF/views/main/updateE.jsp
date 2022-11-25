@@ -1,3 +1,5 @@
+<%@page import="com.five.member.entity.memberEVO"%>
+<%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -32,6 +34,8 @@
 
   <!--로그인폼 css-->
     <link rel="stylesheet" href="/css/join.css">
+
+ 
 
 </head>
 
@@ -132,27 +136,34 @@
 
 
 
-<!--로그인 회원가입 시작-->
-  <h2>로그인 / 회원가입 페이지임</h2>
 
-<!--회원가입 부분-->
+<!--로그인 회원가입 시작-->
+  <h2>기업 회원정보 수정페이지</h2>
+
+<!--정보 수정 부분-->
   <div class="container1" id="containerf" style="margin: auto; margin-top: 100px; margin-bottom: 100px; height: 600px;" >
     <div class="form-container sign-up-container" >  
     
-      <form action="joinN.do" method="post">
-        <h1>회원가입</h1>
+      <form action="udpateE.do" method="post">
+        <h1>정보수정</h1>
         <div class="social-container">
 
         </div>
-        <input type="text" name="m_name" placeholder="Name" />
-        <input type="text" name="m_id" placeholder="ID" />
-        <input type="password" name="m_pw" placeholder="Password" />
-        <input type="date" name="m_birth" placeholder="생년월일" />
-        <input type="email" name="m_email" placeholder="Email" />
-        <input type="number" name="m_phone" placeholder="Phone :  ' - '없이 숫자만 입력" />
+        <input type="text" name="e_name"  value="${evo.e_name}" readonly="readonly" />
+        
+        <input type="text" name="e_id" value="${evo.e_id}" readonly="readonly" />
+        
+        <input type="password" name="e_pw" value="${evo.e_pw}" />
+        
+        <input type="text" name="e_num" value="${evo.e_num }" />
+        
+        <input type="email" name="e_email" value="${evo.e_email}" />
+        
+        <input type="number" name="e_phone" value="${evo.e_phone}" />
+        
         <div style="display: flex; align-items: center;">
          <span style="font-size: 18px; margin: 20px; margin-bottom: 25px;">희망 근무지 : </span> 
-         	<select name="m_place" >
+         	<select name="e_place" >
             <option value>시/도 선택</option>
             <option value="강원">강원</option>
             <option value="경기">경기</option>
@@ -174,57 +185,80 @@
           </select>
         </div>
        
-        <input type="hidden" name="m_type" value="1"/>
- 
-        <button type="submit">회원가입</button>
+        <button type="submit">수정완료</button>
         
       </form>
     </div>
 
 
-    <!--일반회원 로그인 부분-->
-    <div class="form-container sign-in-container">
+
+    <!--마이페이지 부분-->
+        <%
+    
+	memberEVO evo = (memberEVO)request.getAttribute("nvo");
+    
+    String phoneNum = evo.getE_phone();
   
-      <form action="loginN.do" method='post'>
-      
-      
-        <h1>로그인</h1>
+    // 마스킹 조건문
+    if(phoneNum != null && !"".equals(phoneNum)){
+    	phoneNum = phoneNum.substring(0,3) + "****" 
+        		+ phoneNum.substring(phoneNum.length()-4, phoneNum.length());
+    }
+    System.out.println("휴대폰 번호 마스킹 : " + phoneNum);
+    %>
+
+
+  
+
+   <div class="form-container sign-in-container" >  
+    
+      <form action="#">
+        <h1>마이페이지</h1>
         <div class="social-container">
-          
+
+        </div>
+        <input type="text"  value="${evo.e_name }" placeholder="Name" readonly="readonly"/>
+        <input type="text"  value="${evo.e_id }" placeholder="ID" readonly="readonly"/>
+        
+        <input type="password" value="${evo.e_pw }" placeholder="Password" readonly="readonly"/>
+        
+        <input type="text" value="${evo.e_num }" readonly="readonly"/>
+        
+        <input type="email" value="${evo.e_email }" placeholder="Email" readonly="readonly"/>
+        
+        <input type="text" value="<%=phoneNum %>" readonly="readonly"/>
+        
+		 <div style="display: flex; align-items: center;">
+         <span style="font-size: 18px; margin: 20px; margin-bottom: 25px;">희망 근무지 : ${evo.e_place} </span> 
+         	
         </div>
         
-        <input type="text" name="m_id" placeholder="ID" />
-        
-        
-        <input type="password" name="m_pw" placeholder="Password" /> 
-        
-        
-        <a href="#">Forgot your password?</a>
-        
-        <button type="submit">로그인</button>
-      
-      </form>
-      
-      
-      
-      
+   
+
+ 
+        <button type="button"><a href="main.do" style="color: white;">홈으로</a></button>
+       </form> 
       
     </div>
+        
+        
+        
+
 
     <!--오버레이 부분-->
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
           <h1 style="color: white;">Welcome!!</h1>
-          <p>회원가입을 하신 후 로그인을 해주세요!</p>
-          <button class="ghost" id="signIn">로그인</button>
+          <p>수정을 다 하셨다면 '수정완료' 버튼을 클릭!</p>
+          <button class="ghost" id="signIn">마이페이지</button>
         </div>
 
 
         <div class="overlay-panel overlay-right">
-          <h1 style="color: white;">Hello, Friend!</h1>
-          <p>처음 방문 하셨다면 회원가입을 해주세요!</p>
-          <button class="ghost" id="signUp">회원가입</button>
+          <h1 style="color: white;">Update, Profile!</h1>
+          <p>당신의 회원 정보를 수정하고 싶나요?</p>
+          <button class="ghost" id="signUp">정보수정</button>
         </div>
       </div>
     </div>

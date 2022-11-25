@@ -12,15 +12,24 @@ import com.five.member.entity.memberNVO;
 public interface MemberMapper {
 
 	// 일반회원 회원가입
-	public void joinN(memberNVO vo);
+	public void  joinN(memberNVO vo);
 	
 	// 일반회원 로그인
-	public memberNVO loginN(memberNVO vo);
+	public memberNVO   loginN        (memberNVO vo);
+	
+	//   반환타입(결과물)  / 기능(함수)이름  / (필요한요소,매개변수 )
+	
+	
 	
 	// 기업회원 회원가입
-	public void joinE(memberEVO vo);
+	public void        joinE(memberEVO vo);
 	
 	// 기업회원 로그인
-	public memberEVO loginE(memberEVO vo);
+	public memberEVO      loginE(memberEVO vo);
+
+	// 일반회원정보수정 페이지 이동
+	public memberNVO updateN(String id);
+	// 기업회원정보수정 페이지 이동
+	public memberEVO updateE(String id);
 
 }
