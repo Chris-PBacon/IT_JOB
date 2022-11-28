@@ -23,4 +23,7 @@ public interface MemberMapper {
 	// 기업회원 로그인
 	public memberEVO loginE(memberEVO vo);
 
+	// 회원 정보를 꺼내오는 기능
+	public memberNVO selectMemberInfo(String m_id);
+
 }

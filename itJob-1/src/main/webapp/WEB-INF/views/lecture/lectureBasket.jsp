@@ -84,7 +84,14 @@
                                   </ul>
                               </li>
 
-                              <li><a href="lecture.do" title="">강의</a></li>
+                              <li class="has-sub"><a href="lecture.do" title="">강의</a>
+                              		<ul>
+                                      <li><a href="lecture.do" title="">전체 강의</a></li>
+                                      <li><a href="myLecture.do" title="">내 강의 </a></li>
+                                      <li><a href="enterBasket.do" title="">강의 장바구니 </a></li>
+                                  </ul>
+                              
+                              </li>
 
 
                               <li class="has-sub"><a href="#" title="">채용</a>
@@ -152,7 +159,7 @@
 	                      <input type="checkbox" name="lecture" value="${lecture.l_seq }">
 	                      <img class="lec-img" alt="" src="${lecture.l_img }">
 	                      <a href="lectureDetail.do?l_seq=${lecture.l_seq }"> ${lecture.l_title } </a>
-	                      <h4 class="lec-price">${lecture.l_price } 원</h4>
+	                      <h4 id="result" class="lec-price">${lecture.l_price } 원</h4>
 	                    </div>
                     </c:forEach>
   					<input type="hidden" name="m_id" value="${id}">
@@ -179,9 +186,9 @@
               <div>
                 <h3><strong>구매자 정보</strong></h3>
                 <hr>
-                <h5>이름 : 백재현</h5>
-                <h5>이메일 : wogus1077@naver.com</h5>
-                <h5>휴대폰 번호 : +82 01022179554</h5>
+                <h5>이름 : ${vo.m_name}</h5>
+                <h5>이메일 : ${vo.m_email}</h5>
+                <h5>휴대폰 번호 : +82 ${vo.m_phone}</h5>
               </div>
               
              </div>
@@ -191,13 +198,22 @@
 
         <!-- 결제금액 + 버튼 위젯 -->
 
+
         <div class=" widget">
           <form>
             <div class="">
               <div>
-                <h5>선택상품 금액</h5>
-                <h5 style="color: red;">할인 금액</h5>
-                <h5><strong>총 결제금액</strong></h5>
+                <h5>선택상품 금액 </h5>
+                <c:set var = "total" value = "0" />
+
+				<c:forEach var="result" items="${list}" varStatus="status">    
+				
+				<c:set var= "total" value="${total + result.l_price}"/>
+				
+				</c:forEach>
+				
+				
+                <h5><strong>총 합계금액 : ${total} 원</strong></h5>
                 <button class="btn btn-primary btn-lg" type="button" style="background-color: blue; color: white;" >결제하기</button>
               </div>
               
@@ -294,6 +310,16 @@
       checkbox.checked = selectAll.checked;
     })
 } </script>
+ <!-- 1000단위 ,(콤마) 찍어주는 JS -->
+<script type="text/javascript">
+	const numberWithCommas  = (x) => {
+	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	document.querySelector('#result').innerText = ' ￦ ' + numberWithCommas();
+
+
+</script>
  
 </body>
 </html>

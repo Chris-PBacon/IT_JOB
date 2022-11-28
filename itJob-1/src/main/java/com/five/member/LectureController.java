@@ -18,13 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.five.member.entity.LectureBasketVO;
 import com.five.member.entity.LectureReviewVO;
 import com.five.member.entity.LectureVO;
+import com.five.member.entity.memberNVO;
 import com.five.member.mapper.LectureMapper;
+import com.five.member.mapper.MemberMapper;
 
 @Controller
 public class LectureController {
 
 	@Autowired
 	LectureMapper mapper;
+	@Autowired
+	MemberMapper mapper2;
+	
 	
 	// 강의 페이지 이동
 	@RequestMapping("/lecture.do")
@@ -84,11 +89,20 @@ public class LectureController {
 	}
 	// 그냥 장바구니 페이지 이동
 	@RequestMapping("/enterBasket.do")
-	public String enterBasket(String m_id, Model model) {
+	public String enterBasket(HttpSession session, Model model, HttpServletResponse response) throws IOException {
 		
-		List<LectureVO> list = mapper.selectBasketBasic(m_id);
-		model.addAttribute("list", list);
-		return "lecture/lectureBasket";
+		String m_id = (String) session.getAttribute("id");
+		if(m_id == null) {
+			ScriptUtils.alertAndBackPage(response, "로그인을 한 회원만 이용할 수 있습니다.");
+			return "";
+		}else {
+			List<LectureVO> list = mapper.selectBasketBasic(m_id);
+			model.addAttribute("list", list);
+			memberNVO vo = mapper2.selectMemberInfo(m_id);
+			model.addAttribute("vo", vo);
+			return "lecture/lectureBasket";
+		}
+		
 	}
 	
 	

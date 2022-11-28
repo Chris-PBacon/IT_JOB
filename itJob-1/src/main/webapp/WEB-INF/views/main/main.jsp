@@ -118,8 +118,14 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="lecture.do" title="">강의</a></li>
-
+                                <li class="has-sub"><a href="lecture.do" title="">강의</a>
+                              		<ul>
+                                      <li><a href="lecture.do" title="">전체 강의</a></li>
+                                      <li><a href="myLecture.do" title="">내 강의 </a></li>
+                                      <li><a href="enterBasket.do" title="">강의 장바구니 </a></li>
+                                  </ul>
+                              
+                              </li>
 
                                 <li class="has-sub"><a href="#" title="">채용</a>
                                     <ul>

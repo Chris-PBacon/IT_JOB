@@ -36,6 +36,8 @@ public interface LectureMapper {
 
 	List<LectureVO> myLecture(String m_id);
 
+	
+
 
 	
 }

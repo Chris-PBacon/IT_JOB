@@ -31,4 +31,11 @@
   	where e_id = #{e_id}
   	and e_pw = #{e_pw}
   </select>
+  
+  <!-- 회원정보 꺼내오는 쿼리  -->
+  <select id="selectMemberInfo" parameterType="String" resultType="com.five.member.entity.memberNVO">
+  	select * 
+  	from member
+  	where m_id = #{m_id}
+  </select>
 </mapper>

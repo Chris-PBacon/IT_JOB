@@ -119,7 +119,8 @@
                               <li class="has-sub"><a href="lecture.do" title="">강의</a>
                               		<ul>
                                       <li><a href="lecture.do" title="">전체 강의</a></li>
-                                      <li><a href="myLecture.do" title="">내강의 </a></li>
+                                      <li><a href="myLecture.do" title="">내 강의 </a></li>
+                                      <li><a href="enterBasket.do" title="">강의 장바구니</a> </li>
                                   </ul>
                               
                               </li>
@@ -296,7 +297,15 @@
           <form>
             <div class="">
               <div>
-                <h1><strong>￦ ${vo.l_price }</strong></h1>
+              	<c:choose>
+              	<c:when test="${vo.l_price eq 0 }">
+              		<h1><strong>무료 강의</strong></h1>
+              	</c:when>
+              	<c:otherwise>
+              		<h1 id="result"><strong>￦ ${vo.l_price }</strong></h1>
+              	</c:otherwise>
+              	</c:choose>
+                
               </div>
               <div>
                 <a href="lectureBasket.do?l_seq=${vo.l_seq }&m_id=${id}"><button class="btn btn-primary btn-lg" type="button" style="background-color: blue; color: white;" >수강 하기</button></a>
@@ -385,6 +394,17 @@
 <script src="/js/menumaker.js" type="text/javascript"></script> 
 <script type="text/javascript" src="/js/jquery.sticky.js"></script> 
 <script type="text/javascript" src="/js/sticky-header.js"></script> 
+
+ <!-- 1000단위 ,(콤마) 찍어주는 JS -->
+<script type="text/javascript">
+	const numberWithCommas  = (x) => {
+	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	document.querySelector('#result').innerText = ' ￦ ' + numberWithCommas(${vo.l_price });
+
+
+</script>
  
 </body>
 </html>
