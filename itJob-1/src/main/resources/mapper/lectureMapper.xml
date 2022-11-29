@@ -12,7 +12,7 @@
 
 <!-- 강의상세페이지 강의목차 가져오는 쿼리 -->
 <select id="selectIndex" parameterType="int" resultType="com.five.member.entity.LectureVO">
-	select li.li_order, li.li_content from lecture l, lecture_index li where l.l_seq= li.l_seq and l.l_seq = #{l_seq}
+	select li.li_seq, li.li_order, li.li_content from lecture l, lecture_index li where l.l_seq= li.l_seq and l.l_seq = #{l_seq} order by li.li_order asc
 </select>
 
 <!-- 강의상세페이지 강의정보 가져오는 쿼리 -->
@@ -26,6 +26,10 @@
 </select>
 
 <select id="starAvg" parameterType="int" resultType="com.five.member.entity.LectureReviewVO">
+	select count(*) review_cnt, round(avg(lg_star),1) avg_star from lecture_grade where l_seq = #{l_seq} 
+</select>
+
+<select id="starAvg2" parameterType="int" resultType="com.five.member.entity.LectureVO">
 	select count(*) review_cnt, round(avg(lg_star),1) avg_star from lecture_grade where l_seq = #{l_seq} 
 </select>
 
@@ -60,11 +64,33 @@
 
 <!-- 나의 수강한 강의 정보 가져오는 쿼리 -->
 <select id="myLecture" parameterType="String" resultType="com.five.member.entity.LectureVO">
-	select * from lecture 
-	where l_seq = (select l_seq from lecture_check where m_id=#{m_id})
+	select * from lecture
+	where l_seq in (select l_seq from lecture_check where m_id = #{m_id});
 </select>
 
+<!-- 결제한 강의 수강체크 테이블에 추가 -->
+<insert id="insertLectureCheck" parameterType="hashmap">
+	insert into lecture_check
+	values (lc_seq, #{l_seq}, #{m_id})
+</insert>
 
+<!-- 결제한 강의 장바구니에서 삭제 -->
+<delete id="deletePaidBasket" parameterType="hashmap">
+	delete from lecture_basket 
+	where m_id = #{m_id} and l_seq = #{l_seq} 
+</delete>
 
+<!-- 강의 비디오 가져오기  -->
+<select id="videoSelect" parameterType="String" resultType="com.five.member.entity.LectureVO">
+	select * from lecture_index where li_seq = #{li_seq}
+</select>
+<!-- 이전 강의 -->
+<select id="videoSelectF" parameterType="com.five.member.entity.LectureVO" resultType="com.five.member.entity.LectureVO">
+	select * from lecture_index where li_order = (#{li_order}-1) and l_seq = #{l_seq}
+</select>
+<!-- 다음 강의 -->
+<select id="videoSelectB" parameterType="com.five.member.entity.LectureVO" resultType="com.five.member.entity.LectureVO">
+	select * from lecture_index where li_order = (#{li_order}+1) and l_seq = #{l_seq}
+</select>
 
 </mapper>

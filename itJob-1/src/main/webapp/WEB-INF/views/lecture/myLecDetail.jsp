@@ -176,7 +176,7 @@
             </a>
           </div>
           <div class="post-content" style="float: left; padding-left: 40px; padding-top: 20px;">
-            <h4 style="color: white;">웹 개발자 > 백엔드</h4>
+            <h4 style="color: white;">${vo.l_type }</h4>
             <h2 style="color: white;">${vo.l_title }</h2>
             <h4 style="color: white;">
              <c:choose>
@@ -189,7 +189,7 @@
              (${vo2.avg_star }) ${vo2.review_cnt }개의 수강평
              </h4>
             <h4 style="color: white;">🙍‍♂️ ${vo.l_teacher }</h4>
-            <h4 style="color: white;"># SPRINGBOOT / JAVA / SPRING / BACK_END</h4>
+            <h4 style="color: white;"># ${vo.l_language } / ${vo.l_level } </h4>
           </div>
         </div>
       </div>
@@ -223,7 +223,7 @@
                   <div>
                     <h2>커리큘럼</h2>
                     <c:forEach items="${list}" var="index" varStatus="i">
-	                    <div class="lec-index"><a href=""> ${index.li_order}강. ${index.li_content}</a></div>
+	                    <div class="lec-index"><a href="lecturePlay.do?li_seq=${index.li_seq }"> ${index.li_order}강. ${index.li_content}</a></div>
                     </c:forEach>
                   </div>
 

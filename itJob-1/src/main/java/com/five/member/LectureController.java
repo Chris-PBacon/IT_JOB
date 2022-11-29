@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +38,7 @@ public class LectureController {
 	public String lecture(Model model) {
 		
 		List<LectureVO> list = mapper.selectLecture();
+		
 		model.addAttribute("list", list);
 		
 		return "/lecture/lecture";
@@ -159,11 +162,59 @@ public class LectureController {
 		return "/lecture/myLecDetail";
 		
 	}
-	// 선택된 태그의 강의만 빼오기
-	/* @RequestMapping("/selectLecSelect")
-	 * public @ResponseBody String selectLecSelect(){
-	 * 
-	 * }
-	 * */
+	// 강의 결제 -> 수강확인테이블에 체크
+	@RequestMapping("/payment.do")
+	public String insertMyLecture(HttpServletRequest request) {
+		String[] array = request.getParameterValues("lecture");
+		String m_id = request.getParameter("m_id");
+		System.out.println(array[0]);
+		HashMap<String, Object> map= new HashMap<String,Object>();
+		 for(int i=0; i<array.length; i++) {
+			map.put("l_seq", array[i]);
+			map.put("m_id", m_id);
+			mapper.insertLectureCheck(map);
+			//구매한 강의는 장바구니에서 삭제
+			mapper.deletePaidBasket(map);
+		}
+		
+		 
+		
+		return "redirect:/myLecture.do" ;
+		
+	}
+	
+	// 강의 재생페이지로 이동
+	@RequestMapping("/lecturePlay.do")
+	public String lecturePlay(String li_seq, Model model) {
+		
+		LectureVO lvo = mapper.videoSelect(li_seq);
+		
+		model.addAttribute("vo", lvo);
+		
+		return "/lecture/lecturePlay";
+	}
+	
+	// 이전 강의로 이동
+	@RequestMapping("/lecturePlayF.do")
+	public String lecturePlayF(LectureVO vo, Model model) {
+		
+		LectureVO lvo = mapper.videoSelectF(vo);
+		
+		model.addAttribute("vo", lvo);
+		
+		return "/lecture/lecturePlay";
+	}
+	
+	// 다음 강의로 이동
+	@RequestMapping("/lecturePlayB.do")
+	public String lecturePlayB(LectureVO vo, Model model) {
+		
+		LectureVO lvo = mapper.videoSelectB(vo);
+		
+		model.addAttribute("vo", lvo);
+		
+		return "/lecture/lecturePlay";
+	}
+	
 	
 }

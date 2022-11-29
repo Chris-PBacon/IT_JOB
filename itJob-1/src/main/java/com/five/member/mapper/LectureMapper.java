@@ -1,5 +1,6 @@
 package com.five.member.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -36,8 +37,17 @@ public interface LectureMapper {
 
 	List<LectureVO> myLecture(String m_id);
 
+	LectureVO starAvg2(int l_seq);
+
+	void insertLectureCheck(HashMap<String, Object> map);
+
+	void deletePaidBasket(HashMap<String, Object> map);
+
+	LectureVO videoSelect(String li_seq);
+
+	LectureVO videoSelectF(LectureVO vo);
+
+	LectureVO videoSelectB(LectureVO vo);
 	
-
-
 	
 }

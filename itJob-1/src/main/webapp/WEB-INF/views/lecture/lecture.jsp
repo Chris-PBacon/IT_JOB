@@ -288,8 +288,17 @@
 	          </div>
 	          <div class="service-content c_lec">
 	            <h3><a href="lectureDetail.do?l_seq=${lecture.l_seq }" class="title">${lecture.l_title }</a></h3>
-	            <p>${lecture.l_teacher }</p>
-	            <a href="" class="btn-link">￦${lecture.l_price }</a></div>
+	            <h4>${lecture.l_teacher }</h4>
+	            <h4>
+	            <c:choose>
+                <c:when test="${lecture.avg_star eq '5'}">★★★★★</c:when>
+                <c:when test="${lecture.avg_star >= '4'}">★★★★☆</c:when>
+                <c:when test="${lecture.avg_star >= '3'}">★★★☆☆</c:when>
+                <c:when test="${lecture.avg_star >= '2'}">★★☆☆☆</c:when>
+                <c:when test="${lecture.avg_star >= '1'}">★☆☆☆☆</c:when>
+	       	    </c:choose>
+	       	    ${lecture.review_count }</h4>
+	            <h5 id='result'><a href="" class="btn-link">￦ ${lecture.l_price }</a></h5></div>
 	        </div>
 	      </div>
       </c:forEach>
@@ -402,8 +411,15 @@ for (var i = 0; i < menuLinks.length; i++){
     $('.btn').removeClass("btn-active");
     
   }
-  
 </script>
- 
+<!-- 1000단위 ,(콤마) 찍어주는 JS -->
+<script type="text/javascript">
+	const numberWithCommas  = (x) => {
+	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	document.querySelector('#result').innerText = ' ￦ ' + numberWithCommas();
+</script>
+
 </body>
 </html>
