@@ -22,13 +22,12 @@ public class BoardController {
 		return "/board/board";
 	}
 
-
 	// 글쓰기 페이지로 이동
 	@RequestMapping("/boardWrite.do")
 	public String boardWrite() {
 		return "/board/boardWrite";
 	}
-
+	
 	// ======= 비동기 : info 리스트 불러오기=======
 	@RequestMapping("/restBoardInfo.do")
 	public @ResponseBody List<BoardVO> restBoardInfo() {
@@ -53,7 +52,4 @@ public class BoardController {
 		return list;
 	}
 
-	
-	
-	
 }////

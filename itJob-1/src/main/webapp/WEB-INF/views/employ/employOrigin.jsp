@@ -172,7 +172,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12">
                     <div class="section-title">
-                        <h2>000님 추천 채용공고 입니다</h2>
+                        <h2>${id}닙 추천 채용공고입니다.</h2>
                     </div>
                 </div>
             </div>

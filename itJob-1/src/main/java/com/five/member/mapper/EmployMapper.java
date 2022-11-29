@@ -15,10 +15,10 @@ public interface EmployMapper {
 	// EmployVo불러오기
 	List<EmployVO> employList();
 	
-	List<EmployVO> employExp();
+	// 추천 채용공고 List
+	List<EmployVO> personList(String id);
 	
-//	List<EmployVO> employNew();
-	
-	List<EmployVO> employFront();
+	// 채용공고 상세 데이터 LIST
+	List<EmployVO> detailEmployList(Integer seq);
 	
 }

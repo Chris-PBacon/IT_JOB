@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="com.five.member.entity.EmployVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
 <!DOCTYPE html>
@@ -30,36 +32,16 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<link rel="stylesheet" href="/scss/employ.scss">
-
-<script type="text/javascript">
-
-	function window::onload(){test()}
-	
-	function test(){
-		
-		$.ajax({
-			url: "restBoardInfo.do",
-			method: "POST",
-			dataType : "JSON",
-			success : resultJSON,
-			error : function(e) {
-				console.log(e);
-			}				
-		});
-	}
-</script>
 
 
 <style>
-  .contact-block {background: url(https://cafeptthumb-phinf.pstatic.net/MjAyMjEwMDJfMjcw/MDAxNjY0Njc0MTYwMjM4.RgG4ehxULb36zyUuDnfs7xufUGcpDK2aa2Pf7IiMC2Qg.sUHbhJjwVWvDxQgdVOXtIPQm0Jqtg_zNhLNxnk9e-dUg.JPEG/%EC%B9%B4%ED%8E%98%EB%B0%B0%EB%84%88_1080-340.jpg) no-repeat center; background-size: cover; margin: 0px; padding-top: 180px; padding-bottom: 180px; position: relative;}
-  .contact-block {background: url(../images/π⁄«˝ø¯∆“ƒ´∆‰.jpg) no-repeat center; background-size: cover; margin: 0px; padding-top: 180px; padding-bottom: 180px; position: relative;}
 
   .service-icon {    
     margin-left: 25%;
     margin-bottom: 0%;
     
-    }
+   }
+   
   .space-medium{
     margin-top: 0%;
     padding-bottom: 1%;
@@ -113,13 +95,13 @@
 
 <body>
 
- 	<!--«ÏµÂ∫Œ∫– Ω√¿€-->
+ 	<!--Ìó§ÎìúÎ∂ÄÎ∂Ñ ÏãúÏûë-->
     <div class="header-wrapper">
         <div class="container">
             <div class="row" style="display: flex; align-items: center;">
                 <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
 
-                    <!--∑Œ∞Ì ¿ÃπÃ¡ˆ ∫Œ∫–-->
+                    <!--Î°úÍ≥† Ïù¥ÎØ∏ÏßÄ Î∂ÄÎ∂Ñ-->
                     <div class="logo" style="width: 180px;">
                         <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
                     </div>
@@ -127,34 +109,34 @@
                 <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
                     <div class="navigation-wrapper">
 
-                        <!--∏ﬁ¥∫ Ω√¿€-->
+                        <!--Î©îÎâ¥ ÏãúÏûë-->
                         <div id="navigation">
                             <ul>
                                 <li class="active"><a href="main.do" title="">Home</a></li>
 
-                                <li class="has-sub"><a href="#" title="">¡˜π´º“∞≥</a>
+                                <li class="has-sub"><a href="#" title="">ÏßÅÎ¨¥ÏÜåÍ∞ú</a>
                                     <ul>
-                                        <li><a href="job.do" title="">∞≥πﬂ¿⁄ ∑ŒµÂ∏ </a></li>
-                                        <li><a href="jobMBTI.do" title="">¿ÁπÃ∑Œ ∫∏¥¬ MBTI </a></li>
+                                        <li><a href="job.do" title="">Í∞úÎ∞úÏûê Î°úÎìúÎßµ</a></li>
+                                        <li><a href="jobMBTI.do" title="">Ïû¨ÎØ∏Î°ú Î≥¥Îäî MBTI </a></li>
                                     </ul>
                                 </li>
 
-                                <li><a href="lecture.do" title="">∞≠¿«</a></li>
+                                <li><a href="lecture.do" title="">Í∞ïÏùò</a></li>
 
 
-                                <li class="has-sub"><a href="#" title="">√§øÎ</a>
+                                <li class="has-sub"><a href="#" title="">Ï±ÑÏö©</a>
                                     <ul>
-                                        <li><a href="employ.do" title="">√§øÎ¡§∫∏</a></li>
-                                        <li><a href="#" title="">±∏¡˜∞¸∏Æ</a></li>
-                                        <li><a href="resume.do" title="">¿Ã∑¬º≠</a></li>
+                                        <li><a href="employ.do" title="">Ï±ÑÏö©Ï†ïÎ≥¥</a></li>
+                                        <li><a href="#" title="">Íµ¨ÏßÅÍ¥ÄÎ¶¨</a></li>
+                                        <li><a href="resume.do" title="">Ïù¥Î†•ÏÑú</a></li>
                                     </ul>
                                 </li>
 
-                                <li><a href="board.do" title="">IT ∞‘Ω√∆«</a></li>
+                                <li><a href="board.do" title="">IT Í≤åÏãúÌåê</a></li>
                             </ul>
 
                         </div>
-                        <!-- ∏ﬁ¥∫ ∫Œ∫– ≥°-->
+                        <!-- Î©îÎâ¥ Î∂ÄÎ∂Ñ ÎÅù-->
                     </div>
                 </div>
                 <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
@@ -166,396 +148,237 @@
     					width: 400px;
     					align-items: center;              	
                 	" >
-                	<span style="margin-right: 30px;">${id} ¥‘ »Øøµ«’¥œ¥Ÿ!</span>
-                		<a href="logOutNE.do" class="btn btn-primary">∑Œ±◊æ∆øÙ</a>            			
+                	<span style="margin-right: 30px;">${id} Îãò ÌôòÏòÅÌï©ÎãàÎã§!</span>
+                		<a href="logOutNE.do" class="btn btn-primary">Î°úÍ∑∏ÏïÑÏõÉ</a>            			
                 	</div>              			            			
              		</c:when>             		
               		<c:otherwise>
-              			<a href="selectNE.do" class="btn btn-primary">∑Œ±◊¿Œ</a>
+              			<a href="selectNE.do" class="btn btn-primary">Î°úÍ∑∏Ïù∏</a>
               		</c:otherwise>             		
               	</c:choose>                          	
                 </div>
             </div>
         </div>
     </div>
-    <!-- «ÏµÂ∫Œ∫– ≥°!!! -->
+    <!-- Ìó§ÎìúÎ∂ÄÎ∂Ñ ÎÅù!!! -->
  
-
-<!-- ∏ﬁ¿ŒΩ√¿€ -->
+<% List<EmployVO> list = (List<EmployVO>)request.getAttribute("list"); %>
+<% List<EmployVO> pList = (List<EmployVO>)request.getAttribute("pList"); %>
+<!-- Î©îÏù∏ÏãúÏûë -->
 <div class="space">
   <div class="container">
     <div class="row">
 
-  <!-- ∫£≥ ±§∞Ì -->
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-  
-    <!-- slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="../images/π⁄«˝ø¯∆“ƒ´∆‰.jpg" alt="...">
-      </div>
-
-      <div class="item">
-        <img src="../images/¡¶∏Ò≈∑πﬁ≥◊.jpg" alt="...">
-      </div>
-
-      <div class="item">
-        <img src="../images/π⁄«˝ø¯.jpg" alt="...">
-      </div>
-    </div>
-  
-    <!-- ƒ¡∆Æ∑— πˆ∆∞ -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+	  <!-- Î≤†ÎÑàÍ¥ëÍ≥† -->
+	  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	  <!-- Î∞∞ÎÑà ÎÅù -->
+	    <!-- Indicators -->
+	    <ol class="carousel-indicators">
+	      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+	      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+	      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	    </ol>
+	  
+	    <!-- slides -->
+	    <div class="carousel-inner" role="listbox">
+	      <div class="item active">
+	        <img src="../images/Î∞ïÌòúÏõêÌå¨Ïπ¥Ìéò.jpg" alt="...">
+	      </div>
+	
+	      <div class="item">
+	        <img src="../images/Ï†úÎ™©ÌÇπÎ∞õÎÑ§.jpg" alt="...">
+	      </div>
+	
+	      <div class="item">
+	        <img src="../images/Î∞ïÌòúÏõê.jpg" alt="...">
+	      </div>
+	    </div>
+	  
+	    <!-- Ïª®Ìä∏Î°§ Î≤ÑÌäº -->
+	    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	      <span class="sr-only">Previous</span>
+	    </a>
+	    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	      <span class="sr-only">Next</span>
+	    </a>
+	  </div>
+	
+	      <!-- Ï∂îÏ≤úÏ±ÑÏö© -->
+	      <div class="space-medium">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12">
+	                    <div class="section-title">
+		                    <c:choose> 
+			                	<c:when test="${not empty id}">
+			                		<h2>${id}Îãò ÎßûÏ∂§ Ï±ÑÏö©Í≥µÍ≥†ÏûÖÎãàÎã§</h2>    	           			            			
+			             		</c:when>             		
+			              		<c:otherwise>
+			              			<h2>Î°úÍ∑∏Ïù∏ ÌõÑ ÎßûÏ∂§ Ï±ÑÏö©Í≥µÍ≥†Î•º ÌôïÏù∏Ìï¥Î≥¥ÏÑ∏Ïöî!</h2>
+			              		</c:otherwise>             		
+			              	</c:choose>
+	                    </div>
+	                </div>
+	            </div>
+				<!-- Ï∂îÏ≤ú Í≥µÍ≥† ÎÇ¥Ïö© -->
+	            <div class="row">
+	            	<c:choose> 
+			            <c:when test="${not empty pList}">
+			            	          
+				            <% for (int i =0; i<pList.size(); i++){ %>
+				                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				                    <div class="service-block">
+				                        <div class="employ-img">
+				                          <img src=" <%=pList.get(i).getJ_img()%>" alt="">
+				                        </div>
+				                        <div class="team-content mt20">
+				                          <h3 class="team-title"> <%=pList.get(i).getJ_title()%></h3>
+				                          <span class="team-meta"> <%=pList.get(i).getJ_content()%></span>
+				                          <p> ~  <%=pList.get(i).getJ_date()%></p>
+				                        </div>
+				                    </div>
+				                </div>
+							<%} %>   		           			            			
+			          	</c:when>
+			          	<c:otherwise>
+				              <h3>Ìï¥ÎãπÌïòÎäî Í≥µÍ≥†Í∞Ä ÏóÜÏäµÎãàÎã§</h3>
+				        </c:otherwise>
+			         </c:choose>
+	            </div>
+	        	<!-- Ï∂îÏ≤ú ÎÅù -->             
+	        </div>
+	      </div>
+	      <!-- Ï∂îÏ≤úÏ±ÑÏö© ÎÅù -->
+	      
+	      <!-- ÏúÑÏ†Ø Íµ¨Ïó≠ ÏãúÏûë -->
+	      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="widget"> 
+	
+	        <!-- Í≤ÄÏÉâ -->
+	        <div class=" widget widget-search">
+	          <form>
+	            <div class="">
+	              <input type="text" class="form-control search-form" value="" placeholder= "Í≤ÄÏÉâÌï† ÌÇ§ÏõåÎìúÎ•º ÏûÖÎ†•ÌïòÏÑ∏Ïöî">
+	               <button type="Submit"><i class="fa fa-search"></i></button>
+	             </div>
+	          </form>
+	        </div>
+	        <!-- Í≤ÄÏÉâ ÎÅù --> 
+	        
+	        <!-- Í≤ΩÎ†•Ïú†Î¨¥ÏÑ†ÌÉù ÏãúÏûë -->
+	        <div class=" widget widget-archives">
+	          <h2 class="widget-title">Í≤ΩÎ†• Ïú†Î¨¥</h2>
+	          <ul>
+	            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">Ïã†ÏûÖ</a></li>
+	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">Í≤ΩÎ†•</a></li>
+	          </ul>
+	        </div>
+	        <!-- Í≤ΩÎ†•Ïú†Î¨¥ÏÑ†ÌÉù ÎÅù --> 
+	
+	        <!-- ÏßÅÎ¨¥ ÏÑ†ÌÉù ÏãúÏûë-->
+	        <div class=" widget widget-categories">
+	          <h2 class="widget-title">IT ÏßÅÎ¨¥ ÏÑ†ÌÉù</h2>
+	          <ul class="">
+	            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> 
+	              <a href="#">ÌîÑÎ°†Ìä∏ÏóîÎìú Í∞úÎ∞úÏûê (10)</a></li>
+	            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">Î∞±ÏóîÎìú Í∞úÎ∞úÏûê (05)</a></li>
+	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">Ïù∏Í≥µÏßÄÎä• Í∞úÎ∞úÏûê(06) </a></li>
+	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">ÏÑúÎπÑÏä§ Í∏∞ÌöçÏûê (12)</a></li>
+	            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">Îç∞Ïù¥ÌÑ∞ ÏóîÏßÄÎãàÏñ¥ (06)</a></li>
+	            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="#">Ï†ïÎ≥¥ Î≥¥Ïïà Ï†ÑÎ¨∏Í∞Ä (05) </a></li>
+	              <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	                <a href="#">Ïï± Í∞úÎ∞úÏûê (05) </a></li>
+	          </ul>
+	        </div>
+	        <!-- ÏßÅÎ¨¥ÏÑ†ÌÉù ÎÅù --> 
+	        
+	        <!-- ÌÉúÍ∑∏ start -->
+	        <div class=" widget widget-tags ">
+	          <h2 class=" widget-title" >Tags</h2>
+	          <a href="#" >C++</a>
+	          <a href="#">JAVA</a>
+	          <a href="#">Spring</a>
+	          <a href="#">Spring Boot</a>
+	          <a href="#">MySQL</a>
+	          <a href="#">Oracle</a>
+	          <a href="#">React</a>
+	          <a href="#">Python</a>
+	          <a href="#">JavaScript</a>
+	          <a href="#">HTML</a>
+	          <a href="#">CSS</a>
+	          <a href="#">Vue.js</a>
+	        </div>
+	        <!-- ÌÉúÍ∑∏ close --> 
+	      </div>
+	      <!-- ÏúÑÏ†Ø ÎÅù --> 
+		  
+		  <!-- Í≥µÍ≥† Íµ¨Ïó≠ -->
+	      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+	        <div class="row"> 
+	          
+	          <!-- Í≥µÍ≥† -->
+	          <%for (int i =0; i<list.size(); i++){%>
+				<div class="row" id="employ-box">
+		                
+		            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+		              <div class="employ">
+		                <h2><a href="#"><%=list.get(i).getJ_title()%></a></h2>
+		                <p><%=list.get(i).getJ_content()%></p>
+		                  <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
+		                    <span class="meta-date">~<%=list.get(i).getJ_date()%></span> 
+		                    <span class="meta-icon"><i class="fa fa-user"></i></span>
+		                    <span class="meta-author">By <a href="#">Admin</a></span>
+		                    <a href="detailEmploy.do?seq=<%=list.get(i).getJ_seq()%>" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a>
+		                  </div>
+		                <hr>
+		              </div>
+		            </div>
+		
+		            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+		              <div class="post-img"><a href="#" class="imghover">
+		                <img src="<%=list.get(i).getJ_img()%>"  alt="" class="img-responsive"></a>
+		              </div>
+		            </div>
+		
+		         </div>
+			  <%} %>
+		      <!-- Í≥µÍ≥† ÎÅù -->
+	         
+	          <!-- ÌéòÏù¥ÏßÄ Ïù¥Îèô -->
+	          <div class="col-md-12">
+	            <div class="post-block">
+	              <div class="row">
+	                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+	                  <div class="st-pagination">
+	                    <ul class="pagination">
+	                      <li><a href="#" aria-label="previous"><span aria-hidden="true">Ïù¥Ï†Ñ</span></a> </li>
+	                      <li class="active"><a href="#">1</a></li>
+	                      <li><a href="#">2</a></li>
+	                      <li><a href="#">3</a></li>
+	                      <li> <a href="#" aria-label="Next"><span aria-hidden="true">Îã§Ïùå</span></a> </li>
+	                    </ul>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	          <!-- ÌéòÏù¥ÏßÄ Ïù¥Îèô --> 
+	        </div>
+	      </div>
+		  <!-- Í≥µÍ≥† Íµ¨Ïó≠ ÎÅù -->
+	</div>
   </div>
-
-
-      <!-- √ﬂ√µ√§øÎ -->
-      <div class="space-medium">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="section-title">
-                        <h2>000¥‘ √ﬂ√µ √§øÎ∞¯∞Ì ¿‘¥œ¥Ÿ</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- √ﬂ√µ 1 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="employ-img">
-                          <img src="/images/¥Á±Ÿ2.png" alt="">
-                        </div>
-                        <div class="team-content mt20">
-                          <h3 class="team-title">(¡÷)¥Á±Ÿ∏∂ƒœ</h3>
-                          <span class="team-meta">πÈø£µÂ ∞≥πﬂ¿⁄ ∏¡˝</span>
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 1 -->
-
-                <!-- √ﬂ√µ 2 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="employ-img">
-                          <img src="/images/kakao.png" alt="">
-                        </div>
-
-                        <div class="team-content mt20">
-                          <h3 class="team-title">(¡÷)ƒ´ƒ´ø¿</h3>
-                          <span class="team-meta">ƒ´ƒ´ø¿ µ¿⁄¿Ã≥  ¡˜±∫ ∏¡˝</span>
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 2 -->
-
-                <!-- √ﬂ√µ 3 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="employ-img">
-                          <img src="/images/∂Û¿Œ2.png" alt="">
-                        </div>
-                        <div class="team-content mt20">
-                          <h3 class="team-title">∂Û¿Œ«√∑ØΩ∫(¡÷)</h3>
-                          <span class="team-meta">«¡∑Œ¡ß∆Æ ∏≈¥œ¿˙ ∏¡˝</span> 
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 3 -->
-
-                <!-- √ﬂ√µ 4 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                      <div class="employ-img">
-                        <img src="/images/ƒÌ∆Œ.png" alt="">
-                      </div>
-                        <div class="team-content mt20">
-                          <h3 class="team-title">ƒÌ∆Œ(¡÷)</h3>
-                          <span class="team-meta">¿Ø¡ˆ∫∏ºˆ ø£¡ˆ¥œæÓ ∏¡˝</span>
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 4 -->
-            </div>
-        </div>
-      </div>
-      
-      <!-- ≥ª∫Œ -->
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="widget"> 
-
-      <!-- ¿ß¡¨ ±∏ø™ Ω√¿€ -->
-        <!-- ∞Àªˆ -->
-        <div class=" widget widget-search">
-          <form>
-            <div class="">
-              <input type="text" class="form-control search-form" value="" placeholder= "∞Àªˆ«“ ≈∞øˆµÂ∏¶ ¿‘∑¬«œººø‰">
-               <button type="Submit"><i class="fa fa-search"></i></button>
-             </div>
-          </form>
-        </div>
-        <!-- ∞Àªˆ ≥° --> 
-        
-        <!-- ∞Ê∑¬¿Øπ´º±≈√ Ω√¿€ -->
-        <div class=" widget widget-archives">
-          <h2 class="widget-title">∞Ê∑¬ ¿Øπ´</h2>
-          <ul>
-            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">Ω≈¿‘</a></li>
-            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">∞Ê∑¬</a></li>
-          </ul>
-        </div>
-        <!-- ∞Ê∑¬¿Øπ´º±≈√ ≥° --> 
-
-        <!-- ¡˜π´ º±≈√ Ω√¿€-->
-        <div class=" widget widget-categories">
-          <h2 class="widget-title">IT ¡˜π´ º±≈√</h2>
-          <ul class="">
-            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> 
-              <a href="#">«¡∑–∆Æø£µÂ ∞≥πﬂ¿⁄ (10)</a></li>
-            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">πÈø£µÂ ∞≥πﬂ¿⁄ (05)</a></li>
-            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">¿Œ∞¯¡ˆ¥… ∞≥πﬂ¿⁄(06) </a></li>
-            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">º≠∫ÒΩ∫ ±‚»π¿⁄ (12)</a></li>
-            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">µ•¿Ã≈Õ ø£¡ˆ¥œæÓ (06)</a></li>
-            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">¡§∫∏ ∫∏æ» ¿¸πÆ∞° (05) </a></li>
-              <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-                <a href="#">æ€ ∞≥πﬂ¿⁄ (05) </a></li>
-          </ul>
-        </div>
-        <!-- ¡˜π´º±≈√ ≥° --> 
-        
-        <!-- ≈¬±◊ start -->
-        <div class=" widget widget-tags ">
-          <h2 class=" widget-title" >Tags</h2>
-          <a href="#">C++</a>
-          <a href="#">JAVA</a>
-          <a href="#">Spring</a>
-          <a href="#">Spring Boot</a>
-          <a href="#">MySQL</a>
-          <a href="#">Oracle</a>
-          <a href="#">React</a>
-          <a href="#">Python</a>
-          <a href="#">JavaScript</a>
-          <a href="#">HTML</a>
-          <a href="#">CSS</a>
-          <a href="#">Vue.js</a>
-        </div>
-        <!-- ≈¬±◊ close --> 
-      </div>
-      <!-- ¿ß¡¨ ≥° --> 
-
-      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <div class="row"> 
-          
-          <!-- ∞¯∞Ì 1 -->
-          <div class="row" id="employ-box">
-                
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-              <div class="employ">
-                <h2><a href="#">≥◊¿Ãπˆ(¡÷)</a></h2>
-                <p>[≥◊¿Ãπˆæ€º≠∫ÒΩ∫] ƒ‹≈Ÿ√˜ ±‚»π ¥„¥Á¿⁄ ∏¡˝ (√º«Ë«¸)</p>
-                  <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                    <span class="meta-date">~2022.12.30</span> 
-                    <span class="meta-icon"><i class="fa fa-user"></i></span>
-                    <span class="meta-author">By <a href="#"> Admin</a></span>
-                    <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a>
-                  </div>
-                <hr>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover">
-                <img src="/images/≥◊¿Ãπˆ.png"  alt="" class="img-responsive"></a>
-              </div>
-            </div>
-
-          </div>
-          <!-- ∞¯∞Ì 1 -->
-
-          <!-- ∞¯∞Ì 2 -->
-          <div class="row" id="employ-box">
-                
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-              <div class="employ">
-                <h2><a href="#">(¡÷)ƒ´ƒ´ø¿</a></h2>
-                <p>[KAKAO] ƒ´ƒ´ø¿ ±‚º˙ ¡˜±∫ ∏¡˝</p>
-                <div class="meta"> 
-                  <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                  <span class="meta-date">√§øÎΩ√ ∏∂∞®</span> 
-                  <span class="meta-icon"><i class="fa fa-user"></i></span>
-                  <span class="meta-author">By <a href="#"> Admin</a></span> 
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a>
-                </div>
-                <hr>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img">
-                <a href="#" class="imghover"><img src="/images/kakao.png" alt="" class="img-responsive"></a>
-              </div>
-            </div>
-
-          </div>
-          <!-- ∞¯∞Ì 2 --> 
-
-          <!-- ∞¯∞Ì 3 -->
-          <div class="row" id="employ-box">
-                
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-              <div class="employ">
-                <h2><a href="#">∂Û¿Œ«√∑ØΩ∫(¡÷)</a></h2>
-                <p>[LINE] Social Service Contents Manager</p>
-                <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                  <span class="meta-date">~ 2022.12.30</span> 
-                  <span class="meta-icon"><i class="fa fa-user"></i></span>
-                  <span class="meta-author">By <a href="#"> Admin</a></span>
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
-                </div>
-                <hr>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover"><img src="/images/∂Û¿Œ2.png"  alt="" class="img-responsive"></a></div>
-            </div>
-
-          </div>
-          <!-- ∞¯∞Ì 3 --> 
-
-          <!-- ∞¯∞Ì 4 -->
-          <div class="row" id="employ-box">
-                
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-              <div class="employ">
-                <h2><a href="#">ƒÌ∆Œ(¡÷)</a></h2>
-                <p>[ƒÌ∆Œ] Coupang Flex µ•¿Ã≈Õ øÓøµ ∞¸∏Æ¿⁄</p>
-                <div class="meta"> 
-                  <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                  <span class="meta-date">~ 2022.12.30</span> 
-                  <span class="meta-icon"><i class="fa fa-user"></i></span>
-                  <span class="meta-author">By <a href="#"> Admin</a></span>
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
-                </div>
-                
-                <hr>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover"><img src="/images/ƒÌ∆Œ.png"  alt="" class="img-responsive"></a></div>
-            </div>
-
-          </div>
-          <!-- ∞¯∞Ì 4 --> 
-
-          <!-- ∞¯∞Ì 5 -->
-          <div class="row" id="employ-box">
-                
-            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-              <div class="employ">
-                <h2><a href="#">(¡÷)øÏæ∆«—«¸¡¶µÈ</a></h2>
-                <p>∫ŒπÆ∫∞ ∞Ê∑¬/Ω≈¿‘ ¿Œ¿Áøµ¿‘</p>
-                <div class="meta"> 
-                  <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                  <span class="meta-date">~2022.12.30 </span> 
-                  <span class="meta-icon"><i class="fa fa-user"></i></span>
-                  <span class="meta-author">By <a href="#"> Admin</a></span>
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
-                </div>
-                
-                <hr>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover"><img src="/images/øÏæ∆«—«¸¡¶µÈ1.png"  alt="" class="img-responsive"></a></div>
-            </div>
-
-          </div>
-          <!-- ∞¯∞Ì 5 --> 
-
-          <!-- ∞¯∞Ì 6 -->
-          <div class="row" id="employ-box">
-                
-                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-                  <div class="employ">
-                    <h2><a href="#">(¡÷)¥Á±Ÿ∏∂ƒœ</a></h2>
-                    <p>DBA (Database Administration) - ¥Á±Ÿ∆‰¿Ã</p>
-                    <div class="meta"> 
-                      <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                      <span class="meta-date">~ 2022.12.30</span> 
-                      <span class="meta-icon"><i class="fa fa-user"></i></span>
-                      <span class="meta-author">By <a href="#"> Admin</a></span>
-                      <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="post-img"><a href="#" class="imghover"><img src="/images/¥Á±Ÿ2.png"  alt="" class="img-responsive"></a></div>
-                </div>
-
-              </div>
-          <!-- ∞¯∞Ì 6 --> 
-          
-          <!-- ∆‰¿Ã¡ˆ ¿Ãµø -->
-          <div class="col-md-12">
-            <div class="post-block">
-              <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
-                  <div class="st-pagination">
-                    <ul class="pagination">
-                      <li><a href="#" aria-label="previous"><span aria-hidden="true">¿Ã¿¸</span></a> </li>
-                      <li class="active"><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li> <a href="#" aria-label="Next"><span aria-hidden="true">¥Ÿ¿Ω</span></a> </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ∆‰¿Ã¡ˆ ¿Ãµø --> 
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
+<!-- Î©îÏù∏ ÎÅù -->
 
-</div>
 
 <!-- footer start -->
 <div class="footer">
@@ -564,7 +387,7 @@
       <!-- footer-useful links-start -->
       <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
         <div class="footer-widget">
-          <h3 class="footer-title">IT_±◊_JOB_√§</h3>
+          <h3 class="footer-title">IT_Í∑∏_JOB_Ï±Ñ</h3>
           <ul>
             <li><a href="#">Home </a></li>
             <li><a href="#">About us </a></li>
@@ -579,7 +402,7 @@
       <!-- footer-contactinfo-start -->
       <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="footer-widget">
-          <h3 class="footer-title">Spring Bπ› ±‚æ˜ø¨∞Ë«¡∑Œ¡ß∆Æ</h3>
+          <h3 class="footer-title">Spring BÎ∞ò Í∏∞ÏóÖÏó∞Í≥ÑÌîÑÎ°úÏ†ùÌä∏</h3>
           <div class="">
             <ul>
               <li> <i class="fa fa-map-marker"></i> 2000 Cambridge Ease template,72764 India</li>
