@@ -28,6 +28,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
 <style>
   .post-img{
     height: 200px;
@@ -132,7 +134,7 @@
   </div>
   <!-- 헤드부분 끝!!! -->
 
-<form method="post" name="form">
+
 <div class="space-medium">
   <div class="container">
     <div class="row">
@@ -143,12 +145,12 @@
           <div class="col-md-12">
             <div class="post-block">
               <div class="row">
-                <div class="">
+                
                   
                   
 
                   <!-- 커리큘럼 소개 -->
-                 
+                 <form method="post" name="form">
                   <div>
                     <h2>수강 바구니</h2>
                     <input type="checkbox" name='lectureAll' value="'selectAll" onclick='selectAll(this)'>  전체선택
@@ -164,7 +166,7 @@
                     </c:forEach>
   					<input type="hidden" name="m_id" value="${id}">
                   </div>
-				 
+				 </form>
 
                   
                   
@@ -175,13 +177,13 @@
           <!-- post-1-close --> 
           
         </div>
-      </div>
+      
+     
+      
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> 
-        
         <!-- widget-search-start -->
         <div class=" widget">
-         
-            <div class="">
+         	
               <div>
                 <h3><strong>구매자 정보</strong></h3>
                 <hr>
@@ -192,40 +194,33 @@
               
              </div>
         
-        </div>
+        
         <!-- widget-search-close --> 
 
         <!-- 결제금액 + 버튼 위젯 -->
 
 
         <div class=" widget">
-          
-            <div class="">
-              <div>
-                <h5>선택상품 금액 </h5>
-                <c:set var = "total" value = "0" />
-
-				<c:forEach var="result" items="${list}" varStatus="status">    
-				
-				<c:set var= "total" value="${total + result.l_price}"/>
-				
-				</c:forEach>
-				
-				
-                <h5><strong>총 합계금액 : ${total} 원</strong></h5>
-                <button class="btn btn-primary btn-lg" type='submit' value='payment' onclick="javascript: form.action='payment.do';" style="background-color: blue; color: white;" >결제하기</button>
-              </div>
-              
-             </div>
-          
+           <div>
+            <h5>선택상품 금액 </h5>
+            <c:set var = "total" value = "0" />
+			<c:forEach var="result" items="${list}" varStatus="status">    
+			<c:set var= "total" value="${total + result.l_price}"/>
+			</c:forEach>
+			<h5><strong>총 합계금액 : ${total} 원</strong></h5>
+            <button class="btn btn-primary btn-lg" onclick="requestPay()" style="background-color: blue; color: white;" >결제하기</button>
+            <!-- <button class="btn btn-primary btn-lg" type='submit' value='payment' onclick="javascript: form.action='payment.do';" style="background-color: blue; color: white;" >결제하기</button> -->
+           </div>
         </div>
-      
+        </div>
         
+        </div>
+        </div>
       </div>
-    </div>
-  </div>
+  
 
-</form>
+
+
                   
 <!-- post-close-- >
 
@@ -318,10 +313,44 @@
 	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 
-	document.querySelector('#result').innerText = ' ￦ ' + numberWithCommas();
+	document.querySelector('#result').innerText = ' ￦ ' + numberWithCommas(10000);
+
+
+<!-- 결제기능 구현js  -->
+<script type="text/javascript">
+	var IMP = window.IMP; // 생략 가능
+	IMP.init("imp38403786"); // 예: imp00000000
+	
+	
+	 function requestPay() {
+	      // IMP.request_pay(param, callback) 결제창 호출
+	      IMP.request_pay({ // param
+	          pg: "html5_inicis",
+	          pay_method: "card",
+	          merchant_uid: "ORD20180131-0000011",
+	          name: "노르웨이 회전 의자",
+	          amount: 64900,
+	          buyer_email: "gildong@gmail.com",
+	          buyer_name: "홍길동",
+	          buyer_tel: "010-4242-4242",
+	          buyer_addr: "서울특별시 강남구 신사동",
+	          buyer_postcode: "01181"
+	      }, function (rsp) { // callback
+	          if (rsp.success) {
+	              ...,
+	              // 결제 성공 시 로직,
+	              ...
+	          } else {
+	              ...,
+	              // 결제 실패 시 로직,
+	              ...
+	          }
+	      });
+	    }
 
 
 </script>
+
  
 </body>
 </html>

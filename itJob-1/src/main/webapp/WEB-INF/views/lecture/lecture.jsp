@@ -314,7 +314,7 @@ function loadLecture(data){
       	<c:choose>
       	<c:when test="${fn:contains(lecture.l_language,'C언어')}">lang-clan</c:when>
       	<c:when test="${fn:contains(lecture.l_language,'C++')}">lang-c++</c:when>
-      	<c:when test="${fn:contains(lecture.l_language,'Java')}">lang-java</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'JAVA')}">lang-java</c:when>
       	<c:when test="${fn:contains(lecture.l_language,'Python')}">lang-python</c:when>
       	<c:when test="${fn:contains(lecture.l_language,'JavaScript')}">lang-js</c:when>
       	<c:when test="${fn:contains(lecture.l_language,'HTML/CSS')}">lang-htmlcss</c:when>
@@ -451,7 +451,7 @@ function filterLecture(v){
 	console.log(v);
 	for (var i = 0; i < lectureSection.length; i++){
 	    if(lectureSection[i].classList.contains(v)){
-	    	lectureSection[i].classList.add('selected');
+	    	lectureSection[i].classList.replace('unselected','selected');
 		}
 	}
 	
@@ -461,7 +461,7 @@ function unfilterLecture(v){
 	console.log(v);
 	for (var i = 0; i < lectureSection.length; i++){  
 	    if(lectureSection[i].classList.contains(v)){
-	    	lectureSection[i].classList.remove('selected');
+	    	lectureSection[i].classList.replace('selected','unselected');
 		}
 	}
 	
@@ -480,7 +480,7 @@ function reset_click(){
   
 function unselected(){
 	for (var i = 0; i < lectureSection.length; i++){  
-	    lectureSection[i].classList.remove('selected');	    	
+	    lectureSection[i].classList.replace('selected','unselected');	    	
 		}
 	}
 
