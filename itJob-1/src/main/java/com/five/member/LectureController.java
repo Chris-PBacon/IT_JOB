@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.five.member.entity.LectureBasketVO;
 import com.five.member.entity.LectureReviewVO;
@@ -214,6 +215,19 @@ public class LectureController {
 		model.addAttribute("vo", lvo);
 		
 		return "/lecture/lecturePlay";
+	}
+	
+	//필터링
+	@RequestMapping("/filterType.do")
+	public @ResponseBody List<LectureVO> filterType(LectureVO vo) {
+		
+		List<LectureVO> list = mapper.filterType(vo);
+		System.out.println(vo.getL_language());
+		System.out.println(vo.getL_level());
+		System.out.println(vo.getL_type());
+		
+		return list;
+		
 	}
 	
 	

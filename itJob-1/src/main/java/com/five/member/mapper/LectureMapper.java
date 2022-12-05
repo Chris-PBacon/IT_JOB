@@ -48,6 +48,8 @@ public interface LectureMapper {
 	LectureVO videoSelectF(LectureVO vo);
 
 	LectureVO videoSelectB(LectureVO vo);
+
+	List<LectureVO> filterType(LectureVO vo);
 	
 	
 }

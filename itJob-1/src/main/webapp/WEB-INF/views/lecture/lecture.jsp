@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,33 +94,17 @@
     width:270px;
   	height:470px;
   }
+  .selected{
+  	display: block;
+  }
+  .unselected{
+  	display: none;
+  }
 </style>
 </head>
 
 <body>
-	<script type="text/javascript">
-		function selected(){
 	
-		}
-		var selectTag.getElementsByClassName('name');
-		var t = document.getElementsByClassName('btn-baek');
-		t.addEventListener('click',function(selectedTag){
-		    $.ajax({
-		        url : 'selectLecSelected',
-		        type : 'GET',
-		        data : 'text',
-		        datatype : 'JSON',
-		        success:function(){
-		            location.href="lecture.do?"},
-		        error: function (e){
-		            console.log(e);
-		        }
-	
-		    })
-		    
-		});
-	</script>
-
       <!--헤드부분 시작-->
     <div class="header-wrapper">
       <div class="container">
@@ -197,29 +181,18 @@
 
 <!-- 강의 분류 시작 -->
 <div class="container">
-  <form action="">
-    <div class="second_div">
-      <div class="third_div">
-        <h5>유형</h5>
-      </div>
-      <div>
-        <button class="btn btn-xs btn_baek" type="button" value="subject">과목</button>
-        <button class="btn btn-xs btn_baek" type="button" value="challenge">챌린지</button>
-        <button class="btn btn-xs btn_baek" type="button" value="test">테스트</button>
-      </div>
-      
-    </div>
+  <form action="filterLecture.do" method="post">
 
     <div class="second_div">
       <div class="third_div">
         <h5>분야</h5>
       </div>
       <div>
-        <button class="btn btn-xs btn_baek" type="button" value="programing">프로그래밍 기초</button>
-        <button class="btn btn-xs btn_baek" type="button" value="dataAnalysis">데이터 분석</button>
-        <button class="btn btn-xs btn_baek" type="button" value="web">웹</button>
-        <button class="btn btn-xs btn_baek" type="button" value="ai">인공지능</button>
-        <button class="btn btn-xs btn_baek" type="button" value="algorism">알고리즘</button>
+        <button class="btn btn-xs btn_baek" id="type-1" type="button" name="l_type" value="type-prog">프로그래밍</button>
+        <button class="btn btn-xs btn_baek" id="type-2" type="button" name="l_type" value="type-sys">시스템</button>
+        <button class="btn btn-xs btn_baek" id="type-3" type="button" name="l_type" value="type-web">WEB</button>
+        <button class="btn btn-xs btn_baek" id="type-4" type="button" name="l_type" value="type-ai">인공지능</button>
+        <button class="btn btn-xs btn_baek" id="type-5" type="button" name="l_type" value="type-data">데이터분석</button>
       </div>
       
     </div>
@@ -229,10 +202,10 @@
         <h5>난이도</h5>
       </div>
       <div>
-        <button class="btn btn-xs btn_baek" type="button" value="baby">입문</button>
-        <button class="btn btn-xs btn_baek" type="button" value="beginner">초급</button>
-        <button class="btn btn-xs btn_baek" type="button" value="intermediate">중급</button>
-        <button class="btn btn-xs btn_baek" type="button" value="advanced">고급</button>
+        <button class="btn btn-xs btn_baek" id="level-1" type="button" name="l_level" value="level-baby">입문</button>
+        <button class="btn btn-xs btn_baek" id="level-2" type="button" name="l_level" value="level-begin">초급</button>
+        <button class="btn btn-xs btn_baek" id="level-3" type="button" name="l_level" value="level-inter">중급</button>
+        <button class="btn btn-xs btn_baek" id="level-4" type="button" name="l_level" value="level-advan">고급</button>
       </div>
     </div>
 
@@ -241,14 +214,13 @@
         <h5>언어</h5>
       </div>
       <div>
-        <button class="btn btn-xs btn_baek" type="button" value="c">C</button>
-        <button class="btn btn-xs btn_baek" type="button" value="c++">C++</button>
-        <button class="btn btn-xs btn_baek" type="button" value="java">자바</button>
-        <button class="btn btn-xs btn_baek" type="button" value="python">파이썬</button>
-        <button class="btn btn-xs btn_baek" type="button" value="javascript">자바스크립트</button>
-        <button class="btn btn-xs btn_baek" type="button" value="r">R</button>
-        <button class="btn btn-xs btn_baek" type="button" value="htmlCss">HTML/CSS</button>
-        <button class="btn btn-xs btn_baek" type="button" value="sql">SQL</button>
+        <button class="btn btn-xs btn_baek" id="lang-1" type="button" name="l_language" value="lang-clan">C</button>
+        <button class="btn btn-xs btn_baek" id="lang-2" type="button" name="l_language" value="lang-c++">C++</button>
+        <button class="btn btn-xs btn_baek" id="lang-3" type="button" name="l_language" value="lang-java">자바</button>
+        <button class="btn btn-xs btn_baek" id="lang-4" type="button" name="l_language" value="lang-python">파이썬</button>
+        <button class="btn btn-xs btn_baek" id="lang-5" type="button" name="l_language" value="lang-js">자바스크립트</button>
+        <button class="btn btn-xs btn_baek" id="lang-6" type="button" name="l_language" value="lang-htmlcss">HTML/CSS</button>
+        <button class="btn btn-xs btn_baek" id="lang-7" type="button" name="l_language" value="lang-sql">SQL</button>
       </div>
       
     </div>
@@ -258,30 +230,101 @@
         <h5>가격</h5>
       </div>
       <div>
-        <button class="btn btn-xs btn_baek" type="button" value="free">무료</button>
-        <button class="btn btn-xs btn_baek" onclick="selected()" type="button" value="pay">유료</button>
-        <button class="btn btn-xs btn_baek" type="button" value="subscribe">구독</button>
+        <button class="btn btn-xs btn_baek" id="price-1" type="button" value="price-f">무료</button>
+        <button class="btn btn-xs btn_baek" id="price-2" type="button" value="price-p">유료</button>
       </div>
     </div>
     <div id="searchBox">
-      <a class="all" href="lecture.do"><button class="btn btn-xs btn_baek" type="button">전체보기</button></a>
-      <button class="btn btn-xs btn_baek" type="submit">적용</button>
+      <button class="btn btn-xs btn_baek" onclick="unselected();" type="button">분류시작</button>
+      <!--<button class="btn btn-xs btn_baek" type="submit">적용</button>-->
       <button id="reset" class="btn btn-xs" type="button" onclick="reset_click();" style=" margin: 5px; margin-left:20px;
       background-color: aliceblue;">초기화</button>
     </div>
   </form>
 </div>
+<!-- <script type="text/javascript">
+ $(".btn_baek").on('click', function(e){
+	 if(e.target.id.includes('type')){
+		 var l_type = e.target.value
+		 $.ajax({
+		        url : 'filterType.do',
+		        type : 'get',
+		        data : {"l_type" : l_type},
+		        datatype : 'JSON',
+		        success: loadLecture,
+		        error: function (e){
+		            console.log(e);
+		        }
+		 })
+	 }else if(e.target.id.includes('level')){
+		 
+	 }else if(e.target.id.includes('lang')){
+		 
+	 }else if(e.target.id.includes('price')){
+		 
+	 }
+ })
+function loadLecture(data){
+	 
+	 var html = "<div class='row'>";
+	 for(var i = 0; i<data.length; i++){
+		 html+= "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>";
+		 html+= "<div class='service-block c_lec'>";
+		 html+= "<div class='c_img'>";
+		 html+= "<img src='" + data[i].l_img + "' alt=''></div>";
+		 html+= "</div></div>";
+	 }
+	 html+= "</div>";
+	 
+	 $(".lecturePart").html(html);
+	 $(".lecturePart").css("display:none");
+	 $(".lectureFilter").css("display:block");
+}
+ 
+
+
+
+</script>-->
 <!-- 강의 분류 끝 -->
  
 <!-- cources-start-->
 <div class="space-medium">
   <div class="container">
     
-    <div class="row"> 
-
+    <div class="row lecturePart"> 
+	<div class="row lectureFilter">
+	</div>
       <!-- cources-start-->
       <c:forEach items="${list}" var="lecture" varStatus="i">
-	      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 selected
+      	<c:choose>
+      	<c:when test="${fn:contains(lecture.l_type,'WEB')}">type-web</c:when>
+      	<c:when test="${fn:contains(lecture.l_type,'programing')}">type-prog</c:when>
+      	<c:when test="${fn:contains(lecture.l_type,'인공지능')}">type-ai</c:when>
+      	<c:when test="${fn:contains(lecture.l_type,'데이터분석')}">type-data</c:when>
+      	<c:when test="${fn:contains(lecture.l_type,'시스템')}">type-sys</c:when>
+      	<c:otherwise></c:otherwise>
+      	</c:choose>
+      	<c:choose>
+      	<c:when test="${fn:contains(lecture.l_level,'입문')}">level-baby</c:when>
+      	<c:when test="${fn:contains(lecture.l_level,'초급')}">level-begin</c:when>
+      	<c:when test="${fn:contains(lecture.l_level,'중급')}">level-inter</c:when>
+      	<c:when test="${fn:contains(lecture.l_level,'고급')}">level-advan</c:when>
+      	</c:choose>
+      	<c:choose>
+      	<c:when test="${fn:contains(lecture.l_language,'C언어')}">lang-clan</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'C++')}">lang-c++</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'Java')}">lang-java</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'Python')}">lang-python</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'JavaScript')}">lang-js</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'HTML/CSS')}">lang-htmlcss</c:when>
+      	<c:when test="${fn:contains(lecture.l_language,'SQL')}">lang-sql</c:when>
+      	</c:choose>
+      	<c:choose>
+      	<c:when test="${lecture.l_price gt 0}">price-p</c:when>
+      	<c:when test="${lecture.l_price eq 0}">price-f</c:when>
+      	</c:choose>
+      	">
 	        <div class="service-block c_lec">
 	          <div class="c_img">
 	            <img src="${lecture.l_img }" alt="">
@@ -289,7 +332,7 @@
 	          <div class="service-content c_lec">
 	            <h3><a href="lectureDetail.do?l_seq=${lecture.l_seq }" class="title">${lecture.l_title }</a></h3>
 	            <h4>${lecture.l_teacher }</h4>
-	            <h4>
+	            <!--<h4>
 	            <c:choose>
                 <c:when test="${lecture.avg_star eq '5'}">★★★★★</c:when>
                 <c:when test="${lecture.avg_star >= '4'}">★★★★☆</c:when>
@@ -297,13 +340,12 @@
                 <c:when test="${lecture.avg_star >= '2'}">★★☆☆☆</c:when>
                 <c:when test="${lecture.avg_star >= '1'}">★☆☆☆☆</c:when>
 	       	    </c:choose>
-	       	    ${lecture.review_count }</h4>
+	       	    ${lecture.review_count }</h4>-->
 	            <h5 id='result'><a href="" class="btn-link">￦ ${lecture.l_price }</a></h5></div>
 	        </div>
 	      </div>
       </c:forEach>
       <!-- cources-close--> 
-      
       
     </div>
     
@@ -390,36 +432,71 @@
 
 var currentMenu;
 var menuLinks = document.querySelectorAll('.btn_baek');
+var lectureSection = document.querySelectorAll('.col-lg-4');
 
 function clickMenuHandler(){
      
-    this.classList.add('btn-active');
-    currentMenu = this;
+	currentMenu = this;
+	if(this.classList.contains('btn-active')){
+    	this.classList.remove('btn-active');
+    	unfilterLecture(this.value);
+    }else{
+    	this.classList.add('btn-active');
+    	console.log(this.value);
+    	filterLecture(this.value);
+    }
 }
 
+function filterLecture(v){
+	console.log(v);
+	for (var i = 0; i < lectureSection.length; i++){
+	    if(lectureSection[i].classList.contains(v)){
+	    	lectureSection[i].classList.add('selected');
+		}
+	}
+	
+}
+
+function unfilterLecture(v){
+	console.log(v);
+	for (var i = 0; i < lectureSection.length; i++){  
+	    if(lectureSection[i].classList.contains(v)){
+	    	lectureSection[i].classList.remove('selected');
+		}
+	}
+	
+	
+}
 
 for (var i = 0; i < menuLinks.length; i++){  
     menuLinks[i].addEventListener('click', clickMenuHandler);        
 }
 
+function reset_click(){
+    $('.btn').removeClass("btn-active");
+    $('.col-lg-4').css("display","block")
+    
+  }
+  
+function unselected(){
+	for (var i = 0; i < lectureSection.length; i++){  
+	    lectureSection[i].classList.remove('selected');	    	
+		}
+	}
+
 </script>
 
 <!-- 버튼 초기화 -->
 
-<script type="text/javascript">
-  function reset_click(){
-    $('.btn').removeClass("btn-active");
-    
-  }
-</script>
-<!-- 1000단위 ,(콤마) 찍어주는 JS -->
+
+<!-- 1000단위 ,(콤마) 찍어주는 JS
 <script type="text/javascript">
 	const numberWithCommas  = (x) => {
 	   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 
 	document.querySelector('#result').innerText = ' ￦ ' + numberWithCommas();
-</script>
+</script>-->
 
 </body>
 </html>

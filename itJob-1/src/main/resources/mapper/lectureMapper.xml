@@ -93,4 +93,10 @@
 	select * from lecture_index where li_order = (#{li_order}+1) and l_seq = #{l_seq}
 </select>
 
+<!-- 필터링 -->
+<select id="filterType" parameterType="com.five.member.entity.LectureVO" resultType="com.five.member.entity.LectureVO">
+	select * from lecture where l_type like concat('%',#{l_type},'%')
+</select>
+
+
 </mapper>
