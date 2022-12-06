@@ -300,7 +300,7 @@
                 <h1><strong>수강중</strong></h1>
               </div>
               <div>
-                <button class="btn btn-primary btn-lg" type="button" style="background-color: blue; color: white;" >강의듣기</button>
+                <a href="lecturePlay.do?li_seq=1"><button class="btn btn-primary btn-lg" type="button" style="background-color: blue; color: white;" >강의듣기</button></a>
               </div>
              </div>
           </form>

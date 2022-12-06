@@ -122,7 +122,14 @@
   	</c:otherwise>
   	</c:choose>
     
-    <a  href='lecturePlayB.do?li_order=${vo.li_order }&l_seq=${vo.l_seq}'><button class="btn btn-default btn-lg" style="float: right;">다음강의 -></button></a>
+    <c:choose>
+    <c:when test="${vo.li_order ne '8'}">
+    	<a  href='lecturePlayB.do?li_order=${vo.li_order }&l_seq=${vo.l_seq}'><button class="btn btn-default btn-lg" style="float: right;">다음강의 -></button></a>
+    </c:when>
+    <c:otherwise>
+    </c:otherwise>
+    </c:choose>
+    
   </div>
 
 </div>
