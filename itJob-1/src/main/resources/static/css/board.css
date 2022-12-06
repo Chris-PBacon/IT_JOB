@@ -5,7 +5,7 @@
   }
   
   footer .inner{
-    padding: 40px 0 60px 0;
+    margin-top: 30px;
   }
   footer .menu{
     display: flex;
@@ -90,19 +90,6 @@ a.btn.btn-default.btn-sm.mb20 {
 
 }
 
-/* .container2 {
-  position: relative;
-  left: 5%;
-  overflow: hidden;
-  height: auto;
-  margin: 130px;
-  background-color: #ffffff;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-  -webkit-box-shadow: rgb(0 0 0 / 10%) 0px 10px 30px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 10px 30px;
-  margin-left: auto;
-} */
-
 
 .company_honest_qna .search_form .input_keyword .inpTypo {
   padding: 0 35px 0 12px;
@@ -132,7 +119,8 @@ a.btn.btn-default.btn-sm.mb20 {
   'opsz' 48
 }
 div#row_table {
-  height: 1200px;
+	
+  margin-bottom: 5%;
 }
 a.btn.btn-default.btn-sm.mb20 {
   position: absolute;
@@ -143,10 +131,521 @@ input#input_keyword {
   height: 46px;
 }
 button.spr.btn_search {
-  position: absolute;
+ /* 
+ position: absolute;
+ */
+ width:50px;
   left: 308px;
   top: 6px;
 }
 section.container2 {
   height: 1065px;
 }
+.input_keyword{
+	display: flex;
+}
+
+
+
+
+/*게시글 상세*/
+
+
+/* Main */
+.company_honest_qna .contents_container {
+  margin:0 auto;
+  width:1260px
+}
+.company_honest_qna .contents_container:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed
+}
+.company_honest_qna .wrap_area_left {
+  float:left;
+  width:936px
+}
+.company_honest_qna .wrap_area_right {
+  float:right;
+  padding-bottom:40px;
+  width:291px
+}
+.company_honest_qna .contents_container .wrap_section+.wrap_section {
+  margin-top:36px
+} 
+.company_honest_qna .contents_container .wrap_section.manager_voice {
+  overflow:hidden;
+  height:357px
+}
+.company_honest_qna .contents_container .wrap_section.hot_post {
+  overflow:hidden;
+  height:341px
+}
+
+
+/* 답글등록 */
+.company_honest_qna .contents_container.detail_wrap {
+  position:relative;
+  padding:38px 0 52px 0;
+  width:960px
+}
+.detail_wrap:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed
+}
+.detail_wrap .btn_back_list {
+  display:block;
+  position:relative;
+  padding:5px 0 7px 36px;
+  width:120px;
+  height:32px;
+  border:1px solid #d7dce5;
+  border-radius:4px;
+  box-sizing:border-box;
+  color:#5c667b;
+  font-size:13px;
+  letter-spacing:-1px;
+  line-height:20px;
+  text-align:left
+}
+.detail_wrap .btn_back_list:before {
+  display:block;
+  position:absolute;
+  top:11px;
+  left:22px;
+  width:6px;
+  height:6px;
+  border-top:1px solid #373f57;
+  border-left:1px solid #373f57;
+  transform:rotate(-45deg);
+  content:""
+}
+.detail_wrap .post_view_wrap {
+  position:relative;
+  margin-top:16px;
+  padding:32px;
+  border: 1px solid #edeef0;
+  border-radius:8px
+}
+.post_view_wrap .post_top:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed
+}
+
+/*게시글 시작*/
+.post_view_wrap .post_infos {
+  position:relative;
+  margin-top:22px;
+}
+.post_view_wrap .post_infos:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed;
+}
+/*게시글 창 박스*/
+.post_view_wrap .post_infos .post_profile {
+  position:relative;
+}
+.post_view_wrap .post_infos .post_profile .profile_pic_wrap {
+  float:left;
+  position:relative;
+  width:48px;
+  height:48px;
+}
+.post_view_wrap .post_infos .post_profile .profile_pic {
+  width:48px;
+  height:48px;
+}
+.post_view_wrap .post_infos .post_profile .nickname {
+  float:left;
+  margin:2px 0 0 12px;
+  color:#373f57;
+  font-size:14px;
+  letter-spacing:-0.44px;
+  line-height:24px;
+}
+.post_view_wrap .post_infos .post_profile .post_date {
+  display:inline-block;
+  position:absolute;
+  top:28px;
+  left:60px;color:#5c667b;font-size:13px;
+  letter-spacing:-0.5px;
+  line-height:16px;
+
+}
+/*제목 아래에 있*/
+.post_view_wrap .post_infos .post_data_wrap {
+  float:right;
+  padding-top:10px;
+}
+.post_view_wrap .post_infos .post_data_wrap .toolTipWrap {
+  display:inline-block;
+} 
+.post_view_wrap .post_infos .post_data_wrap .toolTip.top_center {
+  margin-left:10px;
+} 
+.post_view_wrap .post_infos .post_data_wrap .toolTipWrap:hover .toolTip {
+  display:none;
+}
+
+
+.post_view_wrap .post_infos .qna_info {
+  display:inline-block;
+  float:left;
+  position:relative;
+  margin-left:12px;
+  padding-left:28px;
+  height:24px;
+  box-sizing:border-box;
+  color:#5c667b;
+  font-size:13px;
+  letter-spacing:-0.87px;
+  line-height:24px;
+  vertical-align:top;
+}
+.post_view_wrap .post_infos .qna_info:before {
+  position:absolute;
+  top:1px;
+  left:0;
+  width:24px;
+  height:24px;
+  font-size:0;
+  background:url("//www.saraminimage.co.kr/sri/company_review/icons.png") no-repeat;
+}
+.post_view_wrap .post_infos .qna_info.qna_view:before {
+  background-position:0 -90px;
+  content:"조회수";
+}
+.post_view_wrap .post_infos .qna_info.qna_like:before {
+  background-position:-30px -90px;
+  content:"공감수";
+}
+.post_view_wrap .post_infos .qna_info.qna_reply:before {
+  background-position:0 -120px;
+  content:"답변수";
+}
+
+.post_view_wrap .post_cont {
+  padding:32px 0;
+  color:#373f57;
+  font-size:16px;
+  letter-spacing:-1px;
+  line-height:26px;
+  word-break:break-all;
+} 
+/*#*/
+.post_view_wrap .post_tag_list {
+  padding-bottom:32px;
+}
+.post_view_wrap .post_tag_list:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed;
+}
+.post_view_wrap .post_tag_list .post_tag {
+  float:left;
+  margin:8px 8px 0 0;
+  padding:7px 15px 9px 15px;
+  border-radius:16px;
+  color:#373f57;
+  font-size:14px;
+  letter-spacing:-0.5px;
+  line-height:16px;
+  background-color:#f4f6fa;
+}
+
+/*스티커 네개*/
+.post_view_wrap .post_emoticon {
+  margin:0 auto;
+  text-align:center;
+}
+.post_view_wrap .post_emoticon:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed;
+}
+.post_view_wrap .post_emoticon li {
+  display:inline-block;
+  margin-right:16px;
+}
+.post_view_wrap .post_emoticon li:last-child {
+  margin-right:0;
+}
+.post_view_wrap .post_emoticon li button {
+  display:block;
+  overflow:hidden;
+  position:relative;
+  width:50px;
+  box-sizing:border-box;
+  font-size:0;
+}
+.post_view_wrap .post_emoticon li button:before {
+  display:inline-block;
+  width:50px;
+  height:40px;
+  content:"";
+}
+.post_view_wrap .post_emoticon li button.like:before {
+  background:url("//www.saraminimage.co.kr/sri/company_review/emoji_like.png") no-repeat 0 -40px;
+}
+.post_view_wrap .post_emoticon li button.fun:before {
+  background:url("//www.saraminimage.co.kr/sri/company_review/emoji_fun.png") no-repeat 0 -40px;
+}
+.post_view_wrap .post_emoticon li button.help:before {
+  background:url("//www.saraminimage.co.kr/sri/company_review/emoji_help.png") no-repeat 0 -40px;
+}
+.post_view_wrap .post_emoticon li button.cheer:before {
+  background:url("//www.saraminimage.co.kr/sri/company_review/emoji_cheer.png") no-repeat 0 -40px;
+  background-size:50px;
+}
+/*좋아요 네개*/
+.post_view_wrap .post_emoticon li button.on:before {
+  background-position:0 0
+}
+.post_view_wrap .post_emoticon li .sympathy_result {
+  display:block;
+  margin-top:8px;
+  color:#5c667b;
+  font-size:13px;
+  letter-spacing:-0.5px;
+  line-height:20px;
+  text-align:center
+}
+
+/*댓글 작성 하는 곳*/
+.comment_input_wrap {
+  overflow:hidden;
+  position:relative;
+  margin-top:38px;
+  border:1px solid #d7dce5;
+  border-radius:8px;
+  box-sizing:border-box
+}
+.comment_input_wrap .comment_input {
+  padding:22px 24px 0 24px;
+  border-bottom:1px solid #d7dce5
+}
+.comment_input_wrap .comment_input .nickname {
+  display:inline-block;
+  color:#373f57;
+  font-size:14px;
+  font-weight:bold;
+  letter-spacing:-1px;
+  line-height:20px
+}
+.comment_input_wrap .comment_input .btn_profile_modify {
+  display:inline-block;
+  overflow:hidden;
+  margin-top:4px;margin-left:4px;
+  width:16px;
+  height:16px;
+  vertical-align:top
+}
+.comment_input_wrap .comment_input .btn_profile_modify:before {
+  display:block;
+  width:16px;
+  height:16px;
+  background:url("//www.saraminimage.co.kr/sri/company_review/icons.png") no-repeat 0 0;
+  content:""
+}
+.comment_input_wrap .comment_input textarea {
+  margin-top:12px;
+  width:100%;
+  height:98px;
+  border:0;
+  box-sizing:border-box;
+  color:#373f57;
+  font-size:14px;
+  letter-spacing:-1px;
+  line-height:24px;background-color:#fff;
+  resize:none
+}
+.comment_input_wrap .comment_input textarea::placeholder {
+  color:#bbb;opacity:1
+}
+.comment_input_wrap .comment_input textarea:-ms-input-placeholder {
+  color:#bbb;opacity:1
+}
+.comment_input_wrap .comment_input textarea::-ms-input-placeholder {
+  color:#8491a7;opacity:1
+}
+.comment_input_wrap .comment_input.img_add {
+  padding-right:108px
+}
+
+.comment_input_wrap .comment_count {
+  display:block;
+  position:absolute;
+  right:143px;
+  bottom:14px;
+  color:#5c667b;
+  font-size:13px;
+  letter-spacing:-0.5px;
+  text-align:right
+}
+
+/*댓글 등록 버튼*/
+.comment_input_wrap .comment_submit {
+  position:absolute;
+  right:0;
+  bottom:0;
+  z-index:10;
+  width:128px;
+  border-radius:0
+}
+
+
+
+
+/*댓글창*/
+.comment_lists_wrap {
+  position:relative;
+  margin-top:38px
+}
+.comment_lists_sort {
+  padding-bottom:19px
+}
+/*댓글창 선*/
+.comment_lists {
+  border-top:1px solid #d7dce5
+} 
+.comment_lists li {
+  position:relative;border-bottom:1px solid #edeef0
+}
+.comment_lists li:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed
+}
+/*댓글창 간격*/
+.comment_lists .comment_view {
+  padding:24px 16px
+}
+.comment_lists .comment_view:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed
+}
+.comment_lists .comment_view.delete {
+  padding:14px 24px;
+  background-color:#fff
+}
+
+
+/*댓글창 고정*/
+.comment_lists .comment_txt {
+  display:block;
+  color:#373f57;
+  font-size:14px;
+  letter-spacing:-1px;line-height:24px;
+  text-align:left
+}
+
+.comment_lists .comment_data_wrap {
+  float:left;
+  position:relative;
+  margin-top:24px
+}
+.comment_lists .comment_data_wrap:after {
+  display:table;
+  clear:both;
+  content:"";
+  table-layout:fixed
+}
+.comment_lists .comment_data_wrap .comment_data {
+  display:inline-block;
+  float:left;
+  position:relative;
+  margin-right:12px;
+  padding-left:28px;
+  height:24px;
+  box-sizing:border-box;
+  color:#5c667b;
+  font-size:13px;
+  letter-spacing:-0.87px;
+  line-height:24px;
+  vertical-align:top
+}
+
+.comment_lists .comment_data_wrap .comment_data:before {
+  position:absolute;
+  top:1px;
+  left:0;
+  width:24px;
+  height:24px;
+  font-size:0;
+  background:url("//www.saraminimage.co.kr/sri/company_review/icons_220418.png") no-repeat
+} 
+.comment_lists .comment_data_wrap .comment_like:before {
+  background-position:-30px -90px;
+  content:"공감수"
+}
+.comment_lists .comment_data_wrap .comment_data.on:before {
+  background-position:-60px -90px;
+  content:"공감수"
+}
+
+/*댓글 이모티컨*/
+.comment_lists .comment_data_wrap .comment_data.comment_reply:before {
+  background-position:0 -120px;
+  content:"답변수"
+}
+.comment_lists .comment_data_wrap .comment_data.comment_re_reply:before {
+  background-position:-90px -120px;
+  content:""
+} 
+
+/* // 댓글 창 */
+.comment_lists .comment_info .btn_thanks {
+  display:inline-block;
+  width:105px;
+  height:24px;
+  border:1px solid #d7dce5;border-radius:4px;
+  box-sizing:border-box;
+  color:#5c667b;
+  font-size:12px;
+  letter-spacing:-1px;
+  line-height:20px
+}
+.comment_lists .comment_info .btn_thanks:disabled {
+  color:#afbac8;
+  background:#eaedf4
+}
+.comment_lists .comment_info .thumbnail {
+  display:inline-block;
+  overflow:hidden;
+  position:relative;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  box-sizing:border-box;
+  background:#fff
+}
+
+.comment_lists .profile_pic_wrap 
+{position:absolute;
+  top:-4px;
+  right:0;
+  width:32px;
+  height:32px
+}
+
+.comment_lists .profile_pic_wrap .icon_king {
+  bottom:0;
+  width:14px;
+  height:14px;
+  background-size:14px 14px
+}
+
+
+

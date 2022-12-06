@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.five.member.mapper.ResumeMapper">
+
+<!--  회원 기본 정보 출력 -->
+<select id="memberSelect" resultType="com.five.member.entity.memberNVO" parameterType="String" >
+	SELECT *
+	FROM member
+	WHERE m_id = #{id}
+</select>
+
+
+<!--  해당 회원의 이력서 시퀀스 찾기 -->
+<select id="selectSeq" resultType="int" parameterType="String">
+	SELECT r_seq
+	FROM resume
+	WHERE m_id = #{id}
+</select>
+
+
+<!-- 이력서 정보 넣기 -->
+<insert id="careerInsert" parameterType="com.five.member.entity.ResumeVO">
+	<selectKey keyProperty="r_seq" resultType="int" order="AFTER">
+		SELECT LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO resume
+	VALUES (r_seq, #{m_id}, #{r_exp}, #{r_school}, #{r_license}, #{r_award}, #{r_img}) 
+</insert>
+
+
+<!--  자기소개서 정보 넣기 -->
+<insert id="introInsert" parameterType="com.five.member.entity.ResumeSelfVO">
+	INSERT INTO resume_myself
+	VALUES (rm_seq, #{r_seq}, #{rm_title}, #{rm_content})
+</insert>
+
+
+<!--  이력서 정보 수정 -->
+<update id="careerUpdate" parameterType="com.five.member.entity.ResumeVO">
+	UPDATE resume
+	SET r_exp = #{r_exp}, r_school = #{r_school}, 
+		r_license = #{r_license}, r_award = #{r_award},  r_img = #{r_img}
+	WHERE r_seq = #{r_seq}
+</update>
+
+
+<!-- 자기소개서 정보 수정 -->
+<update id="introUpdate" parameterType="com.five.member.entity.ResumeSelfVO">
+	UPDATE resume_myself
+	SET rm_title = #{rm_title}, rm_content = #{rm_content}
+	WHERE r_seq = #{r_seq}
+</update>
+
+
+<!--  이력서 정보 조회 -->
+<select id="careerSelect" parameterType="int" resultType="com.five.member.entity.ResumeVO">
+	SELECT *
+	FROM resume
+	WHERE r_seq = #{r_seq} 
+</select>
+
+
+<!--  자기소개서 정보 조회 -->
+<select id="introSelect" parameterType="int" resultType="com.five.member.entity.ResumeSelfVO">
+	SELECT *
+	FROM resume_myself
+	WHERE r_seq = #{r_seq}
+</select>
+
+
+<!--  자기소개서 정보 조회 -->
+<select id="bool" parameterType="String" resultType="boolean">
+	SELECT IF(count(r_seq) = 1,1,0)
+	FROM resume 
+	WHERE m_id = #{id}
+</select>
+
+</mapper>

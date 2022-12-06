@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
     
 <!DOCTYPE html>
 <html lang="en">
@@ -50,98 +48,9 @@
 </head>
 
 
-<!--«ÏµÂ∫Œ∫– Ω√¿€-->
-    <div class="header-wrapper" style="z-index: 111;">
-        <div class="container">
-            <div class="row" style="display: flex; align-items: center; width: 100% ">
-                <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
-
-                    <!--∑Œ∞Ì ¿ÃπÃ¡ˆ ∫Œ∫–-->
-                    <div class="logo" style="width: 180px;">
-                        <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12" style="justify-content: center; display: flex; width: 60%;">
-                    <div class="navigation-wrapper" style="display: flex; justify-content: center;">
-
-                        <!--∏ﬁ¥∫ Ω√¿€-->
-                        <div id="navigation">
-                            <ul>
-                                <li class="active"><a href="main.do" title="">Home</a></li>
-
-                                <li class="has-sub"><a href="#" title="">¡˜π´º“∞≥</a>
-                                    <ul>
-                                        <li><a href="job.do" title="">∞≥πﬂ¿⁄ ∑ŒµÂ∏ </a></li>
-                                        <li><a href="jobMBTI.do" title="">¿ÁπÃ∑Œ ∫∏¥¬ MBTI </a></li>
-                                    </ul>
-                                </li>
-
-
-                                 <li class="has-sub"><a href="#" title="">∞≠¿«</a>
-                                    <ul>
-                                        <li><a href="#" title="">∞≠¿«¡§∫∏</a></li>
-                                        <li><a href="#" title="">≥ª «–Ω¿</a></li>
-                                        <li><a href="#" title="">ºˆ∞≠πŸ±∏¥œ</a></li>
-                                    </ul>
-                                </li>
-
-
-                                <li class="has-sub"><a href="#" title="">√§øÎ</a>
-                                    <ul>
-                                        <li><a href="employ.do" title="">√§øÎ¡§∫∏</a></li>
-                                        <li><a href="#" title="">±∏¡˜∞¸∏Æ</a></li>
-                                        <li><a href="resume.do" title="">¿Ã∑¬º≠</a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="board.do" title="">IT ∞‘Ω√∆«</a></li>
-                                
-                                
-                            </ul>
-
-                        </div>
-                        <!-- ∏ﬁ¥∫ ∫Œ∫– ≥°-->
-                    </div>
-                </div>
-                
-                <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
-                <c:choose> 
-                
-                	<c:when test="${not empty id}">
-                	<div style="                	
-                	    display: flex;
-    					width: 400px;
-    					align-items: center;  
-    					justify-content: space-around;
-         	
-                	" >
-                	<span style="margin-right: 30px;">${id} ¥‘ »Øøµ«’¥œ¥Ÿ!</span>
-                		<a href="logOutNE.do" class="btn btn-primary">∑Œ±◊æ∆øÙ</a> 
-                		
-                		<c:choose>
-		                	<c:when test="${num eq '1'}">
-		                		<a href="updateN.do?id=${id}" class="btn btn-primary">»∏ø¯¡§∫∏ºˆ¡§</a>  
-		                	</c:when> 
-		                	<c:otherwise>
-		                		<a href="updateE.do?id=${id}" class="btn btn-primary">»∏ø¯¡§∫∏ºˆ¡§</a> 
-		                	</c:otherwise>
-		                	   
-	                	</c:choose>
-	                	     			
-                	</div>                	            			            			
-             		</c:when>   
-             		          		
-              		<c:otherwise>
-              			<a href="selectNE.do" class="btn btn-primary">∑Œ±◊¿Œ</a>
-              		</c:otherwise>             		
-              	</c:choose>                          	
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    <!-- «ÏµÂ∫Œ∫– ≥°!!! -->
-
+	<!-- Ìó§Îçî ÏãúÏûë -->
+		<%@ include file="/WEB-INF/views/main/header.jsp" %>	  
+	<!-- Ìó§Îçî ÎÅù -->
 
 
 <!-- page-header-start -->
@@ -150,8 +59,8 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="page-section">
-          <h1 class="page-title" style="font-weight: 700;" >IT ∞‘Ω√∆«</h1>
-          <p class="page-text">∏∂¿Ω∆Ì»˜ æ≤ººø‰~</p>
+          <h1 class="page-title" style="font-weight: 700;" >IT Í≤åÏãúÌåê</h1>
+          <p class="page-text">ÎßàÏùåÌé∏Ìûà Ïì∞ÏÑ∏Ïöî~</p>
         </div>
       </div>
     </div>
@@ -159,128 +68,63 @@
 </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <!-- <h1 class="mb30">IT∞‘Ω√∆«</h1> -->
+        <!-- <h1 class="mb30">ITÍ≤åÏãúÌåê</h1> -->
       </div>
     </div>
 
  
-<!--≥ª∫Œ -->   
+<!--ÎÇ¥Î∂Ä -->   
 
 
   <footer>
     <div class="inner">
       <ul class="menu">
-        <li> <a href="javascript:void(0)">∞¯¡ˆªÁ«◊</a></li>
-        <li> <a href="javascript:void(0)">¿⁄¿Ø ∞‘Ω√∆«</a></li>
+        <li> <a href="javascript:void(0)">Í≥µÏßÄÏÇ¨Ìï≠</a></li>
+        <li> <a href="javascript:void(0)">ÏûêÏú† Í≤åÏãúÌåê</a></li>
         <li> <a href="javascript:void(0)">QnA</a></li>
       </ul>
     </div>
   </footer>
 
-<!--∞‘Ω√∆« ∏∏µÂ¥¬∞˜-->
+<!--Í≤åÏãúÌåê ÎßåÎìúÎäîÍ≥≥-->
 
 
 <section class="container2">
 <div class="tatalcontent" style="width: 80%;" >
 
-  <div class="content" style="width:100% ;">
-    <input type="text" name="subject" placeholder="¡¶∏Ò¿ª ¿‘∑¬«ÿ¡÷ººø‰" style="width: 100%; border-radius: 13px; height: 60px;">
-  </div>
 
-  <div class="s_content">
-    <input type="checkbox" name="password"> ¿€º∫¿⁄∏Ì ∫Ò∞¯∞≥
-  </div>
-
-</div>
-
-  <div class="smart">
-    <textarea id="txtContent" name="content" rows="10" cols="100" style="width: 100%;"></textarea>
-  </div>
-  <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"> <a href="#" class="btn btn-default btn-sm mb20">µÓ∑œ</a></div>
-  </div>
-
+	<form action="boardInsert.do">
+	  <div class="content" style="width:100% ;">
+	    <input type="text" name="b_title" placeholder="Ï†úÎ™©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî" style="width: 100%; border-radius: 13px; height: 60px;">
+	  </div>
+	
+	  <div class="s_content">
+	    <input type="checkbox" name=""> ÏûëÏÑ±ÏûêÎ™Ö ÎπÑÍ≥µÍ∞ú
+	  </div>
+	  <div>
+	  	 <select name="b_type" title="Í≤åÏãúÌåêÏ¢ÖÎ•ò">
+	  		<option value="" >Ïπ¥ÌÖåÍ≥†Î¶¨ÏÑ†ÌÉù</option>
+	        <option value="info" >Í≥µÏßÄÏÇ¨Ìï≠</option>
+	        <option value="free">ÏûêÏú† Í≤åÏãúÌåê</option>
+	        <option value="qna">QnA</option>
+	     </select>
+	  </div>
+	</div>
+	  <div class="smart">
+	    <textarea id="txtContent" name="b_content" rows="10" cols="100" style="width: 100%; height: 414px;"></textarea>
+	  </div>
+	  <div class="row">
+	    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" > <button type="submit" class= "btn btn-primary"  style="position: relative;  left: 200%; height: 60px; width: 80px; font-size: 16px; ">Îì±Î°ù</button>  </div>
+	  </div>
+	  
+	  <input type="text" style="display:none" name="m_id"  value="${id}">
+		  
+	</form>
 </section>
-    <!-- <table>
-      <tr>
-          <td><input type="text" name="subject" class="content" placeholder="¡¶∏Ò¿ª ¿‘∑¬«ÿ¡÷ººø‰"></td>
-      </tr>
-      <tr>
-          <td><input type="checkbox" name="password">¿€º∫¿⁄∏Ì ∫Ò∞¯∞≥</td>
-      </tr>
-      <tr>
-          <td>≥ªøÎ</td>
-          <td>
-            <textarea id="txtContent" name="content" rows="10" cols="100" style="width: 100%;"></textarea>
-          </td>
-      </tr>
-    </table> -->
 
-
-
-<div class="footer">
-  <div class="container">
-    <div class="row"> 
-      <!-- footer-useful links-start -->
-      <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">Quick Links</h3>
-          <ul>
-            <li><a href="#">Home </a></li>
-            <li><a href="#">About us </a></li>
-            <li><a href="#">Practice Area </a></li>
-            <li><a href="#">Cases </a></li>
-            <li><a href="#">News </a></li>
-            <li> <a href="#">Contacts</a></li>
-          </ul>
-        </div>
-      </div> -->
-      <!-- footer-useful links-close --> 
-      <!-- footer-contactinfo-start -->
-      <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">24 X 7 Support</h3>
-          <div class="">
-            <ul>
-              <li> <i class="fa fa-map-marker"></i> 2000 Cambridge Ease template,72764 India</li>
-              <li><i class="fa fa-phone"></i>800-123-4567</li>
-              <li><i class="fa fa-envelope"></i>info@education.com</li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary btn-sm">request a Course</a></div>
-      </div>
-      <!-- footer-contactinfo-close --> 
-      <!-- footer-about-start -->
-      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ">
-        <div class="footer-widget">
-          <h3 class="footer-title">About Education</h3>
-          <p>Velitconsectetur utleo velaoreet in bibendum felirbi iaculis iaculis dpibus ecenas one posuereorci ut euismod tristique. </p>
-          <p>lorem ipsum dolr sit amet viedfum lacumdi postern lembneir siot lsedto sistompovelaoreet in bibendum egestacerat tempus magna nonrordueugloattis ultrices diam.</p>
-        </div>
-      </div>
-      <!-- footer-about-close -->
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <div class="footer-line"></div>
-      </div>
-      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-        <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-        </p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="footer-social">
-         <a href="#"><span><i class="fa fa-facebook"></i></span></a>
-          <a href="#"><span><i class="fa fa-google-plus"></i></span> </a> 
-          <a href="#"><span class="active"><i class="fa fa-twitter"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-instagram"></i></span> </a> 
-          <a href="#"><span><i class=" fa fa-pinterest"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-linkedin"></i></span></a> </div>
-      </div>
-    </div>
-  </div>
-  <!-- footer-address-close --> 
-</div>
-
-<!-- footer close --> 
+	<!-- footer ÏãúÏûë -->
+		<%@ include file="/WEB-INF/views/main/footer.jsp" %>	  
+	<!-- footer ÎÅù -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="/js/jquery.min.js" type="text/javascript"></script> 

@@ -5,7 +5,34 @@
 
 <mapper namespace="com.five.member.mapper.EmployMapper">
 
+	<select id="employList" resultType="com.five.member.entity.EmployVO">
+		select * from job
+		order by j_date
+	</select>
 	
-
+	<select id="personList" parameterType="String" resultType="com.five.member.entity.EmployVO">
+		select * from job
+		where j_place=(select m_place from member where m_id=#{id})
+	</select>
+	
+	<select id="detailEmployList" parameterType="Integer" resultType="com.five.member.entity.EmployVO">
+		select j.j_seq, j.e_id,j.j_title,j.j_content,j.j_place,j.j_type,j.j_img,j.j_language,j.j_exp,j.j_date,d.jd_seq,d.jd_img
+		from job as j
+		join job_detail as d
+		on j.j_seq=d.j_seq
+		where j.j_seq=#{seq};
+	</select>
+	
+	<select id="searchList" parameterType="String" resultType="com.five.member.entity.EmployVO">
+		select * FROM job 
+		where CONCAT(j_seq,e_id,j_title,j_content,j_place,j_type,j_img,j_language,j_exp,j_date) 
+		REGEXP #{keyword};
+	</select>
+	
+	<select id="expList" parameterType="String" resultType="com.five.member.entity.EmployVO">
+		select * from job
+		where j_exp=#{exp};
+	</select>
+	
 
 </mapper>

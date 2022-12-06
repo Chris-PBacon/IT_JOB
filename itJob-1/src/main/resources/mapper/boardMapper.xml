@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -7,9 +9,9 @@
 
 	<!--Info 게시판 -->
 	<select id="restBoardInfo"
-		resultType="com.five.member.entity.BoardVO">
+		resultType="com.five.member.dto.BoardDto">
 		select * from board
-		where b_type = 'info'
+		where b_type = '공지사항'
 		order by b_date
 	</select>
 
@@ -17,7 +19,7 @@
 	<select id="restBoardFree"
 		resultType="com.five.member.entity.BoardVO">
 		select * from board
-		where b_type = 'free'
+		where b_type = '자유게시판'
 		order by b_date
 	</select>
 
@@ -25,19 +27,54 @@
 	<select id="restBoardQnA"
 		resultType="com.five.member.entity.BoardVO">
 		select * from board
-		where b_type = 'qna'
+		where b_type = 'QnA'
 		order by b_date
 	</select>
 	
 	
 	<!-- 작성자 검색 기능 --> 
 	
-	<select id="searchList" resultType="com.five.member.entity.BoardVO">
-	    select * from board where m_id like concat('%',#{search},'%')
+	<select id="searchList" parameterType="String" resultType="com.five.member.dto.BoardDto">
+	    SELECT * from board 
+	    WHERE b_type = #{type}
+	    AND m_id like concat('%',#{search},'%')
+	    OR b_title like concat('%',#{search},'%')  
 	    	    
 	</select>
 	
-
+	<!-- #### 게시판 글쓰기 / 댓글 기능 #### -->
+	
+	<!-- 글쓰기 게시판 -->
+	<insert id="boardInsertM" parameterType="com.five.member.entity.BoardVO"> 
+		insert into board
+		values( b_seq , #{b_title}, #{b_content}, #{m_id}, sysdate(),22,#{b_type})
+		
+	</insert>	
+	
+	<!-- 상세페이지 보기 -->
+	<select id="boardDetail" parameterType="int" resultType="com.five.member.dto.BoardDto">
+		select * from board
+		where b_seq = #{b_seq}
+	</select>
+	
+	<!-- 댓글 저장하는 기능 -->
+	<insert id="boardCommentsM" parameterType="com.five.member.entity.CommentVO" >
+		insert into comment
+		values(c_seq, #{b_seq}, #{m_id}, #{c_content})
+	</insert>
+	
+	<!-- 댓글 리스트 보여주는 기능 -->
+	<select id="commentList" parameterType="int" resultType="com.five.member.entity.CommentVO">
+		select * from comment
+		where b_seq = #{b_seq}
+	</select>
+	
+	<!-- 댓글 삭제 하는 기능 -->
+	<delete id="commentDelete" parameterType="int"  >
+  		delete from comment
+  		where c_seq = #{c_seq}
+  	</delete>
+  	
 	
 	
 

@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
+        
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,28 +33,11 @@
 
 <link rel="stylesheet" href="/scss/employ.scss">
 
-<script type="text/javascript">
-
-	function window::onload(){test()}
-	
-	function test(){
-		
-		$.ajax({
-			url: "restBoardInfo.do",
-			method: "POST",
-			dataType : "JSON",
-			success : resultJSON,
-			error : function(e) {
-				console.log(e);
-			}				
-		});
-	}
-</script>
 
 
 <style>
   .contact-block {background: url(https://cafeptthumb-phinf.pstatic.net/MjAyMjEwMDJfMjcw/MDAxNjY0Njc0MTYwMjM4.RgG4ehxULb36zyUuDnfs7xufUGcpDK2aa2Pf7IiMC2Qg.sUHbhJjwVWvDxQgdVOXtIPQm0Jqtg_zNhLNxnk9e-dUg.JPEG/%EC%B9%B4%ED%8E%98%EB%B0%B0%EB%84%88_1080-340.jpg) no-repeat center; background-size: cover; margin: 0px; padding-top: 180px; padding-bottom: 180px; position: relative;}
-  .contact-block {background: url(../images/π⁄«˝ø¯∆“ƒ´∆‰.jpg) no-repeat center; background-size: cover; margin: 0px; padding-top: 180px; padding-bottom: 180px; position: relative;}
+  .contact-block {background: url(../images/Î∞ïÌòúÏõêÌå¨Ïπ¥Ìéò.jpg) no-repeat center; background-size: cover; margin: 0px; padding-top: 180px; padding-bottom: 180px; position: relative;}
 
   .service-icon {    
     margin-left: 25%;
@@ -67,7 +51,7 @@
     border-bottom-width: 3px; 
     margin-bottom: 3%;
   }
-  #employ-box{
+  .employ-box{
     align-items: center;
     display: flex;
     
@@ -86,7 +70,7 @@
     margin-top:5%;
   }
   #widget{
-    width: 30%;
+    width: 25%;
   }
   .img-responsive{
     display: flex;
@@ -105,88 +89,152 @@
     object-fit: cover;
   }
   
+  .container{
+    width: 70%;
+  }
+.col-lg-8{
+  width: 75%;
+}
+
+.twobtn{
+  font-size: 15px;
+}
+.pagination{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.three-btn{
+  position: relative;
+    padding: 14px 24px;
+    width: 100%;
+    height: 72px;
+    border-radius: 16px;
+    color: #8491a7;
+    text-align: right;
+    letter-spacing: -1px;
+    background: #f4f6fa;
+    cursor: pointer;
+    border: 0;
+    cursor: pointer;
+  }
+
+
+
+  .three-btn>em {
+    position: absolute;
+    top: 21px;
+    left: 24px;
+    font-weight: bold;
+    font-size: 0.85em;
+  }
+
+  .three-btn>span{
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 44px;
+    vertical-align: top;
+
+  }
+
+  #three-btn{
+    display: flex;
+    float: right;
+    padding: 0 6px;
+    width: 104%;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+  }
+
+ .btn-con{
+  width: 33.33%;
+ margin-left: 15px;
+  }
+
+  #result{
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    word-break: break-all;
+
+    margin-top: 32px;
+    padding: 8px 32px;
+    width: 100%;
+    border-radius: 8px;
+    background: #f4f6fa;
+    
+
+  }
+  .m-lo{
+
+    list-style: none;
+
+  }
+
+  .m-li{
+    border-top: 0;
+    padding: 10px 0;
+  }
+  
+  .date{
+    float: left;
+    width: 143px;
+    color: #8491a7;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -.5px;
+  }
+  .desc{
+    overflow: hidden;
+    display: block;
+    color: #8491a7;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -1px;
+  }
+  .desc>strong{
+    display: inline-block;
+    padding-right: 20px;
+    color: #373f57;
+    vertical-align: top;
+  }
+  .desc>span{
+    display: inline-block;
+    padding-right: 8px;
+    vertical-align: top;
+
+    color: #8491a7;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -1px;
+
+  }
 
 
 </style>
 
 </head>
-
 <body>
 
- 	<!--«ÏµÂ∫Œ∫– Ω√¿€-->
-    <div class="header-wrapper">
-        <div class="container">
-            <div class="row" style="display: flex; align-items: center;">
-                <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
-
-                    <!--∑Œ∞Ì ¿ÃπÃ¡ˆ ∫Œ∫–-->
-                    <div class="logo" style="width: 180px;">
-                        <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-                    <div class="navigation-wrapper">
-
-                        <!--∏ﬁ¥∫ Ω√¿€-->
-                        <div id="navigation">
-                            <ul>
-                                <li class="active"><a href="main.do" title="">Home</a></li>
-
-                                <li class="has-sub"><a href="#" title="">¡˜π´º“∞≥</a>
-                                    <ul>
-                                        <li><a href="job.do" title="">∞≥πﬂ¿⁄ ∑ŒµÂ∏ </a></li>
-                                        <li><a href="jobMBTI.do" title="">¿ÁπÃ∑Œ ∫∏¥¬ MBTI </a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="lecture.do" title="">∞≠¿«</a></li>
+<div>
+	<!-- Ìó§Îçî ÏãúÏûë -->
+		<%@ include file="/WEB-INF/views/main/header.jsp" %>	  
+	<!-- Ìó§Îçî ÎÅù -->
 
 
-                                <li class="has-sub"><a href="#" title="">√§øÎ</a>
-                                    <ul>
-                                        <li><a href="employ.do" title="">√§øÎ¡§∫∏</a></li>
-                                        <li><a href="#" title="">±∏¡˜∞¸∏Æ</a></li>
-                                        <li><a href="resume.do" title="">¿Ã∑¬º≠</a></li>
-                                    </ul>
-                                </li>
 
-                                <li><a href="board.do" title="">IT ∞‘Ω√∆«</a></li>
-                            </ul>
-
-                        </div>
-                        <!-- ∏ﬁ¥∫ ∫Œ∫– ≥°-->
-                    </div>
-                </div>
-                <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
-                <c:choose> 
-                
-                	<c:when test="${not empty id}">
-                	<div style="                	
-                	    display: flex;
-    					width: 400px;
-    					align-items: center;              	
-                	" >
-                	<span style="margin-right: 30px;">${id} ¥‘ »Øøµ«’¥œ¥Ÿ!</span>
-                		<a href="logOutNE.do" class="btn btn-primary">∑Œ±◊æ∆øÙ</a>            			
-                	</div>              			            			
-             		</c:when>             		
-              		<c:otherwise>
-              			<a href="selectNE.do" class="btn btn-primary">∑Œ±◊¿Œ</a>
-              		</c:otherwise>             		
-              	</c:choose>                          	
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- «ÏµÂ∫Œ∫– ≥°!!! -->
- 
-
-<!-- ∏ﬁ¿ŒΩ√¿€ -->
+<!-- Î©îÏù∏ÏãúÏûë -->
 <div class="space">
-  <div class="container">
+  <div class="container" >
     <div class="row">
 
-  <!-- ∫£≥ ±§∞Ì -->
+
+
+
+  <!-- Î≤†ÎÑàÍ¥ëÍ≥† -->
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
     <!-- Indicators -->
@@ -199,19 +247,19 @@
     <!-- slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="../images/π⁄«˝ø¯∆“ƒ´∆‰.jpg" alt="...">
+        <img src="../images/Î∞ïÌòúÏõêÌå¨Ïπ¥Ìéò.jpg" alt="...">
       </div>
 
       <div class="item">
-        <img src="../images/¡¶∏Ò≈∑πﬁ≥◊.jpg" alt="...">
+        <img src="../images/Ï†úÎ™©ÌÇπÎ∞õÎÑ§.jpg" alt="...">
       </div>
 
       <div class="item">
-        <img src="../images/π⁄«˝ø¯.jpg" alt="...">
+        <img src="../images/Î∞ïÌòúÏõê.jpg" alt="...">
       </div>
     </div>
   
-    <!-- ƒ¡∆Æ∑— πˆ∆∞ -->
+    <!-- Ïª®Ìä∏Î°§ Î≤ÑÌäº -->
     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -223,403 +271,346 @@
   </div>
 
 
-      <!-- √ﬂ√µ√§øÎ -->
+    
+
+      <!-- Ï∂îÏ≤úÏ±ÑÏö© -->
       <div class="space-medium">
-        <div class="container">
+        <div class="container" style="width: 100%;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12">
                     <div class="section-title">
-                        <h2>000¥‘ √ﬂ√µ √§øÎ∞¯∞Ì ¿‘¥œ¥Ÿ</h2>
+                        <h1>ÏßÄÏõê ÎÇ¥Ïó≠</h1>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <!-- √ﬂ√µ 1 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="employ-img">
-                          <img src="/images/¥Á±Ÿ2.png" alt="">
-                        </div>
-                        <div class="team-content mt20">
-                          <h3 class="team-title">(¡÷)¥Á±Ÿ∏∂ƒœ</h3>
-                          <span class="team-meta">πÈø£µÂ ∞≥πﬂ¿⁄ ∏¡˝</span>
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 1 -->
+            <!--Î≤ÑÌäº 3Í∞ú-->
+            <div class="row" id="three-btn" >
+                
+            <div class="btn-con">
+              <button class="three-btn">
+                <em>ÏßÄÏõêÏôÑÎ£å</em>
+                <span>0</span>
+              </button>
+            </div>
 
-                <!-- √ﬂ√µ 2 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="employ-img">
-                          <img src="/images/kakao.png" alt="">
-                        </div>
+            <div class="btn-con">
+              <button class="three-btn">
+                <em>Ï†ÑÌòï ÏßÑÌñâÏ§ë</em>
+                <span>0</span>
+              </button>
+            </div>
 
-                        <div class="team-content mt20">
-                          <h3 class="team-title">(¡÷)ƒ´ƒ´ø¿</h3>
-                          <span class="team-meta">ƒ´ƒ´ø¿ µ¿⁄¿Ã≥  ¡˜±∫ ∏¡˝</span>
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 2 -->
+            <div class="btn-con">
+              <button class="three-btn">
+                <em>ÏµúÏ¢ÖÎ∞úÌëú</em>
+                <span>0</span>
+              </button>
+            </div>
 
-                <!-- √ﬂ√µ 3 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="employ-img">
-                          <img src="/images/∂Û¿Œ2.png" alt="">
-                        </div>
-                        <div class="team-content mt20">
-                          <h3 class="team-title">∂Û¿Œ«√∑ØΩ∫(¡÷)</h3>
-                          <span class="team-meta">«¡∑Œ¡ß∆Æ ∏≈¥œ¿˙ ∏¡˝</span> 
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 3 -->
+         
 
-                <!-- √ﬂ√µ 4 -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                      <div class="employ-img">
-                        <img src="/images/ƒÌ∆Œ.png" alt="">
-                      </div>
-                        <div class="team-content mt20">
-                          <h3 class="team-title">ƒÌ∆Œ(¡÷)</h3>
-                          <span class="team-meta">¿Ø¡ˆ∫∏ºˆ ø£¡ˆ¥œæÓ ∏¡˝</span>
-                          <p>2022/11/01-2022/11/30</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- √ﬂ√µ 4 -->
             </div>
         </div>
       </div>
       
-      <!-- ≥ª∫Œ -->
+      <!-- ÎÇ¥Î∂Ä -->
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="widget"> 
 
-      <!-- ¿ß¡¨ ±∏ø™ Ω√¿€ -->
-        <!-- ∞Àªˆ -->
+      <!-- ÏúÑÏ†Ø Íµ¨Ïó≠ ÏãúÏûë -->
+        <!-- Í≤ÄÏÉâ -->
         <div class=" widget widget-search">
           <form>
             <div class="">
-              <input type="text" class="form-control search-form" value="" placeholder= "∞Àªˆ«“ ≈∞øˆµÂ∏¶ ¿‘∑¬«œººø‰">
+              <input type="text" class="form-control search-form" value="" placeholder= "Í∏∞ÏóÖÎ™Ö Í≤ÄÏÉâ">
                <button type="Submit"><i class="fa fa-search"></i></button>
              </div>
           </form>
         </div>
-        <!-- ∞Àªˆ ≥° --> 
-        
-        <!-- ∞Ê∑¬¿Øπ´º±≈√ Ω√¿€ -->
-        <div class=" widget widget-archives">
-          <h2 class="widget-title">∞Ê∑¬ ¿Øπ´</h2>
-          <ul>
-            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">Ω≈¿‘</a></li>
-            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">∞Ê∑¬</a></li>
-          </ul>
-        </div>
-        <!-- ∞Ê∑¬¿Øπ´º±≈√ ≥° --> 
+        <!-- Í≤ÄÏÉâ ÎÅù --> 
 
-        <!-- ¡˜π´ º±≈√ Ω√¿€-->
+
+        <!-- ÏßÅÎ¨¥ ÏÑ†ÌÉù ÏãúÏûë-->
         <div class=" widget widget-categories">
-          <h2 class="widget-title">IT ¡˜π´ º±≈√</h2>
+          <h2 class="widget-title">Ï±ÑÏö©</h2>
           <ul class="">
             <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> 
-              <a href="#">«¡∑–∆Æø£µÂ ∞≥πﬂ¿⁄ (10)</a></li>
+              <a href="#">ÏßÄÏõê ÎÇ¥Ïó≠</a></li>
             <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">πÈø£µÂ ∞≥πﬂ¿⁄ (05)</a></li>
+              <a href="#">Î∞õÏùÄ Ï†úÏïà</a></li>
             <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">¿Œ∞¯¡ˆ¥… ∞≥πﬂ¿⁄(06) </a></li>
+              <a href="#">Ïä§ÌÅ¨Îû© / Í¥ÄÏã¨Í∏∞ÏóÖ </a></li>
             <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">º≠∫ÒΩ∫ ±‚»π¿⁄ (12)</a></li>
-            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">µ•¿Ã≈Õ ø£¡ˆ¥œæÓ (06)</a></li>
-            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-              <a href="#">¡§∫∏ ∫∏æ» ¿¸πÆ∞° (05) </a></li>
-              <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-                <a href="#">æ€ ∞≥πﬂ¿⁄ (05) </a></li>
+              <a href="#">Ïù¥Î†•ÏÑú ÏàòÏ†ï</a></li>
+            
           </ul>
         </div>
-        <!-- ¡˜π´º±≈√ ≥° --> 
+        <!-- ÏßÅÎ¨¥ÏÑ†ÌÉù ÎÅù --> 
         
-        <!-- ≈¬±◊ start -->
-        <div class=" widget widget-tags ">
-          <h2 class=" widget-title" >Tags</h2>
-          <a href="#">C++</a>
-          <a href="#">JAVA</a>
-          <a href="#">Spring</a>
-          <a href="#">Spring Boot</a>
-          <a href="#">MySQL</a>
-          <a href="#">Oracle</a>
-          <a href="#">React</a>
-          <a href="#">Python</a>
-          <a href="#">JavaScript</a>
-          <a href="#">HTML</a>
-          <a href="#">CSS</a>
-          <a href="#">Vue.js</a>
-        </div>
-        <!-- ≈¬±◊ close --> 
+       
       </div>
-      <!-- ¿ß¡¨ ≥° --> 
+      <!-- ÏúÑÏ†Ø ÎÅù --> 
 
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <div class="row"> 
           
-          <!-- ∞¯∞Ì 1 -->
-          <div class="row" id="employ-box">
+          <!-- Í≥µÍ≥† 1 -->
+          <div class="row" class="employ-box">
                 
             <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               <div class="employ">
-                <h2><a href="#">≥◊¿Ãπˆ(¡÷)</a></h2>
-                <p>[≥◊¿Ãπˆæ€º≠∫ÒΩ∫] ƒ‹≈Ÿ√˜ ±‚»π ¥„¥Á¿⁄ ∏¡˝ (√º«Ë«¸)</p>
+                <h2><a href="#">ÎÑ§Ïù¥Î≤Ñ(Ï£º)</a></h2>
+                <p>[ÎÑ§Ïù¥Î≤ÑÏï±ÏÑúÎπÑÏä§] ÏΩòÌÖêÏ∏† Í∏∞Ìöç Îã¥ÎãπÏûê Î™®Ïßë (Ï≤¥ÌóòÌòï)</p>
                   <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
                     <span class="meta-date">~2022.12.30</span> 
                     <span class="meta-icon"><i class="fa fa-user"></i></span>
                     <span class="meta-author">By <a href="#"> Admin</a></span>
-                    <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a>
+                    <a href="#" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a>
                   </div>
+
+                  <div id="result" name="result" style="display: none;">
+                    <ol class="m-ol">
+                      <li class="m-li">
+                        <span class="date">2022.11.28 15:32:09</span>
+                        
+                        <span class="desc">
+                          <strong>ÏßÄÏõêÏ∑®ÏÜå</strong>
+                          <span>
+                            ÏßÄÏõê Ï∑®ÏÜå ÏôÑÎ£å
+                          </span>
+                        </span>
+                      </li>
+                      <li>
+                        <span class="date">2022.11.29 15:32:09</span>
+                        
+                        <span class="desc">
+                          <strong>ÏßÄÏõêÏôÑÎ£å</strong>
+                          <span>
+                            ÏßÄÏõêÏÑúÎ•ò Ïù¥Î†•ÏÑú (ÏûêÍ∏∞ÏÜåÍ∞úÏÑú) / Ìè¨Ìä∏Ìè¥Î¶¨Ïò§
+                          </span>
+                        </span>
+                      </li>
+
+                    </ol>
+                </div>
+
                 <hr>
+
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover">
-                <img src="/images/≥◊¿Ãπˆ.png"  alt="" class="img-responsive"></a>
-              </div>
+           
+              <!--Î≤ÑÌäº 2Í∞ú-->
+                <div class="st-pagination">
+                  <ul class="pagination">
+                    <li><a style="cursor: pointer;" aria-label="previous" id="mInfo"><span aria-hidden="true" class="twobtn" >ÏÉÅÏÑ∏ Î≥¥Í∏∞</span></a> </li>
+                    <br>
+                    <li> <a href="#" aria-label="Next" ><span aria-hidden="true" class="twobtn">ÏßÄÏõê Ï∑®ÏÜå</span></a> </li>
+                  </ul>
+                </div>
+              
+              
             </div>
 
           </div>
-          <!-- ∞¯∞Ì 1 -->
+          <!-- Í≥µÍ≥† 1 -->
 
-          <!-- ∞¯∞Ì 2 -->
-          <div class="row" id="employ-box">
+         
+
+          <!-- Í≥µÍ≥† 2 -->
+          <div class="row" class="employ-box">
                 
             <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               <div class="employ">
-                <h2><a href="#">(¡÷)ƒ´ƒ´ø¿</a></h2>
-                <p>[KAKAO] ƒ´ƒ´ø¿ ±‚º˙ ¡˜±∫ ∏¡˝</p>
+                <h2><a href="#">(Ï£º)Ïπ¥Ïπ¥Ïò§</a></h2>
+                <p>[KAKAO] Ïπ¥Ïπ¥Ïò§ Í∏∞Ïà† ÏßÅÍµ∞ Î™®Ïßë</p>
                 <div class="meta"> 
                   <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-                  <span class="meta-date">√§øÎΩ√ ∏∂∞®</span> 
+                  <span class="meta-date">Ï±ÑÏö©Ïãú ÎßàÍ∞ê</span> 
                   <span class="meta-icon"><i class="fa fa-user"></i></span>
                   <span class="meta-author">By <a href="#"> Admin</a></span> 
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a>
+                  <a href="#" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a>
                 </div>
                 <hr>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img">
-                <a href="#" class="imghover"><img src="/images/kakao.png" alt="" class="img-responsive"></a>
-              </div>
+            <!--Î≤ÑÌäº 2Í∞ú-->
+            <div class="st-pagination">
+              <ul class="pagination">
+                <li><a href="#" aria-label="previous" ><span aria-hidden="true" class="twobtn">ÏÉÅÏÑ∏ Î≥¥Í∏∞</span></a> </li>
+                <br>
+                <li> <a href="#" aria-label="Next" ><span aria-hidden="true" class="twobtn">ÏßÄÏõê Ï∑®ÏÜå</span></a> </li>
+              </ul>
             </div>
 
           </div>
-          <!-- ∞¯∞Ì 2 --> 
+          <!-- Í≥µÍ≥† 2 --> 
 
-          <!-- ∞¯∞Ì 3 -->
-          <div class="row" id="employ-box">
+          <!-- Í≥µÍ≥† 3 -->
+          <div class="row" class="employ-box">
                 
             <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               <div class="employ">
-                <h2><a href="#">∂Û¿Œ«√∑ØΩ∫(¡÷)</a></h2>
+                <h2><a href="#">ÎùºÏù∏ÌîåÎü¨Ïä§(Ï£º)</a></h2>
                 <p>[LINE] Social Service Contents Manager</p>
                 <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
                   <span class="meta-date">~ 2022.12.30</span> 
                   <span class="meta-icon"><i class="fa fa-user"></i></span>
                   <span class="meta-author">By <a href="#"> Admin</a></span>
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
+                  <a href="#" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a> 
                 </div>
                 <hr>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover"><img src="/images/∂Û¿Œ2.png"  alt="" class="img-responsive"></a></div>
+            <!--Î≤ÑÌäº 2Í∞ú-->
+            <div class="st-pagination">
+              <ul class="pagination">
+                <li><a href="#" aria-label="previous" ><span aria-hidden="true" class="twobtn">ÏÉÅÏÑ∏ Î≥¥Í∏∞</span></a> </li>
+                <br>
+                <li> <a href="#" aria-label="Next" ><span aria-hidden="true" class="twobtn">ÏßÄÏõê Ï∑®ÏÜå</span></a> </li>
+              </ul>
             </div>
 
           </div>
-          <!-- ∞¯∞Ì 3 --> 
+          <!-- Í≥µÍ≥† 3 --> 
 
-          <!-- ∞¯∞Ì 4 -->
-          <div class="row" id="employ-box">
+          <!-- Í≥µÍ≥† 4 -->
+          <div class="row" class="employ-box">
                 
             <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               <div class="employ">
-                <h2><a href="#">ƒÌ∆Œ(¡÷)</a></h2>
-                <p>[ƒÌ∆Œ] Coupang Flex µ•¿Ã≈Õ øÓøµ ∞¸∏Æ¿⁄</p>
+                <h2><a href="#">Ïø†Ìå°(Ï£º)</a></h2>
+                <p>[Ïø†Ìå°] Coupang Flex Îç∞Ïù¥ÌÑ∞ Ïö¥ÏòÅ Í¥ÄÎ¶¨Ïûê</p>
                 <div class="meta"> 
                   <span class="meta-icon"><i class="fa fa-calendar"></i></span>
                   <span class="meta-date">~ 2022.12.30</span> 
                   <span class="meta-icon"><i class="fa fa-user"></i></span>
                   <span class="meta-author">By <a href="#"> Admin</a></span>
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
+                  <a href="#" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a> 
                 </div>
                 
                 <hr>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover"><img src="/images/ƒÌ∆Œ.png"  alt="" class="img-responsive"></a></div>
+            <!--Î≤ÑÌäº 2Í∞ú-->
+            <div class="st-pagination">
+              <ul class="pagination">
+                <li><a href="#" aria-label="previous" ><span aria-hidden="true" class="twobtn">ÏÉÅÏÑ∏ Î≥¥Í∏∞</span></a> </li>
+                <br>
+                <li> <a href="#" aria-label="Next" ><span aria-hidden="true" class="twobtn">ÏßÄÏõê Ï∑®ÏÜå</span></a> </li>
+              </ul>
             </div>
 
           </div>
-          <!-- ∞¯∞Ì 4 --> 
+          <!-- Í≥µÍ≥† 4 --> 
 
-          <!-- ∞¯∞Ì 5 -->
-          <div class="row" id="employ-box">
+          <!-- Í≥µÍ≥† 5 -->
+          <div class="row" class="employ-box">
                 
             <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               <div class="employ">
-                <h2><a href="#">(¡÷)øÏæ∆«—«¸¡¶µÈ</a></h2>
-                <p>∫ŒπÆ∫∞ ∞Ê∑¬/Ω≈¿‘ ¿Œ¿Áøµ¿‘</p>
+                <h2><a href="#">(Ï£º)Ïö∞ÏïÑÌïúÌòïÏ†úÎì§</a></h2>
+                <p>Î∂ÄÎ¨∏Î≥Ñ Í≤ΩÎ†•/Ïã†ÏûÖ Ïù∏Ïû¨ÏòÅÏûÖ</p>
                 <div class="meta"> 
                   <span class="meta-icon"><i class="fa fa-calendar"></i></span>
                   <span class="meta-date">~2022.12.30 </span> 
                   <span class="meta-icon"><i class="fa fa-user"></i></span>
                   <span class="meta-author">By <a href="#"> Admin</a></span>
-                  <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
+                  <a href="#" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a> 
                 </div>
                 
                 <hr>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="post-img"><a href="#" class="imghover"><img src="/images/øÏæ∆«—«¸¡¶µÈ1.png"  alt="" class="img-responsive"></a></div>
+            <!--Î≤ÑÌäº 2Í∞ú-->
+            <div class="st-pagination">
+              <ul class="pagination">
+                <li><a href="#" aria-label="previous" ><span aria-hidden="true" class="twobtn">ÏÉÅÏÑ∏ Î≥¥Í∏∞</span></a> </li>
+                <br>
+                <li> <a href="#" aria-label="Next" ><span aria-hidden="true" class="twobtn">ÏßÄÏõê Ï∑®ÏÜå</span></a> </li>
+              </ul>
             </div>
 
           </div>
-          <!-- ∞¯∞Ì 5 --> 
+          <!-- Í≥µÍ≥† 5 --> 
 
-          <!-- ∞¯∞Ì 6 -->
-          <div class="row" id="employ-box">
+          <!-- Í≥µÍ≥† 6 -->
+          <div class="row" class="employ-box">
                 
                 <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
                   <div class="employ">
-                    <h2><a href="#">(¡÷)¥Á±Ÿ∏∂ƒœ</a></h2>
-                    <p>DBA (Database Administration) - ¥Á±Ÿ∆‰¿Ã</p>
+                    <h2><a href="#">(Ï£º)ÎãπÍ∑ºÎßàÏºì</a></h2>
+                    <p>DBA (Database Administration) - ÎãπÍ∑ºÌéòÏù¥</p>
                     <div class="meta"> 
                       <span class="meta-icon"><i class="fa fa-calendar"></i></span>
                       <span class="meta-date">~ 2022.12.30</span> 
                       <span class="meta-icon"><i class="fa fa-user"></i></span>
                       <span class="meta-author">By <a href="#"> Admin</a></span>
-                      <a href="#" class="btn-link">ªÛºº∆‰¿Ã¡ˆ</a> 
+                      <a href="#" class="btn-link">ÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</a> 
                     </div>
                     <hr>
                   </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="post-img"><a href="#" class="imghover"><img src="/images/¥Á±Ÿ2.png"  alt="" class="img-responsive"></a></div>
+                <!--Î≤ÑÌäº 2Í∞ú-->
+                <div class="st-pagination">
+                  <ul class="pagination">
+                    <li><a href="#" aria-label="previous" ><span aria-hidden="true" class="twobtn">ÏÉÅÏÑ∏ Î≥¥Í∏∞</span></a> </li>
+                    <br>
+                    <li> <a href="#" aria-label="Next" ><span aria-hidden="true" class="twobtn">ÏßÄÏõê Ï∑®ÏÜå</span></a> </li>
+                  </ul>
                 </div>
 
               </div>
-          <!-- ∞¯∞Ì 6 --> 
+          <!-- Í≥µÍ≥† 6 --> 
           
-          <!-- ∆‰¿Ã¡ˆ ¿Ãµø -->
-          <div class="col-md-12">
-            <div class="post-block">
-              <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
-                  <div class="st-pagination">
-                    <ul class="pagination">
-                      <li><a href="#" aria-label="previous"><span aria-hidden="true">¿Ã¿¸</span></a> </li>
-                      <li class="active"><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li> <a href="#" aria-label="Next"><span aria-hidden="true">¥Ÿ¿Ω</span></a> </li>
-                    </ul>
-                  </div>
-                </div>
+    
+
+        </div>
+
+      </div>
+      <!-- ÌéòÏù¥ÏßÄ Ïù¥Îèô -->
+      <div class="col-md-12">
+        <div class="post-block">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+              <div class="st-pagination">
+                <ul class="pagination" style="display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;">
+                  <li><a href="#" aria-label="previous"><span aria-hidden="true">Ïù¥Ï†Ñ</span></a> </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li> <a href="#" aria-label="Next"><span aria-hidden="true">Îã§Ïùå</span></a> </li>
+                </ul>
               </div>
             </div>
           </div>
-          <!-- ∆‰¿Ã¡ˆ ¿Ãµø --> 
-
         </div>
-
       </div>
-
-    </div>
-
+      <!-- ÌéòÏù¥ÏßÄ Ïù¥Îèô --> 
+   
   </div>
 
 </div>
 
 </div>
 
-<!-- footer start -->
-<div class="footer">
-  <div class="container">
-    <div class="row"> 
-      <!-- footer-useful links-start -->
-      <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">IT_±◊_JOB_√§</h3>
-          <ul>
-            <li><a href="#">Home </a></li>
-            <li><a href="#">About us </a></li>
-            <li><a href="#">Practice Area </a></li>
-            <li><a href="#">Cases </a></li>
-            <li><a href="#">News </a></li>
-            <li> <a href="#">Contacts</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- footer-useful links-close --> 
-      <!-- footer-contactinfo-start -->
-      <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">Spring Bπ› ±‚æ˜ø¨∞Ë«¡∑Œ¡ß∆Æ</h3>
-          <div class="">
-            <ul>
-              <li> <i class="fa fa-map-marker"></i> 2000 Cambridge Ease template,72764 India</li>
-              <li><i class="fa fa-phone"></i>800-123-4567</li>
-              <li><i class="fa fa-envelope"></i>info@education.com</li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary btn-sm">request a Course</a></div>
-      </div>
-      <!-- footer-contactinfo-close --> 
-      <!-- footer-about-start -->
-      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ">
-        <div class="footer-widget">
-          <h3 class="footer-title"></h3>
-          <p>Velitconsectetur utleo velaoreet in bibendum felirbi iaculis iaculis dpibus ecenas one posuereorci ut euismod tristique. </p>
-          <p>lorem ipsum dolr sit amet viedfum lacumdi postern lembneir siot lsedto sistompovelaoreet in bibendum egestacerat tempus magna nonrordueugloattis ultrices diam.</p>
-        </div>
-      </div>
-      <!-- footer-about-close -->
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <div class="footer-line"></div>
-      </div>
-      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-        <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-        </p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="footer-social">
-         <a href="#"><span><i class="fa fa-facebook"></i></span></a>
-          <a href="#"><span><i class="fa fa-google-plus"></i></span> </a> 
-          <a href="#"><span class="active"><i class="fa fa-twitter"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-instagram"></i></span> </a> 
-          <a href="#"><span><i class=" fa fa-pinterest"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-linkedin"></i></span></a> </div>
-      </div>
-    </div>
-  </div>
-  <!-- footer-address-close --> 
+
+
+
 </div>
-<!-- footer close --> 
+
+
+	<!-- footer ÏãúÏûë -->
+		<%@ include file="/WEB-INF/views/main/footer.jsp" %>	  
+	<!-- footer ÎÅù -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="/js/jquery.min.js" type="text/javascript"></script> 
@@ -630,5 +621,8 @@
 <script type="text/javascript" src="/js/sticky-header.js"></script>
 <script type="text/javascript" src="/js/employ.js"></script>
 
+<script type="text/javascript" src="/js/manage.js"></script>
+
 </body>
 </html>
+    

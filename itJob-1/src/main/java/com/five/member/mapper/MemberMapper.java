@@ -31,5 +31,8 @@ public interface MemberMapper {
 	public memberNVO updateN(String id);
 	// 기업회원정보수정 페이지 이동
 	public memberEVO updateE(String id);
+	
+	// 회원 정보를 꺼내오는 기능
+	public memberNVO selectMemberInfo(String m_id);
 
 }
