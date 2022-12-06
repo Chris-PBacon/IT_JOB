@@ -94,12 +94,7 @@
     width:270px;
   	height:470px;
   }
-  .selected{
-  	display: block;
-  }
-  .unselected{
-  	display: none;
-  }
+
   h3{
   	font-size: 20px;
   	font-weight: bold;
@@ -446,39 +441,55 @@ var currentMenu;
 var menuLinks = document.querySelectorAll('.btn_baek');
 var lectureSection = document.querySelectorAll('.col-lg-4');
 
+
+
 function clickMenuHandler(){
-     
+	
 	currentMenu = this;
 	if(this.classList.contains('btn-active')){
     	this.classList.remove('btn-active');
-    	unfilterLecture(this.value);
+    	
     }else{
     	this.classList.add('btn-active');
-    	console.log(this.value);
-    	filterLecture(this.value);
+    	var activeButton = document.querySelectorAll('.btn-active');
+    	var sendUrl = '?';
+    	for (var i = 0; i < activeButton.length; i++){
+    		if(activeButton[i].value.includes('type')){
+    			var value = activeButton[i].value.substr(5);
+    			
+    			if(sendUrl.includes('l_type')){
+    				sendUrl += ','+ value;
+    			}else{
+    				sendUrl += 'l_type='+ value;
+    			}
+    		}else if(activeButton[i].value.includes('level')){
+    			var value = activeButton[i].value.substr(6);
+    			if(sendUrl.includes('l_level')){
+    				sendUrl += ','+ value;
+    			}else{
+    				sendUrl += '&l_level='+ value;
+    			}
+    		}else if(activeButton[i].value.includes('lang')){
+    			var value = activeButton[i].value.substr(5);
+    			if(sendUrl.includes('l_language')){
+    				sendUrl += ','+ value;
+    			}else{
+    				sendUrl += '&l_language='+ value;
+    			}
+    		}else if(activeButton[i].value.includes('price')){
+    			var value = activeButton[i].value.substr(6);
+    			if(sendUrl.includes('l_price')){
+    				sendUrl += ','+ value;
+    			}else{
+    				sendUrl += '&l_price='+ value;
+    			}
+    		}
+    		console.log(sendUrl);
+    		
+    	}
     }
 }
 
-function filterLecture(v){
-	console.log(v);
-	for (var i = 0; i < lectureSection.length; i++){
-	    if(lectureSection[i].classList.contains(v)){
-	    	lectureSection[i].classList.replace('unselected','selected');
-		}
-	}
-	
-}
-
-function unfilterLecture(v){
-	console.log(v);
-	for (var i = 0; i < lectureSection.length; i++){  
-	    if(lectureSection[i].classList.contains(v)){
-	    	lectureSection[i].classList.replace('selected','unselected');
-		}
-	}
-	
-	
-}
 
 for (var i = 0; i < menuLinks.length; i++){  
     menuLinks[i].addEventListener('click', clickMenuHandler);        
@@ -486,25 +497,9 @@ for (var i = 0; i < menuLinks.length; i++){
 
 function reset_click(){
     $('.btn').removeClass("btn-active");
-    for (var i = 0; i < lectureSection.length; i++){  
-	    lectureSection[i].classList.replace('unselected','selected');
-		
-	}
     
-  }
-$(document).ready(function(){
-	for (var i = 0; i < lectureSection.length; i++){  
-	    lectureSection[i].classList.replace('selected','unselected');	    	
-		}
-})
-
-
-  
-function selected(){
-	for (var i = 0; i < lectureSection.length; i++){  
-	    lectureSection[i].classList.replace('unselected','selected');	    	
-		}
-	}
+    
+}
 
 
 </script>
