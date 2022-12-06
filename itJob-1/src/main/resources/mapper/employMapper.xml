@@ -23,5 +23,16 @@
 		where j.j_seq=#{seq};
 	</select>
 	
+	<select id="searchList" parameterType="String" resultType="com.five.member.entity.EmployVO">
+		select * FROM job 
+		where CONCAT(j_seq,e_id,j_title,j_content,j_place,j_type,j_img,j_language,j_exp,j_date) 
+		REGEXP #{keyword};
+	</select>
+	
+	<select id="expList" parameterType="String" resultType="com.five.member.entity.EmployVO">
+		select * from job
+		where j_exp=#{exp};
+	</select>
+	
 
 </mapper>

@@ -24,6 +24,8 @@
 <!-- FontAwesome CSS -->
 <link rel="stylesheet" type="text/css" href="/css/fontello.css">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
+
+
  
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,8 +33,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
 
 <style>
 
@@ -177,20 +177,25 @@
 	      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 	      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
 	      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	      <li data-target="#carousel-example-generic" data-slide-to="3"></li>
 	    </ol>
 	  
 	    <!-- slides -->
 	    <div class="carousel-inner" role="listbox">
 	      <div class="item active">
-	        <img src="../images/박혜원팬카페.jpg" alt="...">
+	        <img src="../images/스마트인재개발원배너광고1.png" alt="...">
 	      </div>
 	
 	      <div class="item">
-	        <img src="../images/제목킹받네.jpg" alt="...">
+	        <img src="../images/스마트인재개발원배너광고2.png" alt="...">
 	      </div>
 	
 	      <div class="item">
-	        <img src="../images/박혜원.jpg" alt="...">
+	        <img src="../images/인공지능사관학교배너광고1.png" alt="...">
+	      </div>
+	      
+	      <div class="item">
+	        <img src="../images/인공지능사관학교배너광고2.png" alt="...">
 	      </div>
 	    </div>
 	  
@@ -210,10 +215,10 @@
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12">
-	                    <div class="section-title">
+	                    <div class="section-title" id="here">
 		                    <c:choose> 
 			                	<c:when test="${not empty id}">
-			                		<h2>${id}님 맞춤 채용공고입니다</h2>    	           			            			
+			                		<h2>${id}님 맞춤 채용공고입니다</h2>     			            			
 			             		</c:when>             		
 			              		<c:otherwise>
 			              			<h2>로그인 후 맞춤 채용공고를 확인해보세요!</h2>
@@ -237,6 +242,7 @@
 				                          <h3 class="team-title"> <%=pList.get(i).getJ_title()%></h3>
 				                          <span class="team-meta"> <%=pList.get(i).getJ_content()%></span>
 				                          <p> ~  <%=pList.get(i).getJ_date()%></p>
+				                          <a href="detailEmploy.do?seq=<%=pList.get(i).getJ_seq()%>" class="btn-link">상세페이지</a>
 				                        </div>
 				                    </div>
 				                </div>
@@ -254,13 +260,21 @@
 	      
 	      <!-- 위젯 구역 시작 -->
 	      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="widget"> 
-	
+			
 	        <!-- 검색 -->
-	        <div class=" widget widget-search">
-	          <form>
-	            <div class="">
-	              <input type="text" class="form-control search-form" value="" placeholder= "검색할 키워드를 입력하세요">
-	               <button type="Submit"><i class="fa fa-search"></i></button>
+	        <div class="widget widget-search">
+	          <form action="employSearch#here">
+	            <div>
+	               <c:choose> 
+			          <c:when test="${not empty keyword}"> 	          
+		                <input type="text" class="form-control search-form" name="keyword" value=${keyword}>
+		                <button type="Submit"><i class="fa fa-search"></i></button>
+		              </c:when>
+			          <c:otherwise>
+				        <input type="text" class="form-control search-form" name="keyword" placeholder="검색할 키워드를 입력하세요" required="required">
+		                <button type="Submit"><i class="fa fa-search"></i></button>
+				      </c:otherwise>
+			       </c:choose>
 	             </div>
 	          </form>
 	        </div>
@@ -270,10 +284,10 @@
 	        <div class=" widget widget-archives">
 	          <h2 class="widget-title">경력 유무</h2>
 	          <ul>
-	            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">신입</a></li>
 	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">경력</a></li>
+	              <a href="experience?num=0#here">신입</a></li>
+	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
+	              <a href="experience?num=1#here">경력</a></li>
 	          </ul>
 	        </div>
 	        <!-- 경력유무선택 끝 --> 
@@ -282,20 +296,20 @@
 	        <div class=" widget widget-categories">
 	          <h2 class="widget-title">IT 직무 선택</h2>
 	          <ul class="">
-	            <li class="active"><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> 
-	              <a href="#">프론트엔드 개발자 (10)</a></li>
+	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span> 
+	              <a href="#">프론트엔드 개발자</a></li>
 	            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">백엔드 개발자 (05)</a></li>
+	              <a href="#">백엔드 개발자</a></li>
 	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">인공지능 개발자(06) </a></li>
+	              <a href="#">인공지능 개발자</a></li>
 	            <li><span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">서비스 기획자 (12)</a></li>
+	              <a href="#">서비스 기획자</a></li>
 	            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">데이터 엔지니어 (06)</a></li>
+	              <a href="#">데이터 엔지니어</a></li>
 	            <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	              <a href="#">정보 보안 전문가 (05) </a></li>
+	              <a href="#">정보 보안 전문가</a></li>
 	              <li> <span class="widget-categories-icon"><i class="fa fa-circle-o"></i></span>
-	                <a href="#">앱 개발자 (05) </a></li>
+	                <a href="#">앱 개발자</a></li>
 	          </ul>
 	        </div>
 	        <!-- 직무선택 끝 --> 
@@ -325,31 +339,38 @@
 	        <div class="row"> 
 	          
 	          <!-- 공고 -->
-	          <%for (int i =0; i<list.size(); i++){%>
-				<div class="row" id="employ-box">
-		                
-		            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-		              <div class="employ">
-		                <h2><a href="#"><%=list.get(i).getJ_title()%></a></h2>
-		                <p><%=list.get(i).getJ_content()%></p>
-		                  <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
-		                    <span class="meta-date">~<%=list.get(i).getJ_date()%></span> 
-		                    <span class="meta-icon"><i class="fa fa-user"></i></span>
-		                    <span class="meta-author">By <a href="#">Admin</a></span>
-		                    <a href="detailEmploy.do?seq=<%=list.get(i).getJ_seq()%>" class="btn-link">상세페이지</a>
-		                  </div>
-		                <hr>
-		              </div>
-		            </div>
-		
-		            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-		              <div class="post-img"><a href="#" class="imghover">
-		                <img src="<%=list.get(i).getJ_img()%>"  alt="" class="img-responsive"></a>
-		              </div>
-		            </div>
-		
-		         </div>
-			  <%} %>
+	          <c:choose> 
+			  	<c:when test="${not empty list}">
+		          <%for (int i =0; i<list.size(); i++){%>
+					<div class="row" id="employ-box">
+			                
+			            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+			              <div class="employ">
+			                <h2><a href="#"><%=list.get(i).getJ_title()%></a></h2>
+			                <p><%=list.get(i).getJ_content()%></p>
+			                  <div class="meta"> <span class="meta-icon"><i class="fa fa-calendar"></i></span>
+			                    <span class="meta-date">~<%=list.get(i).getJ_date()%></span> 
+			                    <span class="meta-icon"><i class="fa fa-user"></i></span>
+			                    <span class="meta-author">By <a href="#">Admin</a></span>
+			                    <a href="detailEmploy.do?seq=<%=list.get(i).getJ_seq()%>" class="btn-link">상세페이지</a>
+			                  </div>
+			                <hr>
+			              </div>
+			            </div>
+			
+			            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+			              <div class="post-img"><a href="#" class="imghover">
+			                <img src="<%=list.get(i).getJ_img()%>"  alt="" class="img-responsive"></a>
+			              </div>
+			            </div>
+			
+			         </div>
+				  <%} %>
+				 </c:when>
+	             <c:otherwise>
+                   <h3>해당하는 공고가 없습니다</h3>
+	             </c:otherwise>
+	          </c:choose>
 		      <!-- 공고 끝 -->
 	         
 	          <!-- 페이지 이동 -->

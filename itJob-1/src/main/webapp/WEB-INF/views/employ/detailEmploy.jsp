@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="com.five.member.entity.EmployVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -25,6 +26,8 @@
 <link rel="stylesheet" type="text/css" href="/css/fontello.css">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
  
+<!-- 아이콘 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -148,17 +151,17 @@
                         <div class="col-lg-8 col-md-12 col-sm-12 col-lg-12">
                             <div class="section-title">
                                 <div>
-                                    ${j_title}<%=list.get(0).getJ_title()%>
-                                    <button class="btn btn-outline-primary btn-sm">♡ 관심기업 등록</button>
-                                    <button class="btn btn-outline-primary btn-sm">채용중 32</button>
+                                    ${list[0].j_title}
+                                    <button type="button" class="btn btn-light btn-lg">관심기업 등록 <i class="bi bi-bookmark-heart"></i></button>
+                                    <button type="button" class="btn btn-danger btn-lg">지원자 수 32</button>
                                 </div>
                                 <br>
-                                <p class="fw-bold">${j_content}</p>
+                                <p class="fw-bold">${list[0].j_content}</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12 col-lg-12">
                             <div class="apply-button">
-                                <button type="button" class="btn btn-danger btn-lg"> D-13 </button>
+                                <button type="button" class="btn btn-danger btn-lg"> D-${Ddays}</button>
                                 <button type="button" class="btn btn-light btn-lg"> 지원하기 </button>
                             </div>
                         </div> 
@@ -172,7 +175,7 @@
                                 <h4>근무형태</h4>
                             </div>
                             <div class="col-lg-2 col-md-12 col-sm-12 col-lg-12" id="blue">
-                                <h4>무관</h4>
+                                <h4>${list[0].j_exp}직</h4>
                                 <h4>학력무관</h4>
                                 <h4>정규직</h4>
                             </div>
@@ -181,10 +184,12 @@
                             <div class="col-lg-2 col-md-12 col-sm-12 col-lg-12">
                                 <h4>급여</h4>
                                 <h4>근무지역</h4>
+                                <h4>기타</h4>
                             </div>
                             <div class="col-lg-2 col-md-12 col-sm-12 col-lg-12" id="blue">
                                 <h4>면접 후 결정</h4>
-                                <h4>${j_place}</h4>
+                                <h4>${list[0].j_place}</h4>
+                                <h4>${list[0].j_language}</h4>
                             </div>
                         </div>
                     </div>
@@ -192,12 +197,19 @@
             </div>
 
             <div class="space-medium">
-                <div class="container">
-                    <img src="${jd_img}" alt="">
-                </div>
-                <div class="container">
-                    <img src="${jd_img}" alt="">
-                </div>
+            	<c:choose> 
+			    	<c:when test="${not empty list}">
+			        	<% for (int i =0; i<list.size(); i++){ %>
+			        		<div class="container">
+			                    <img src="<%=list.get(i).getJd_img()%>" alt="">
+			                </div>
+			        	<%} %>   		           			            			
+			        </c:when>
+			        
+		          	<c:otherwise>
+			              <h3>해당하는 공고가 없습니다</h3>
+			        </c:otherwise>
+			    </c:choose>
             </div>
 
         </div>    

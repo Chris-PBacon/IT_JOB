@@ -21,4 +21,11 @@ public interface EmployMapper {
 	// 채용공고 상세 데이터 LIST
 	List<EmployVO> detailEmployList(Integer seq);
 	
+	// 검색 공고 List
+	List<EmployVO> searchList(String keyword);
+	
+	// 경력 유무 List
+	List<EmployVO> expList(String exp);
+
+	
 }

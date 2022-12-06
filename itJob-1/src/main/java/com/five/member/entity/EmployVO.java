@@ -21,6 +21,7 @@ public class EmployVO {
 	private String j_language;
 	private String j_exp;
 	private String j_date;
+	
 	private int jd_seq;
 	private String jd_img;
 	
