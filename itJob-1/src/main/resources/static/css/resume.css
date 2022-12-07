@@ -1,0 +1,201 @@
+@charset "EUC-KR";
+
+/* workspace : itJob-1/src/main/resources/static/css/resume.css */
+
+.intro-title, .intro-contents{
+   
+    /* 사용자가 자기소개서 칸 크기 임의로 조정 불가 */
+    resize: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10%;
+}
+
+.user-info{
+    width : 600px;
+    height: 200px;
+    margin-left: 250px;
+}
+
+#career-form{
+    display: flex;
+    justify-content: center;    
+}
+
+.table-head{
+    height: 35px;
+}
+
+.school-table{
+    width : 900px;
+    height: 50px;
+    margin: 0 auto;
+    border-color: aqua;
+}
+
+th{
+    background-color: #F4F7FB;
+}
+
+td, th{
+    border-right: 1px black;
+}
+
+#floatingInput.form-control {
+    
+    height:70px;
+    font-size:18px;
+    color: #D7E1EB; 
+    background-color: transparent;
+    border:1.7px solid #CDD0D1;
+    border-radius: 10px;
+}
+
+#floatingTextarea2.form-control {
+    
+    height:900px;
+    font-size:18px;
+    resize: none;
+    background-color: transparent;
+    border: 1.7px solid #CDD0D1;
+    border-radius: 25px;
+}
+
+.intro-color{
+    width: 80%;
+    margin-top: 100px;
+}
+
+label.btn.btn-outline-primary {
+    width: 335px;
+    height: 68px;
+    font-size: 23px;
+    line-height: 49px;
+}
+
+.widget-categories, .widget-archives {
+    width: 230px;
+}
+
+.form-center-align{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#school-table {
+    vertical-align: middle;
+    width: 40px;
+    text-align: center;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 900;
+}
+
+.career{
+    background-color: #F3F6FA;
+    width: 80%;
+    border-radius:25px ;
+    
+}
+
+.career-color{
+    padding: 6%;
+}
+
+input {
+    background-color: #F3F6FA;
+}
+
+.submit-btn {
+    margin-bottom: 30px;
+}
+
+#info-color{
+    background-color: #F3F6FA;
+    width: 80%;
+    height: 370px;
+    padding: 50px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+#intro-btn {
+    position: relative;
+    left: 800px;
+    top: 278px;
+}
+
+#intro{
+    display: flex;
+    justify-content: center;
+    background-color: #F3F6FA;
+    border-radius: 25px;
+    padding-bottom: 7%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+#add-btn{
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 12px 14px;
+    margin-bottom: 4px;
+    letter-spacing: .75px;
+    border-radius: 3px;
+    border: transparent;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    float: right;
+
+}
+
+#add-div{
+    width: 100%;
+}
+
+.intro-input{
+    width: 90%;
+}
+
+#img-div, .career-div, #school-table, .license{
+    margin-bottom: 60px;
+}
+
+img {
+    width: 250px;
+    max-width: 100%;
+    height: 140px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: normal;
+    vertical-align: middle;
+}
+
+.d-grid gap-2 d-md-flex justify-content-md-end{
+	margin-bottom: 60px;
+}

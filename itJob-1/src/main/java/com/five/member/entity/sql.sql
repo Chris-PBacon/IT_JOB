@@ -44,7 +44,7 @@ from member_ent
 
 drop table member_ent
 
-
+select * from member
 
 
 DESC BOARDQNA
@@ -149,11 +149,14 @@ CREATE INDEX blog_post_Index_3
 CREATE INDEX blog_post_Index_1
     ON member(m_id);
 
+commit
 
+select * from board
 
-select * from member_ent
+select * from member
 
-
+delete from member
+where m_id = '1212';
 
 CREATE TABLE member_ent
 (
@@ -174,4 +177,7 @@ CREATE INDEX blog_category_Index_1
 
 CREATE INDEX blog_category_Index_2
     ON member_ent(e_name);
+
+
+
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,72 +37,14 @@
 
 <body>
 
-<!--헤드부분 시작-->
-    <div class="header-wrapper">
-        <div class="container">
-            <div class="row" style="display: flex; align-items: center;">
-                <div class="col-lg-2 col-sm-4 col-md-2 col-xs-12">
-
-                    <!--로고 이미지 부분-->
-                    <div class="logo" style="width: 180px;">
-                        <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12">
-                    <div class="navigation-wrapper">
-
-                        <!--메뉴 시작-->
-                        <div id="navigation">
-                            <ul>
-                                <li class="active"><a href="main.do" title="">Home</a></li>
-
-                                <li class="has-sub"><a href="#" title="">직무소개</a>
-                                    <ul>
-                                        <li><a href="job.do" title="">개발자 로드맵</a></li>
-                                        <li><a href="jobMBTI.do" title="">재미로 보는 MBTI </a></li>
-                                    </ul>
-                                </li>
-
-                                <li><a href="lecture.do" title="">강의</a></li>
 
 
-                                <li class="has-sub"><a href="#" title="">채용</a>
-                                    <ul>
-                                        <li><a href="employ.do" title="">채용정보</a></li>
-                                        <li><a href="#" title="">구직관리</a></li>
-                                        <li><a href="resume.do" title="">이력서</a></li>
-                                    </ul>
-                                </li>
+	<!-- 헤더 시작 -->
+		<%@ include file="/WEB-INF/views/main/header.jsp" %>	  
+	<!-- 헤더 끝 -->
 
-                                <li><a href="board.do" title="">IT 게시판</a></li>
-                            </ul>
 
-                        </div>
-                        <!-- 메뉴 부분 끝-->
-                    </div>
-                </div>
-                <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
-                <c:choose> 
-                
-                	<c:when test="${not empty id}">
-                	<div style="                	
-                	    display: flex;
-    					width: 400px;
-    					align-items: center;              	
-                	" >
-                	<span style="margin-right: 30px;">${id} 님 환영합니다!</span>
-                		<a href="logOutNE.do" class="btn btn-primary">로그아웃</a>            			
-                	</div>              			            			
-             		</c:when>             		
-              		<c:otherwise>
-              			<a href="selectNE.do" class="btn btn-primary">로그인</a>
-              		</c:otherwise>             		
-              	</c:choose>                          	
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 헤드부분 끝!!! -->
+
 
 
 <!--기업 로그인 회원가입 시작-->
@@ -191,72 +134,11 @@
   </div>
   
 
+	<!-- footer 시작 -->
+		<%@ include file="/WEB-INF/views/main/footer.jsp" %>	  
+	<!-- footer 끝 -->
+	
 
-
-<!-- footer start -->
-<div class="footer">
-  <div class="container">
-    <div class="row"> 
-      <!-- footer-useful links-start -->
-      <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">Quick Links</h3>
-          <ul>
-            <li><a href="#">Home </a></li>
-            <li><a href="#">About us </a></li>
-            <li><a href="#">Practice Area </a></li>
-            <li><a href="#">Cases </a></li>
-            <li><a href="#">News </a></li>
-            <li> <a href="#">Contacts</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- footer-useful links-close --> 
-      <!-- footer-contactinfo-start -->
-      <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="footer-widget">
-          <h3 class="footer-title">24 X 7 Support</h3>
-          <div class="">
-            <ul>
-              <li> <i class="fa fa-map-marker"></i> 2000 Cambridge Ease template,72764 India</li>
-              <li><i class="fa fa-phone"></i>800-123-4567</li>
-              <li><i class="fa fa-envelope"></i>info@education.com</li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary btn-sm">request a Course</a></div>
-      </div>
-      <!-- footer-contactinfo-close --> 
-      <!-- footer-about-start -->
-      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 ">
-        <div class="footer-widget">
-          <h3 class="footer-title">About Education</h3>
-          <p>Velitconsectetur utleo velaoreet in bibendum felirbi iaculis iaculis dpibus ecenas one posuereorci ut euismod tristique. </p>
-          <p>lorem ipsum dolr sit amet viedfum lacumdi postern lembneir siot lsedto sistompovelaoreet in bibendum egestacerat tempus magna nonrordueugloattis ultrices diam.</p>
-        </div>
-      </div>
-      <!-- footer-about-close -->
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-        <div class="footer-line"></div>
-      </div>
-      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-        <p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-        </p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="footer-social">
-         <a href="#"><span><i class="fa fa-facebook"></i></span></a>
-          <a href="#"><span><i class="fa fa-google-plus"></i></span> </a> 
-          <a href="#"><span class="active"><i class="fa fa-twitter"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-instagram"></i></span> </a> 
-          <a href="#"><span><i class=" fa fa-pinterest"></i> </span></a> 
-          <a href="#"><span><i class="fa fa-linkedin"></i></span></a> </div>
-      </div>
-    </div>
-  </div>
-  <!-- footer-address-close --> 
-</div>
-
-<!-- footer close --> 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="/js/jquery.min.js" type="text/javascript"></script> 

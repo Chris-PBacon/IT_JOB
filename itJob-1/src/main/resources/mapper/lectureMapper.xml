@@ -5,7 +5,99 @@
 
 <mapper namespace="com.five.member.mapper.LectureMapper">
 
-	
+<!-- 강의페이지 이동시 전체보기 기능 쿼리 -->
+<select id="selectLecture" resultType="com.five.member.entity.LectureVO">
+	select * from lecture order by l_seq desc
+</select>
+
+<!-- 강의상세페이지 강의목차 가져오는 쿼리 -->
+<select id="selectIndex" parameterType="int" resultType="com.five.member.entity.LectureVO">
+	select li.li_seq, li.li_order, li.li_content from lecture l, lecture_index li where l.l_seq= li.l_seq and l.l_seq = #{l_seq} order by li.li_order asc
+</select>
+
+<!-- 강의상세페이지 강의정보 가져오는 쿼리 -->
+<select id="selectDetail" parameterType="int" resultType="com.five.member.entity.LectureVO">
+	select * from lecture where l_seq = #{l_seq}
+</select>
+
+<!-- 강의상세페이지 강의리뷰 가져오는 쿼리 -->
+<select id="selectReview" parameterType="int" resultType="com.five.member.entity.LectureReviewVO">
+	select * from lecture_grade where l_seq = #{l_seq} order by lg_seq desc
+</select>
+
+<select id="starAvg" parameterType="int" resultType="com.five.member.entity.LectureReviewVO">
+	select count(*) review_cnt, round(avg(lg_star),1) avg_star from lecture_grade where l_seq = #{l_seq} 
+</select>
+
+<select id="starAvg2" parameterType="int" resultType="com.five.member.entity.LectureVO">
+	select count(*) review_cnt, round(avg(lg_star),1) avg_star from lecture_grade where l_seq = #{l_seq} 
+</select>
+
+<!-- 강의 리뷰 DB에 입력하는 쿼리  -->
+<insert id="insertReview" parameterType="com.five.member.entity.LectureReviewVO">
+	insert into lecture_grade
+	values (lg_seq, #{l_seq}, #{lg_star}, #{lg_content}, #{m_id})
+</insert>
+
+<!-- 강의를 장바구니에 담는 쿼리  -->
+<insert id="insertBasket" parameterType="com.five.member.entity.LectureBasketVO">
+	insert into lecture_basket
+	values (lb_seq, #{l_seq}, #{m_id})
+</insert>
+
+<!-- 강의를 추가하고나서 장바구니의 정보를 가져오는 쿼리 -->
+<select id="selectBasket" parameterType="com.five.member.entity.LectureBasketVO" resultType="com.five.member.entity.LectureVO">
+	select l.l_title l_title, l.l_img l_img, l.l_price l_price, l.l_seq l_seq from lecture l, lecture_basket b
+	where l.l_seq=b.l_seq and b.m_id = #{m_id}
+</select>
+
+<!-- 그냥 장바구니의 정보를 가져오는 쿼리 -->
+<select id="selectBasketBasic" parameterType="String" resultType="com.five.member.entity.LectureVO">
+	select l.l_title l_title, l.l_img l_img, l.l_price l_price, l.l_seq l_seq from lecture l, lecture_basket b
+	where l.l_seq=b.l_seq and b.m_id = #{m_id}
+</select>
+
+
+<!-- 결제한 강의 장바구니에서 삭제 -->
+<delete id="deletePaidBasket" parameterType="hashmap">
+	delete from lecture_basket 
+	where m_id = #{m_id} and l_seq = #{l_seq} 
+</delete>
+
+
+<!-- 나의 수강한 강의 정보 가져오는 쿼리 -->
+<select id="myLecture" parameterType="String" resultType="com.five.member.entity.LectureVO">
+	select * from lecture
+	where l_seq in (select l_seq from lecture_check where m_id = #{m_id});
+</select>
+
+<!-- 결제한 강의 수강체크 테이블에 추가 -->
+<insert id="insertLectureCheck" parameterType="hashmap">
+	insert into lecture_check
+	values (lc_seq, #{l_seq}, #{m_id})
+</insert>
+
+
+<!-- 강의 비디오 가져오기  -->
+<select id="videoSelect" parameterType="String" resultType="com.five.member.entity.LectureVO">
+	select * from lecture_index where li_seq = #{li_seq}
+</select>
+<!-- 이전 강의 -->
+<select id="videoSelectF" parameterType="com.five.member.entity.LectureVO" resultType="com.five.member.entity.LectureVO">
+	select * from lecture_index where li_order = (#{li_order}-1) and l_seq = #{l_seq}
+</select>
+<!-- 다음 강의 -->
+<select id="videoSelectB" parameterType="com.five.member.entity.LectureVO" resultType="com.five.member.entity.LectureVO">
+	select * from lecture_index where li_order = (#{li_order}+1) and l_seq = #{l_seq}
+</select>
+
+<!--장바구니 중복 강의 체크 -->
+<select id="checkBasket" parameterType="com.five.member.entity.LectureBasketVO" resultType="int">
+	select count(l_seq) from lecture_basket 
+	where l_seq = #{l_seq} 
+	and m_id = #{m_id}
+</select>
+
 
 
 </mapper>
