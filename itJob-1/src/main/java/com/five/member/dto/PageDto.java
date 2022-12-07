@@ -21,7 +21,6 @@ import lombok.ToString;
 @Data
 public class PageDto {
 
-	
 	private int nowpage;
 	private int startpage;
 	private int endpage;
