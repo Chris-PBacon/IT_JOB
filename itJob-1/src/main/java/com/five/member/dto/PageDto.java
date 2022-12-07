@@ -1,7 +1,5 @@
 package com.five.member.dto;
 
-
-
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -13,18 +11,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
-
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Data
 public class PageDto {
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/Chris-PBacon/IT_JOB.git
 	private int nowpage;
 	private int startpage;
 	private int endpage;

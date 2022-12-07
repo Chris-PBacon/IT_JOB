@@ -19,7 +19,7 @@
 
                     <!--로고 이미지 부분-->
                     <div class="logo" style="width: 180px;">
-                        <a href="index.html"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
+                        <a href="main.do"><img src="/images/logo.png" class="img-responsive" alt="" style="width: 180px; height: 60px;"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-10 col-sm-8 col-xs-12" style="justify-content: center; display: flex; width: 60%;">

@@ -5,107 +5,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Digital marketing courses website template that can help you boost your business courses website and its completely free.">
-    <meta name="keywords" content="seo,free website template, free responsive website template, seo marketing, search engine optimization, web analytics">
-    <title>Digital Marketing Courses Website Template</title>
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Style CSS -->
-    <link href="/css/style.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/fontello.css">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/owl.carousel.min.css" rel="stylesheet">
-    <link href="/css/owl.theme.default.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="Digital marketing courses website template that can help you boost your business courses website and its completely free.">
+<meta name="keywords" content="seo,free website template, free responsive website template, seo marketing, search engine optimization, web analytics">
+<title>Digital Marketing Courses Website Template</title>
+<!-- Bootstrap -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Style CSS -->
+<link href="/css/style.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" type="text/css" href="/css/fontello.css">
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/owl.carousel.min.css" rel="stylesheet">
+<link href="/css/owl.theme.default.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 
 
-    <!--구글 아이콘 링크-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!--구글 아이콘 링크-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<style>
+
+    .container{
+      display: flex;
+      justify-content: center;
+    }
+    
+    /*아이콘 배열*/
+    .service-icon{
+	  margin: 20px;
+    }
+
+    .service-block{
+      text-align: center;
+    }
+
+     /*구글 아이콘 스타일*/
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 500,
+      'GRAD' 200,
+      'opsz' 500
+    }
+
+    h4{
+      font-weight: 550;
+    }
 
 
+    /*기업 추천 글씨 부분*/
+    .team-meta{
+      font-size: 15px; 
+    }
 
+    /*원형 사진*/
+    .img-circle{
+      width: 80%;
+    }
 
-        <style>
-
-            .container{
-
-            display: flex;
-
-            justify-content: center;
-
-            }
-            
-            /*아이콘 배열*/
-            .service-icon{
-
-                margin: 20px;
-            }
-
-            .service-block{
-                text-align: center;
-            }
-
-
-             /*구글 아이콘 스타일*/
-            .material-symbols-outlined {
-                font-variation-settings:
-                'FILL' 0,
-                'wght' 500,
-                'GRAD' 200,
-                'opsz' 500
-            }
-
-            h4{
-                font-weight: 550;
-            }
-
-
-            /*기업 추천 글씨 부분*/
-            .team-meta{
-
-                font-size: 15px;
-              
-            }
-
-            /*원형 사진*/
-            .img-circle{
-                width: 80%;
-            }
-
-        
-       
-        </style>
+</style>
 
 </head>
 
 <body>
 
 	<!-- 헤더 시작 -->
-<<<<<<< HEAD
-		<%@ include file="/WEB-INF/views/main/header.jsp" %>	  
-=======
 		<%@ include file="/WEB-INF/views/main/header.jsp" %>  
->>>>>>> branch 'master' of https://github.com/Chris-PBacon/IT_JOB.git
 	<!-- 헤더 끝 -->
 
-	
-
-
-
     <!-- slider-start -->
-    
     <div class="slider">
         <div class="owl-carousel owl-theme">
             <div class="item"> <img src="/images/1.png" alt="">
@@ -189,16 +168,6 @@
     <div class="space-medium">
         <div class="container">
 
-
-            <!-- <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="section-title">
-                        <h1>직무 소개</h1>
-                    </div>
-                </div>
-            </div> -->
-
-
             <div class="service-block ">
                 <div class="service-icon"><i class="icon-switches"></i></div>
 
@@ -255,54 +224,9 @@
                     </div>
             </div>
 
-
-
-
-            <!-- <div class="row"> -->
-                <!-- cources-start-->
-                <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block ">
-
-                       
-
-                    </div>
-                </div> -->
-                <!-- cources-close-->
-
-
-                <!-- cources-start-->
-                <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-icon"><i class="icon-social-network"></i></div>
-                        
-
-                    </div>
-                </div> -->
-                <!-- cources-close-->
-
-
-                <!-- cources-start-->
-                <!-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <div class="service-icon"><i class="icon-social-network"></i></div>
-                       
-
-                    </div>
-                </div> -->
-                <!-- cources-close-->
-            <!-- </div> -->
-
-
-            <!-- cources-close-->
         </div>
-
-
     </div>
     <!--직무 아이콘 끝-->
-
-    
-
-
 
     <div class="space-medium bg-default pdb150">
         <div class="container">
@@ -376,15 +300,12 @@
             </div>
         </div>
     </div>
-
     <!-- team-close -->
     
 	<!-- footer 시작 -->
 		<%@ include file="/WEB-INF/views/main/footer.jsp" %>	  
 	<!-- footer 끝 --
 
-   
-    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/jquery.min.js" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
