@@ -16,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.five.member.dto.LectureDTO;
 import com.five.member.entity.LectureBasketVO;
 import com.five.member.entity.LectureReviewVO;
 import com.five.member.entity.LectureVO;
@@ -234,6 +236,29 @@ public class LectureController {
 		model.addAttribute("vo", lvo);
 
 		return "/lecture/lecturePlay";
+	}
+	
+	//필터링
+	@RequestMapping("/filterLecture.do")
+	public @ResponseBody List<LectureVO> filterLecture(
+			@RequestParam(value="l_type",required = false)List<String> type,
+			@RequestParam(value="l_level",required = false)List<String> level,
+			@RequestParam(value="l_language",required = false)List<String> lang,
+			@RequestParam(value="l_price",required = false)List<String> price,
+			LectureDTO list){
+			list.setL_type(type);
+			list.setL_level(level);
+			list.setL_language(lang);
+			list.setL_price(price);
+		
+		
+		
+		List<LectureVO> result = mapper.filterLecture(list);
+		System.out.println(result.size());
+		
+		
+		
+		return result;
 	}
 
 }

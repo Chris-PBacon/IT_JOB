@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 
+import com.five.member.dto.LectureDTO;
 import com.five.member.entity.LectureBasketVO;
 import com.five.member.entity.LectureReviewVO;
 import com.five.member.entity.LectureVO;
@@ -50,6 +51,9 @@ public interface LectureMapper {
 
 	//장바구니에 중복 강의 체크
 	int checkBasket(LectureBasketVO vo);
+	
+	// 12.07 필터링
+	List<LectureVO> filterLecture(LectureDTO lectureDTO);
 	
 	
 }
