@@ -21,7 +21,10 @@ import lombok.ToString;
 @Data
 public class PageDto {
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/Chris-PBacon/IT_JOB.git
 	private int nowpage;
 	private int startpage;
 	private int endpage;

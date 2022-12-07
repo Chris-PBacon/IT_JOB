@@ -1,3 +1,7 @@
 defaultPHPServer=Default PHP Web Server
 eclipse.preferences.version=1
+<<<<<<< HEAD
 phpServers=<server><hostname>localhost</hostname><debuggerId>org.eclipse.php.debug.core.noneDebugger</debuggerId><document_root></document_root><name>Default PHP Web Server</name><base_url>http\://localhost</base_url><id>php-server-b21fdd77-e636-4780-910d-4b6b62052ae6</id></server>
+=======
+phpServers=<server><hostname>localhost</hostname><debuggerId>org.eclipse.php.debug.core.noneDebugger</debuggerId><document_root></document_root><name>Default PHP Web Server</name><base_url>http\://localhost</base_url><id>php-server-9f88f0e1-d740-4d92-9237-f300dc53dc97</id></server>
+>>>>>>> branch 'master' of https://github.com/Chris-PBacon/IT_JOB.git

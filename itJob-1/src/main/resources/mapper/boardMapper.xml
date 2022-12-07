@@ -38,8 +38,12 @@
 	    SELECT * from board 
 	    WHERE b_type = #{type}
 	    AND m_id like concat('%',#{search},'%')
+<<<<<<< HEAD
 	    OR b_title like concat('%',#{search},'%')  
 	    	    
+=======
+	    OR b_title like concat('%',#{search},'%')  	    
+>>>>>>> branch 'master' of https://github.com/Chris-PBacon/IT_JOB.git
 	</select>
 	
 	<!-- #### 게시판 글쓰기 / 댓글 기능 #### -->

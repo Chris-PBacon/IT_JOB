@@ -93,7 +93,11 @@
 <body>
 
 	<!-- 헤더 시작 -->
+<<<<<<< HEAD
 		<%@ include file="/WEB-INF/views/main/header.jsp" %>	  
+=======
+		<%@ include file="/WEB-INF/views/main/header.jsp" %>  
+>>>>>>> branch 'master' of https://github.com/Chris-PBacon/IT_JOB.git
 	<!-- 헤더 끝 -->
 
 	
