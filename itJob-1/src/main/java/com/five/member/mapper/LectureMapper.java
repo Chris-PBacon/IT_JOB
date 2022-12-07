@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 
 import com.five.member.entity.LectureBasketVO;
+import com.five.member.entity.LectureDTO;
 import com.five.member.entity.LectureReviewVO;
 import com.five.member.entity.LectureVO;
 import com.five.member.entity.memberEVO;
@@ -49,7 +50,7 @@ public interface LectureMapper {
 
 	LectureVO videoSelectB(LectureVO vo);
 
-	List<LectureVO> filterType(LectureVO vo);
+	List<LectureVO> filterLecture(LectureDTO lectureDTO);
 	
 	
 }

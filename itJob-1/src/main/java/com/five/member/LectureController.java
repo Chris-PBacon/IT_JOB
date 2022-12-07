@@ -16,9 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.five.member.entity.LectureBasketVO;
+import com.five.member.entity.LectureDTO;
 import com.five.member.entity.LectureReviewVO;
 import com.five.member.entity.LectureVO;
 import com.five.member.entity.memberNVO;
@@ -218,15 +220,26 @@ public class LectureController {
 	}
 	
 	//필터링
-	@RequestMapping("/filterType.do")
-	public @ResponseBody List<LectureVO> filterType(LectureVO vo) {
+	@RequestMapping("/filterLecture.do")
+	public @ResponseBody List<LectureVO> filterLecture(
+			@RequestParam(value="l_type",required = false)List<String> type,
+			@RequestParam(value="l_level",required = false)List<String> level,
+			@RequestParam(value="l_language",required = false)List<String> lang,
+			@RequestParam(value="l_price",required = false)List<String> price,
+			LectureDTO list){
+			list.setL_type(type);
+			list.setL_level(level);
+			list.setL_language(lang);
+			list.setL_price(price);
 		
-		List<LectureVO> list = mapper.filterType(vo);
-		System.out.println(vo.getL_language());
-		System.out.println(vo.getL_level());
-		System.out.println(vo.getL_type());
 		
-		return list;
+		
+		List<LectureVO> result = mapper.filterLecture(list);
+		System.out.println(result.size());
+		
+		
+		
+		return result;
 		
 	}
 	

@@ -94,8 +94,39 @@
 </select>
 
 <!-- 필터링 -->
-<select id="filterType" parameterType="com.five.member.entity.LectureVO" resultType="com.five.member.entity.LectureVO">
-	select * from lecture where l_type like concat('%',#{l_type},'%')
+<select id="filterLecture" parameterType="com.five.member.entity.LectureDTO" resultType="com.five.member.entity.LectureVO">
+	select * from lecture 
+	<where>
+	<if test="l_type != null and l_type.size != 0">
+		l_type in 
+		<foreach collection="l_type" item="item" index="i" separator="," open="(" close=")">
+		#{item}
+		</foreach>
+	</if>
+	<if test="l_level != null and l_level.size != 0">
+		and l_level in 
+		<foreach collection="l_level" item="item" index="i" separator="," open="(" close=")">
+		#{item}
+		</foreach>
+	</if>
+	<if test="l_language != null and l_language.size != 0">
+		and l_language in 
+		<foreach collection="l_language" item="item" index="i" separator="," open="(" close=")">
+		#{item}
+		</foreach>
+	</if>
+	<if test="l_price != null and l_price.size != 0">
+		and
+		<foreach collection="l_price" item="item" index="i" separator="or" open="(" close=")">
+		<if test='item eq "f"'>
+			 l_price = '0'
+		</if>
+		<if test='item eq "p"'>
+			 l_price > '0'
+		</if>
+		</foreach>
+	</if>
+	</where>
 </select>
 
 
