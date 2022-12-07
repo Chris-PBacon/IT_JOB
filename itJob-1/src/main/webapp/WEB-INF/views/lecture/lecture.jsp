@@ -88,9 +88,7 @@
   	font-size: 20px;
   	font-weight: bold;
   }
-  .lectureFilter{
-  	display: none;
-  }
+  
 </style>
 </head>
 
@@ -194,8 +192,11 @@
 	      </c:forEach>
 	      <!-- cources-close--> 
 	    </div>
+	    
 	    <div class="row lectureFilter">
+	    1
 		</div>
+		
 	  </div>
 	</div>
 	 <!-- cources-close--> 
@@ -260,7 +261,6 @@
 				}
 			}else if(activeButton[i].value.includes('price')){
 				var value = activeButton[i].value.substr(6);
-				if(sendUrl.includes('l_price')){
 					sendUrl += ','+ value;
 				}else{
 					sendUrl += '&l_price='+ value;
@@ -284,7 +284,7 @@
 	/* 강의뿌려주는 함수 */
 	function loadLecture(data){
 		console.log(data);
-		var html;
+		var html="";
 		
 		for(var i = 0; i<data.length; i++){
 			html += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>";
@@ -297,8 +297,7 @@
 			html += "<h5 id='result'><a href='' class='btn-link'>￦ "+data[i].l_price+"</a></h5></div>";
 			html += "</div></div>";
 		}
-		$('.lectureFilter').html(html);
-		$('.lectureFilter').css('display','block');
+		
 		$('.lecturePart').css('display','none');
 	}
 	
