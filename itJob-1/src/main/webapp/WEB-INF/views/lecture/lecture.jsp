@@ -163,7 +163,7 @@
     <div id="searchBox">
       <!-- <button class="btn btn-xs btn_baek" onclick="selected();" type="button">전체보기</button>-->
       <!--<button class="btn btn-xs btn_baek" type="submit">적용</button>-->
-      <button id="reset" class="btn btn-xs" type="button" onclick=" reset_click();" style=" margin: 5px; margin-left:20px;
+      <button id="reset" class="btn btn-xs" type="button" onclick="reset_click();" style=" margin: 5px; margin-left:20px;
       background-color: aliceblue;">초기화</button>
     </div>
   </form>
@@ -194,7 +194,7 @@
 	    </div>
 	    
 	    <div class="row lectureFilter">
-	    1
+	    
 		</div>
 		
 	  </div>
@@ -216,24 +216,48 @@
 <!-- 강의 분류 클릭시 버튼 활성화 -->
 <script type="text/javascript">
 
+	//## 무한 스크롤 전역 변수들
+	var nowpage=1;  // 현재 출력 페이지
+	var cnt = 0;	// 인덱스 시작 번호
+	var endCnt=0;
+	var len =0;	// 데이터 길이
+	
+	var endpage=1;   // 마지막 페이지
+	
+	//페이지 계산 조건문
+	
+	//## 무한 스크롤 전역 변수들
+
 	var currentMenu;
 	var menuLinks = document.querySelectorAll('.btn_baek');
 	var lectureSection = document.querySelectorAll('.col-lg-4');
 	
+	/* 클릭 이벤트 생성 */
+	for (var i = 0; i < menuLinks.length; i++){  
+	    menuLinks[i].addEventListener('click', clickMenuHandler);        
+	}
+	
+	/* 클릭 이벤트 함수 */
 	function clickMenuHandler(){
 		
 		currentMenu = this;
 		if(this.classList.contains('btn-active')){
 	    	this.classList.remove('btn-active');
+	    	
 	    	filter();
+	    	
 	    	
 	    }else{
 	    	this.classList.add('btn-active');
 	    	filter();
+	    	
+	    	array = [];
 	    }
 	}
 	/* 비동기 필터통신 */
 	function filter(){
+		
+		
 		var activeButton = document.querySelectorAll('.btn-active');
 		var sendUrl = '?';
 		for (var i = 0; i < activeButton.length; i++){
@@ -261,6 +285,7 @@
 				}
 			}else if(activeButton[i].value.includes('price')){
 				var value = activeButton[i].value.substr(6);
+				if(sendUrl.includes('l_price')){
 					sendUrl += ','+ value;
 				}else{
 					sendUrl += '&l_price='+ value;
@@ -268,25 +293,106 @@
 			}
 		}
 		console.log(sendUrl);
+		$('.lectureFilter').html('');
+		nowpage= 1;
+		endpage= 1;
+		cnt = 0;	// 인덱스 시작 번호
+		endCnt=0;
+		
 		$.ajax({
 			url : "filterLecture.do"+sendUrl,
 			type : 'get',
 			dataType : 'json',
-			success: loadLecture,
+			  success: function (data) {
+				 $('.lecturePart').css('display','none');
+				 
+                 gbl_data = data;
+                 console.log(gbl_data);
+                
+               	 len =  gbl_data.length;
+               	if(len/4 !=0){
+            		endpage=Math.ceil(len/4);
+            	}else{
+            		endpage=Math.ceil(len/4)-1;
+            	}
+              },
 			error : function(e){
 				console.log(e);
+				console.log("ajax실패");
 			}
 		});
 	}
 	
 	
 	
-	/* 강의뿌려주는 함수 */
+	if(nowpage<=endpage){
+	window.onscroll = function(e) {	
+		
+	    //추가되는 임시 콘텐츠   
+	    //window height + window scrollY 값이 document height보다 클 경우,
+	    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+	    	//실행할 로직 (콘텐츠 추가)
+	        //article에 추가되는 콘텐츠를 append
+	        
+	        saveLecture(gbl_data);
+        	
+	    }
+	}
+	
+	}
+	function saveLecture(data){
+			
+			
+			console.log("데디엍"+data);
+		
+		
+			console.log("나우페이지"+nowpage);
+			console.log("끝"+endpage);
+			
+			if(cnt+4>len){
+				endCnt=len;
+			
+			}else{
+				endCnt=cnt+4;
+			}
+			
+			for(var i = cnt; i<endCnt; i++){
+				
+				var html="";
+				html += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>";
+				html += "<div class='service-block c_lec'>";
+				html += "<div class='c_img'>";
+				html += "<img src='"+ data[i].l_img +"' alt=''></div>";
+				html += "<div class='service-content c_lec'>";
+				html += "<h3><a href='lectureDetail.do?l_seq="+ data[i].l_seq +"' class='title'>"+ data[i].l_title +"</a></h3>";
+				html += "<h4>"+data[i].l_teacher+"</h4>";
+				html += "<h5 id='result'><a href='' class='btn-link'>￦ "+data[i].l_price+"</a></h5></div>";
+				html += "</div></div>";
+				$('.lectureFilter').append(html);		     												
+			}					
+		
+		
+		
+		cnt = cnt+4
+		nowpage = nowpage+1;
+	}
+		
+		
+
+
+	
+	
+	
+	/* 강의뿌려주는 함수*/
 	function loadLecture(data){
 		console.log(data);
 		var html="";
+		/* var pagePerContent = 16;
+		var totalPage = Math.ceil(data.length/pagePerContent);
+		console.log(totalPage); */
 		
 		for(var i = 0; i<data.length; i++){
+		 	
 			html += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12'>";
 			html += "<div class='service-block c_lec'>";
 			html += "<div class='c_img'>";
@@ -296,15 +402,36 @@
 			html += "<h4>"+data[i].l_teacher+"</h4>";
 			html += "<h5 id='result'><a href='' class='btn-link'>￦ "+data[i].l_price+"</a></h5></div>";
 			html += "</div></div>";
+			array.push(html);
 		}
+		console.log(array.length);
 		
 		$('.lecturePart').css('display','none');
+		
+		
+		$('.lectureFilter').html(html);
+		
+		
 	}
+	/*var cnt = 2;
+	var totalPage = Math.ceil(array.length/2);
+	
+	window.onscroll = function(e) {	
+	    //추가되는 임시 콘텐츠   
+	    //window height + window scrollY 값이 document height보다 클 경우,
+	    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+	    	//실행할 로직 (콘텐츠 추가)
+	        //article에 추가되는 콘텐츠를 append
+	        for(var i=1; i<totalPage; i++){
+		        for(var j= 1; j<3; j++){
+		    	$('.lectureFilter').append(array[i+j]);
+		        $('.lectureFilter').append(array[i+j+1]);
+		        }
+	        }
+	    }
+	}*/
 	
 	
-	for (var i = 0; i < menuLinks.length; i++){  
-	    menuLinks[i].addEventListener('click', clickMenuHandler);        
-	}
 	
 	function reset_click(){
 	    $('.btn').removeClass("btn-active");

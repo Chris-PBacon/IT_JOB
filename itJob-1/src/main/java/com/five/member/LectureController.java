@@ -246,17 +246,14 @@ public class LectureController {
 			@RequestParam(value="l_language",required = false)List<String> lang,
 			@RequestParam(value="l_price",required = false)List<String> price,
 			LectureDTO list){
-			list.setL_type(type);
-			list.setL_level(level);
-			list.setL_language(lang);
-			list.setL_price(price);
 		
-		
-		
+		System.out.println("컨트롤러 들어옴!");
+		list.setL_type(type);
+		list.setL_level(level);
+		list.setL_language(lang);
+		list.setL_price(price);
+
 		List<LectureVO> result = mapper.filterLecture(list);
-		System.out.println(result.size());
-		
-		
 		
 		return result;
 	}
