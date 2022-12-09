@@ -158,7 +158,7 @@
                     <c:forEach items="${list }" var="lecture" varStatus="i"> 
 	                    <hr>
 	                    <div class="lec-index">
-	                      <input type="checkbox" name="lecture" value="${lecture.l_seq }">
+	                      <input type="checkbox" class="checkBox" name="lecture" onclick="itemSum(${i.index})" value="${lecture.l_seq },${lecture.l_price}">
 	                      <img class="lec-img" alt="" src="${lecture.l_img }">
 	                      <a href="lectureDetail.do?l_seq=${lecture.l_seq }"> ${lecture.l_title } </a>
 	                      <h4 id="result" class="lec-price">${lecture.l_price } 원</h4>
@@ -208,8 +208,8 @@
 			<c:set var= "total" value="${total + result.l_price}"/>
 			</c:forEach>
 			<h5><strong>총 합계금액 : ${total} 원</strong></h5>
-           <button class="btn btn-primary btn-lg" type='submit' onclick="javascript: form.action='payment.do';" style="background-color: blue; color: white;" >결제하기</button> 
-          
+           <!-- <button class="btn btn-primary btn-lg" type='submit' onclick="javascript: form.action='payment.do';" style="background-color: blue; color: white;" >결제하기</button> --> 
+          <button class="btn btn-primary btn-lg" type='button' onclick="requestPay()" style="background-color: blue; color: white;" >결제하기</button>
       															
            </div>
         </div>
@@ -292,12 +292,15 @@
 <!-- footer close --> 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="/js/jquery.min.js" type="text/javascript"></script> 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 <script src="/js/bootstrap.min.js" type="text/javascript"></script> 
 <script src="/js/menumaker.js" type="text/javascript"></script> 
 <script type="text/javascript" src="/js/jquery.sticky.js"></script> 
 <script type="text/javascript" src="/js/sticky-header.js"></script> 
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<script type="text/javascript" src="/js/payment.js"></script>
 
 <!-- 체크박스 전체선택해주는 스크립트 -->
 <script type="text/javascript"> 
