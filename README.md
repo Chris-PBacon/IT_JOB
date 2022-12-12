@@ -1,4 +1,3 @@
-# IT_JOB
 # 📎 개발자를 위한 IT 강의 & 채용 플랫폼 (팀명: IT 그 JOB채)
 ![image](https://user-images.githubusercontent.com/103255941/189011395-2dcd2aa0-ed4a-4d4f-b607-c3035d2f00c1.png)
 
@@ -13,14 +12,19 @@
 
 ## ⭐ 주요 기능
 * <b>강의</b>
-  * 해당하는 반에 퇴실시간 선택 후 예약 [조회/수정/삭제]
+  * 선호하는 강의를 선택해 강의 신청  [조회/수정/삭제]
+  * 원하는 강의를 장바구니에 담아둠
+*	
 * <b>채용</b>
-  * 공지사항,자유게시판,스터디모집 게시판 구분
-  * 게시판 글 작성 [조회/수정/삭제]
-  * 게시판 댓글 작성 [조회/수정/삭제]
+  * 채용정보 [조회/수정/삭제]
+  * 구직관리 [조회/수정/삭제]
+  * 이력서 [조회/수정/삭제]
   * 대댓글 기능
-* <b>포인트 적립</b>
-  * 홈페이지 활동 시 포인트 적립 후 쿠폰 교환
+* <b>IT 게시판</b>
+  * 공지사항,자유게시판,Q&A 게시판 구분
+  *게시판 글 작성 [조회/수정/삭제]
+  *게시글 검색 기능
+  *게시판 댓글 작성 [조회/수정/삭제]
 
 # 💪🏻 기술스택
 <table>
@@ -81,19 +85,27 @@
 ![메인](https://user-images.githubusercontent.com/103255941/189015514-71babe55-a1fc-441a-8772-bc3ceb737f20.png)
 * <h2>로그인 및 회원가입 페이지</h2>
 ![image](https://user-images.githubusercontent.com/103255941/189015958-ef83f9a4-ef81-494b-bd87-01f6411c5c49.png)
-* <h2>각 반 로드맵 페이지</h2>
+* <h2>전체 강의 페이지</h2>
 ![image](https://user-images.githubusercontent.com/103255941/189020208-f76b05d0-ade5-4619-bf49-6d0993b7c245.png)
 ![image](https://user-images.githubusercontent.com/103255941/189020229-8f701ed9-729e-4718-81c3-a1e321ea3e2d.png)
-* <h2>강의장 연장신청 페이지</h2>
+* <h2>내 강의 페이지</h2>
+![image](https://user-images.githubusercontent.com/103255941/189020208-f76b05d0-ade5-4619-bf49-6d0993b7c245.png)
+![image](https://user-images.githubusercontent.com/103255941/189020229-8f701ed9-729e-4718-81c3-a1e321ea3e2d.png)
+* <h2>강의 장바구니</h2>
 ![image](https://user-images.githubusercontent.com/103255941/189016076-da9ac66a-9ec6-4c95-88f3-b4b3cf91659d.png)
-* <h2>좌석 예약 페이지</h2>
+* <h2>채용 정보 페이지</h2>
+![image](https://user-images.githubusercontent.com/103255941/189016126-6ae2de13-10f0-406f-b42e-bc99daf634e1.png)
+![image](https://user-images.githubusercontent.com/103255941/189017828-caf74dd1-19a5-4216-baac-95caa53683d0.png)
+* <h2>구직관리 페이지</h2>
+![image](https://user-images.githubusercontent.com/103255941/189016126-6ae2de13-10f0-406f-b42e-bc99daf634e1.png)
+![image](https://user-images.githubusercontent.com/103255941/189017828-caf74dd1-19a5-4216-baac-95caa53683d0.png)
+* <h2>이력서 페이지</h2>
 ![image](https://user-images.githubusercontent.com/103255941/189016126-6ae2de13-10f0-406f-b42e-bc99daf634e1.png)
 ![image](https://user-images.githubusercontent.com/103255941/189017828-caf74dd1-19a5-4216-baac-95caa53683d0.png)
 * <h2>게시판 페이지</h2>
 ![image](https://user-images.githubusercontent.com/103255941/189016179-17df2122-7bdc-4654-a59c-60aebd98d1ce.png)
 ![image](https://user-images.githubusercontent.com/103255941/189017575-b62e237e-5469-4d2e-8e06-5a52f092e9d4.png)
-* <h2>포인트 교환 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189017643-e450e026-8c68-417f-9c40-ea698508223b.png)
+
 
 
 # 👨‍👩‍👦‍👦 팀원 역할
@@ -107,24 +119,24 @@
   </tr>
   <tr>
     <td align="center"><strong>김경식</strong></td>
-    <td align="center"><strong>김동현</strong></td>
-    <td align="center"><strong>김경호</strong></td>
-    <td align="center"><strong>박선영</strong></td>
-    <td align="center"><strong>윤하은</strong></td>
+    <td align="center"><strong>문지영</strong></td>
+    <td align="center"><strong>백재현</strong></td>
+    <td align="center"><strong>이형준</strong></td>
+    <td align="center"><strong>김민정</strong></td>
   </tr>
   <tr>
     <td align="center"><b>Leader</b></td>
     <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Database</b></td>
+    <td align="center"><b>Backend</b></td>
     <td align="center"><b>Frontend</b></td>
     <td align="center"><b>Frontend</b></td>
   </tr>
    <tr>
-    <td align="center"><b>프로젝트 총괄<br>로그인 및 회원가입<br>로드맵 페이지<br>기획,최종 발표</b></td>
-    <td align="center"><b>백엔드 총괄<br>연장신청 페이지<br>좌석예약 페이지<br>댓글,대댓글</b></td>
-    <td align="center"><b>데이터베이스 설계<br>화면 설계서<br>유스케이스<br>로드맵 자료조사</b></td>
-    <td align="center"><b>디자인 총괄<br>게시판 페이지<br>좌석예약 페이지<br>영상 제작</b></td>
-    <td align="center"><b>프론트,QA 총괄<br>게시판 페이지<br>포인트 페이지<br>검수 및 오류수정</b></td>
+    <td align="center"><b>프로젝트 총괄<br>키워드 검색<br>다중선택검색<br>페이징처리<br>기획,최종 발표</b></td>
+    <td align="center"><b>CRUD<br>SmartEditor<br>시나리오 구상<br>프로젝트 관리</b></td>
+    <td align="center"><b>백엔드 총괄<br>다중선택검색<br>Infinity Scroll<br>장바구니<br>강의리뷰<br>DB설계</b></td>
+    <td align="center"><b>프론트 총괄<br>본인 인증<br>중복 체크<br>지원내역조회<br>이직제안<br>게시판 댓글기능</b></td>
+    <td align="center"><b>CRUD<br>페이징처리<br>SmartEditor<br>지원자 확인<br>프로젝트 관리</b></td>
   </tr>
 </table>
 
