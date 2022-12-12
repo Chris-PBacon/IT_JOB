@@ -1,5 +1,5 @@
 # 📎 개발자를 위한 IT 강의 & 채용 플랫폼 (팀명: IT 그 JOB채)
-![image](https://user-images.githubusercontent.com/103255941/189011395-2dcd2aa0-ed4a-4d4f-b607-c3035d2f00c1.png)
+![메인 화면](https://user-images.githubusercontent.com/110751989/206969982-0a143e6f-f1b8-46cd-a8fd-09f25d061178.png)
 
 ## 👀 프로젝트 소개
 * 프로젝트명: 개발자를 위한 IT 강의 & 채용 플랫폼
@@ -75,37 +75,32 @@
 </table>
 
 # 📌Use-Case
-![image](https://user-images.githubusercontent.com/103255941/189015119-caa15d24-afc5-4e35-9dbb-377268429f14.png)
+![use-case](https://user-images.githubusercontent.com/110751989/206969764-04a1dbe6-48e7-425c-87e1-17e9317b1365.png)
 
 # 📌E-R Diagram
 ![E-R Diagram](https://user-images.githubusercontent.com/110751989/206969401-ea2d7423-1ce3-4f4a-9149-7fc260a7fc07.png)
-
+# 📌WBS
+![wbs](https://user-images.githubusercontent.com/110751989/206973522-6d041d9a-07ed-462c-ad12-c0b8c22013b0.png)
 
 # 💻화면 구성
 * <h2>메인페이지</h2>
-![메인](https://user-images.githubusercontent.com/103255941/189015514-71babe55-a1fc-441a-8772-bc3ceb737f20.png)
+![메인페이지](https://user-images.githubusercontent.com/110751989/206970055-369c8009-7b5e-4db2-81b6-dd9a9c317d8c.png)
 * <h2>로그인 및 회원가입 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189015958-ef83f9a4-ef81-494b-bd87-01f6411c5c49.png)
-* <h2>전체 강의 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189020208-f76b05d0-ade5-4619-bf49-6d0993b7c245.png)
-![image](https://user-images.githubusercontent.com/103255941/189020229-8f701ed9-729e-4718-81c3-a1e321ea3e2d.png)
+![로그인페이지(!)](https://user-images.githubusercontent.com/110751989/206970103-ab8d608c-f146-41ca-b325-72c1aba81d9b.png)
+![회원가입](https://user-images.githubusercontent.com/110751989/206970112-3275e3b1-801a-4400-aaf1-4b35a055402e.png)
+* <h2>강의 분류</h2>
+![전체 강의](https://user-images.githubusercontent.com/110751989/206970185-4d7ed08e-db51-4a9b-94d4-0f2965f68d08.png)
 * <h2>내 강의 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189020208-f76b05d0-ade5-4619-bf49-6d0993b7c245.png)
-![image](https://user-images.githubusercontent.com/103255941/189020229-8f701ed9-729e-4718-81c3-a1e321ea3e2d.png)
+![강의 재생 페이지](https://user-images.githubusercontent.com/110751989/206973065-f0e28fc7-031b-4618-bc0d-a3f252816a4d.png)
 * <h2>강의 장바구니</h2>
-![image](https://user-images.githubusercontent.com/103255941/189016076-da9ac66a-9ec6-4c95-88f3-b4b3cf91659d.png)
+![수강바구니](https://user-images.githubusercontent.com/110751989/206972943-3ce89208-b914-425f-8cc4-8ac1f06d5449.png)
 * <h2>채용 정보 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189016126-6ae2de13-10f0-406f-b42e-bc99daf634e1.png)
-![image](https://user-images.githubusercontent.com/103255941/189017828-caf74dd1-19a5-4216-baac-95caa53683d0.png)
-* <h2>구직관리 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189016126-6ae2de13-10f0-406f-b42e-bc99daf634e1.png)
-![image](https://user-images.githubusercontent.com/103255941/189017828-caf74dd1-19a5-4216-baac-95caa53683d0.png)
+![구직채용](https://user-images.githubusercontent.com/110751989/206973137-7d78a8a3-4a9d-4e06-87b7-2632bfa780d1.png)
+![지원내역](https://user-images.githubusercontent.com/110751989/206973200-b77466ca-e5d6-40f3-ab42-d83a61ffe2ef.png)
 * <h2>이력서 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189016126-6ae2de13-10f0-406f-b42e-bc99daf634e1.png)
-![image](https://user-images.githubusercontent.com/103255941/189017828-caf74dd1-19a5-4216-baac-95caa53683d0.png)
+![이력서 페이지](https://user-images.githubusercontent.com/110751989/206973223-cced77fe-ef43-4f3e-9b55-9c076e110626.png)
 * <h2>게시판 페이지</h2>
-![image](https://user-images.githubusercontent.com/103255941/189016179-17df2122-7bdc-4654-a59c-60aebd98d1ce.png)
-![image](https://user-images.githubusercontent.com/103255941/189017575-b62e237e-5469-4d2e-8e06-5a52f092e9d4.png)
+![게시판](https://user-images.githubusercontent.com/110751989/206973292-c527e385-2b00-4456-8014-e5e20d62af0d.png)
 
 
 
