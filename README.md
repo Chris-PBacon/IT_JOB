@@ -7,7 +7,7 @@
 
 
 ## 📅 프로젝트 기간
-2022.11.07 ~ 2022.12.12 (4주)
+2022.11.07 ~ 2022.12.12 (5주)
 <br>
 
 ## ⭐ 주요 기능
@@ -78,7 +78,8 @@
 ![image](https://user-images.githubusercontent.com/103255941/189015119-caa15d24-afc5-4e35-9dbb-377268429f14.png)
 
 # 📌E-R Diagram
-![image](https://user-images.githubusercontent.com/103255941/189015199-be4bb4b3-f3d7-4906-8700-bdcf1cdb955b.png)
+![E-R Diagram](https://user-images.githubusercontent.com/110751989/206969401-ea2d7423-1ce3-4f4a-9149-7fc260a7fc07.png)
+
 
 # 💻화면 구성
 * <h2>메인페이지</h2>
@@ -141,8 +142,5 @@
 </table>
 
 <br>
-<h1>🎇🎇1등🎇🎇</h1>
-
-<img src="https://user-images.githubusercontent.com/103255941/189026151-88d7a673-c7ca-4f9a-b486-f7c85427653b.png">
 
 
