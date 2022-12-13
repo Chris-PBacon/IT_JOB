@@ -133,7 +133,7 @@
     <td align="center"><b>CRUD<br>SmartEditor<br>시나리오 구상<br>프로젝트 관리</b></td>
     <td align="center"><b>백엔드 총괄<br>다중선택검색<br>Infinity Scroll<br>장바구니<br>강의리뷰<br>DB설계</b></td>
     <td align="center"><b>프론트 총괄<br>본인 인증<br>중복 체크<br>지원내역조회<br>이직제안<br>페이징 처리</b></td>
-    <td align="center"><b>CRUD<br>페이징처리<br>SmartEditor<br>지원자 확인<br>프로젝트 관리</b></td>
+    <td align="center"><b>CRUD<br>게시판댓글기능<br>SmartEditor<br>지원자 확인<br>프로젝트 관리</b></td>
   </tr>
 </table>
 
